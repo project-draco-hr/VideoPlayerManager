@@ -1,0 +1,4 @@
+{
+  if (SHOW_LOGS)   Log.v(TAG,"setLooping " + looping);
+  mMediaPlayer.setLooping(looping);
+}

@@ -1,0 +1,12 @@
+{
+  if (SHOW_LOGS)   Log.v(TAG,"onLooperPrepared " + this);
+  mHandler=new Handler();
+  mHandler.post(new Runnable(){
+    @Override public void run(){
+synchronized (mStart) {
+        mStart.notifyAll();
+      }
+    }
+  }
+);
+}

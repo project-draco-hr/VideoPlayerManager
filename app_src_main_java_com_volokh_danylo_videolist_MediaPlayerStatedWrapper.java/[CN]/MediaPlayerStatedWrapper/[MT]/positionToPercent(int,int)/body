@@ -1,0 +1,4 @@
+{
+  float percentPrecise=(float)progressMillis / (float)durationMillis * 100f;
+  return Math.round(percentPrecise);
+}

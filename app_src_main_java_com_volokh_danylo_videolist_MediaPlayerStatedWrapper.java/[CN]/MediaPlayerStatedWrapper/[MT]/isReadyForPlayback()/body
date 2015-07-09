@@ -1,0 +1,24 @@
+{
+  boolean isReadyForPlayback=false;
+synchronized (mState) {
+    if (SHOW_LOGS)     Log.v(TAG,"isReadyForPlayback, mState " + mState);
+    State state=mState.get();
+switch (state) {
+case IDLE:
+case INITIALIZED:
+case ERROR:
+case PREPARING:
+case STOPPED:
+case END:
+      isReadyForPlayback=false;
+    break;
+case PREPARED:
+case STARTED:
+case PAUSED:
+case PLAYBACK_COMPLETED:
+  isReadyForPlayback=true;
+break;
+}
+}
+return isReadyForPlayback;
+}

@@ -1,0 +1,7 @@
+{
+  mList.add(new YoutubeVideoItem("https://www.youtube.com/watch?v=juGdJg-j09k"));
+  View rootView=inflater.inflate(R.layout.fragment_video_list,container,false);
+  mListView=(ListView)rootView.findViewById(R.id.list_view);
+  mListView.setAdapter(new VideoListAdater(getActivity(),mList));
+  return rootView;
+}

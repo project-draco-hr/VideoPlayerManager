@@ -1,0 +1,5 @@
+{
+  mMediaPlayer=new MediaPlayer();
+  mState.set(State.IDLE);
+  setMediaPlayerListeners();
+}

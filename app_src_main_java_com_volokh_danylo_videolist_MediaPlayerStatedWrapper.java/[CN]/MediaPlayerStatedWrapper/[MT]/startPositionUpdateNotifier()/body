@@ -1,0 +1,3 @@
+{
+  if (SHOW_LOGS)   Log.v(TAG,"startPositionUpdateNotifier");
+}

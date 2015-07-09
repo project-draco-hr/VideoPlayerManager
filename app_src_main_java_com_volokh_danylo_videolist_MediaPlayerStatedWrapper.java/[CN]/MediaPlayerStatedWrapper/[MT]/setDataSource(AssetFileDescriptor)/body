@@ -1,0 +1,21 @@
+{
+synchronized (mState) {
+switch (mState.get()) {
+case IDLE:
+      mMediaPlayer.setDataSource(assetFileDescriptor.getFileDescriptor(),assetFileDescriptor.getStartOffset(),assetFileDescriptor.getLength());
+    mState.set(State.INITIALIZED);
+  break;
+case INITIALIZED:
+case PREPARING:
+case PREPARED:
+case STARTED:
+case PAUSED:
+case STOPPED:
+case PLAYBACK_COMPLETED:
+case END:
+case ERROR:
+default :
+throw new IllegalStateException("setDataSource called in state " + mState.get());
+}
+}
+}

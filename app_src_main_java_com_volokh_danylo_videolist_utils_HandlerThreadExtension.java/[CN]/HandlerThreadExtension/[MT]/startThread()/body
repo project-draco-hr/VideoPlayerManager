@@ -1,0 +1,13 @@
+{
+  if (SHOW_LOGS)   Log.v(TAG,">> startThread");
+synchronized (mStart) {
+    start();
+    try {
+      mStart.wait();
+    }
+ catch (    InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+  if (SHOW_LOGS)   Log.v(TAG,"<< startThread");
+}

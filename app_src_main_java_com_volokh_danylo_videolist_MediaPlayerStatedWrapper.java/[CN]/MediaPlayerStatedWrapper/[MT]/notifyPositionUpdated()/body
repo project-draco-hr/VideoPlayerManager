@@ -1,0 +1,7 @@
+{
+synchronized (mState) {
+    if (mVideoStateListener != null && mState.get() == State.STARTED) {
+      mVideoStateListener.onVideoPlayTimeChanged(mMediaPlayer.getCurrentPosition());
+    }
+  }
+}

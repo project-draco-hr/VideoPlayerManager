@@ -1,0 +1,7 @@
+{
+  View resultView=convertView;
+  if (resultView == null) {
+    resultView=createView(parent);
+  }
+  return resultView;
+}

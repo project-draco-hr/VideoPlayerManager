@@ -1,0 +1,13 @@
+{
+  super(name);
+  if (setupExceptionHandler) {
+    setUncaughtExceptionHandler(new UncaughtExceptionHandler(){
+      @Override public void uncaughtException(      Thread thread,      Throwable ex){
+        if (SHOW_LOGS)         Log.v(TAG,"uncaughtException, " + ex.getMessage());
+        ex.printStackTrace();
+        System.exit(0);
+      }
+    }
+);
+  }
+}

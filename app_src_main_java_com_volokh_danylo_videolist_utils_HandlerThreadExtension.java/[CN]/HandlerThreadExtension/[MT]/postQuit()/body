@@ -1,0 +1,9 @@
+{
+  mHandler.post(new Runnable(){
+    @Override public void run(){
+      if (SHOW_LOGS)       Log.v(TAG,"postQuit, run");
+      Looper.myLooper().quit();
+    }
+  }
+);
+}

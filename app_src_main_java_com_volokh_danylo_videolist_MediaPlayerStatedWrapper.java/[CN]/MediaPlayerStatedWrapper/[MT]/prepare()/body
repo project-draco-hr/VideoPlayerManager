@@ -1,0 +1,35 @@
+{
+  if (SHOW_LOGS)   Log.v(TAG,">> prepare, mState " + mState.get());
+synchronized (mState) {
+switch (mState.get()) {
+case STOPPED:
+case INITIALIZED:
+      try {
+        mMediaPlayer.prepare();
+        mState.set(State.PREPARED);
+        if (mListener != null) {
+          mListener.onVideoPrepared();
+        }
+      }
+ catch (      IllegalStateException ex) {
+        if (SHOW_LOGS)         Log.e(TAG,ex.getMessage());
+        mState.set(State.ERROR);
+      }
+catch (      IOException ex) {
+        if (SHOW_LOGS)         Log.e(TAG,ex.getMessage());
+        mState.set(State.ERROR);
+      }
+    break;
+case IDLE:
+case PREPARING:
+case PREPARED:
+case STARTED:
+case PAUSED:
+case PLAYBACK_COMPLETED:
+case END:
+case ERROR:
+  throw new IllegalStateException("prepare, called from illegal state " + mState);
+}
+}
+if (SHOW_LOGS) Log.v(TAG,"<< prepare, mState " + mState.get());
+}
