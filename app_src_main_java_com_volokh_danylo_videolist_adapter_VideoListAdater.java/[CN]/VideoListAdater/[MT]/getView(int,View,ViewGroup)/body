@@ -1,7 +1,11 @@
 {
-  View resultView=convertView;
-  if (resultView == null) {
-    resultView=createView(parent);
+  VideoItem videoItem=mList.get(position);
+  View resultView;
+  if (convertView == null) {
+    resultView=videoItem.createView(parent);
   }
-  return resultView;
+ else {
+    resultView=convertView;
+  }
+  return videoItem.update(resultView);
 }

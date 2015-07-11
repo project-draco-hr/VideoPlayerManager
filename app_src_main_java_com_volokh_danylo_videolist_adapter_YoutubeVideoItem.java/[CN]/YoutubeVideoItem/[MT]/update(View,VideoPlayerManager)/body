@@ -1,0 +1,5 @@
+{
+  VideoViewHolder viewHolder=(VideoViewHolder)view.getTag();
+  videoPlayerManager.playNewVideo(viewHolder.mPlayer,mVideoUrl);
+  return view;
+}

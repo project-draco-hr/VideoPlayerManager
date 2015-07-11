@@ -1,0 +1,25 @@
+{
+  mTag=tag;
+  executor.execute(new Runnable(){
+    @Override public void run(){
+      if (SHOW_LOGS)       Logger.v(mTag,"start worker thread");
+synchronized (mPlayerMessagesQueue) {
+        if (SHOW_LOGS)         Logger.v(mTag,"mPlayerMessagesQueue " + mPlayerMessagesQueue);
+        if (mPlayerMessagesQueue.isEmpty()) {
+          try {
+            mPlayerMessagesQueue.wait();
+          }
+ catch (          InterruptedException e) {
+            e.printStackTrace();
+            throw new RuntimeException("InterruptedException");
+          }
+        }
+ else {
+          PlayerMessage message=mPlayerMessagesQueue.poll();
+          message.run();
+        }
+      }
+    }
+  }
+);
+}

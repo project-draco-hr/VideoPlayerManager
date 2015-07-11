@@ -1,0 +1,5 @@
+{
+  View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.video_item,parent,false);
+  view.setTag(new VideoViewHolder(view));
+  return view;
+}

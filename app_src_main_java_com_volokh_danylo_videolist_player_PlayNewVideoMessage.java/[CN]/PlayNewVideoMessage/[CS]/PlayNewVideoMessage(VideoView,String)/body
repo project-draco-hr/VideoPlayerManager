@@ -1,0 +1,4 @@
+{
+  mVideoView=videoView;
+  mVideoUrl=videoUrl;
+}

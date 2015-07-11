@@ -1,3 +1,0 @@
-{
-  return LayoutInflater.from(mContext).inflate(R.layout.video_item,parent,false);
-}
