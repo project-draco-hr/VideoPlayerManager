@@ -1,0 +1,5 @@
+{
+  boolean isReadyForNewVideo=mCurrentPlayer.isReadyForNewVideo();
+  if (SHOW_LOGS)   Logger.v(mTag,"isReadyForNewVideo, " + isReadyForNewVideo);
+  return isReadyForNewVideo;
+}

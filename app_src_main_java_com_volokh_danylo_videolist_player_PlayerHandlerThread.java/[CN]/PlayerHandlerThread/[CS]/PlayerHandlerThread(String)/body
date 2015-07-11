@@ -1,24 +1,28 @@
 {
   mTag=tag;
-  executor.execute(new Runnable(){
+  mExecutor.execute(new Runnable(){
     @Override public void run(){
       if (SHOW_LOGS)       Logger.v(mTag,"start worker thread");
+      do {
 synchronized (mPlayerMessagesQueue) {
-        if (SHOW_LOGS)         Logger.v(mTag,"mPlayerMessagesQueue " + mPlayerMessagesQueue);
-        if (mPlayerMessagesQueue.isEmpty()) {
-          try {
-            mPlayerMessagesQueue.wait();
+          if (SHOW_LOGS)           Logger.v(mTag,"mPlayerMessagesQueue " + mPlayerMessagesQueue);
+          if (mPlayerMessagesQueue.isEmpty()) {
+            try {
+              if (SHOW_LOGS)               Logger.v(mTag,"queue is empty, wait for new messages");
+              mPlayerMessagesQueue.wait();
+            }
+ catch (            InterruptedException e) {
+              e.printStackTrace();
+              throw new RuntimeException("InterruptedException");
+            }
           }
- catch (          InterruptedException e) {
-            e.printStackTrace();
-            throw new RuntimeException("InterruptedException");
-          }
+          mLastMessage=mPlayerMessagesQueue.poll();
+          if (SHOW_LOGS)           Logger.v(mTag,"poll mLastMessage " + mLastMessage);
         }
- else {
-          PlayerMessage message=mPlayerMessagesQueue.poll();
-          message.run();
-        }
+        if (SHOW_LOGS)         Logger.v(mTag,"run, mLastMessage " + mLastMessage);
+        mLastMessage.run();
       }
+ while (mTerminated.get());
     }
   }
 );

@@ -1,4 +1,0 @@
-{
-  mPlayerHandler.addMessage(new Prepare(videoView,videoUrl));
-  mPlayerHandler.addMessage(new PlayNewVideoMessage(videoView,videoUrl));
-}

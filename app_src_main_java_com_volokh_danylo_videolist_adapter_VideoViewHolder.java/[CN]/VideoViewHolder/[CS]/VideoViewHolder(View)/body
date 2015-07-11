@@ -1,3 +1,3 @@
 {
-  mPlayer=(VideoView)view.findViewById(R.id.player);
+  mPlayer=(VideoPlayer)view.findViewById(R.id.player);
 }

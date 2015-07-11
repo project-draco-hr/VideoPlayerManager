@@ -1,5 +1,7 @@
 {
+  if (SHOW_LOGS)   Logger.v(mTag,"addMessage, message " + message);
 synchronized (mPlayerMessagesQueue) {
     mPlayerMessagesQueue.add(message);
+    mPlayerMessagesQueue.notify();
   }
 }
