@@ -9,7 +9,7 @@
         if (mPlayerMessagesQueue.isEmpty()) {
           try {
             if (SHOW_LOGS)             Logger.v(mTag,"queue is empty, wait for new messages");
-            mPlayerMessagesQueue.wait();
+            mQueueLock.wait(mTag);
           }
  catch (          InterruptedException e) {
             e.printStackTrace();
@@ -20,9 +20,9 @@
         if (SHOW_LOGS)         Logger.v(mTag,"poll mLastMessage " + mLastMessage);
         mQueueLock.unlock(mTag);
         if (SHOW_LOGS)         Logger.v(mTag,"run, mLastMessage " + mLastMessage);
-        mLastMessage.run();
+        mLastMessage.runMessage();
       }
- while (mTerminated.get());
+ while (!mTerminated.get());
     }
   }
 );

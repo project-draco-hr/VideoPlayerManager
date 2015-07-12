@@ -1,0 +1,8 @@
+{
+  mCallback.setVideoPlayer(mCurrentPlayer);
+  mCallback.setVideoPlayerState(mCurrentPlayer,stateBefore());
+  if (SHOW_LOGS)   Logger.v(TAG,">> runMessage, " + getClass().getSimpleName());
+  performAction(mCurrentPlayer);
+  if (SHOW_LOGS)   Logger.v(TAG,"<< runMessage, " + getClass().getSimpleName());
+  mCallback.setVideoPlayerState(mCurrentPlayer,stateAfter());
+}

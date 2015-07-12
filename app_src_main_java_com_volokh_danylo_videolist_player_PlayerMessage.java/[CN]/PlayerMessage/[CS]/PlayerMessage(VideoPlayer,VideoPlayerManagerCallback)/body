@@ -1,0 +1,4 @@
+{
+  mCurrentPlayer=currentPlayer;
+  mCallback=callback;
+}

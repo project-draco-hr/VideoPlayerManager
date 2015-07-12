@@ -1,7 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.v(TAG,">> setCurrentVideoPlayer, currentVideoPlayer " + currentVideoPlayer);
-synchronized (mCurrentPlayer) {
-    mCurrentPlayer.set(currentVideoPlayer);
-  }
-  if (SHOW_LOGS)   Logger.v(TAG,"<< setCurrentVideoPlayer");
-}

@@ -2,7 +2,7 @@
   if (SHOW_LOGS)   Logger.v(mTag,">> addMessage, lock " + message);
   mQueueLock.lock(mTag);
   mPlayerMessagesQueue.add(message);
-  mPlayerMessagesQueue.notify();
+  mQueueLock.notify(mTag);
   if (SHOW_LOGS)   Logger.v(mTag,"<< addMessage, unlock " + message);
   mQueueLock.unlock(mTag);
 }

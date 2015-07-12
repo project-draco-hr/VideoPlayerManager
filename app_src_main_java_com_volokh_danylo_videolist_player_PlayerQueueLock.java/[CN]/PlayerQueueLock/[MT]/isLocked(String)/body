@@ -1,5 +1,5 @@
 {
   boolean isLocked=mQueueLock.isLocked();
-  if (SHOW_LOGS)   Logger.v(TAG,"isLocked, owner [" + owner + "], isLocked "+ isLocked);
+  if (SHOW_LOGS)   Logger.v(TAG,"isLocked, owner [" + owner + "]");
   return isLocked;
 }

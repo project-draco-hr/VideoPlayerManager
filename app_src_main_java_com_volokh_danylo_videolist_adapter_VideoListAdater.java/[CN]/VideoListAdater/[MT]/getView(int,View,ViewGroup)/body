@@ -7,5 +7,5 @@
  else {
     resultView=convertView;
   }
-  return videoItem.update(resultView);
+  return videoItem.update(resultView,mVideoPlayerManager);
 }

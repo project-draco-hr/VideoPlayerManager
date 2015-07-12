@@ -1,0 +1,3 @@
+{
+  return PlayerMessageState.PLAYER_INSTANCE_CREATED;
+}

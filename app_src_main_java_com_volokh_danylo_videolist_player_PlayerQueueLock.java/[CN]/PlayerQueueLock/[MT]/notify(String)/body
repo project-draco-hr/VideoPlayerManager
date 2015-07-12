@@ -1,0 +1,5 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> notify, owner [" + owner + "]");
+  mProcessQueueCondition.signal();
+  if (SHOW_LOGS)   Logger.v(TAG,"<< notify, owner [" + owner + "]");
+}
