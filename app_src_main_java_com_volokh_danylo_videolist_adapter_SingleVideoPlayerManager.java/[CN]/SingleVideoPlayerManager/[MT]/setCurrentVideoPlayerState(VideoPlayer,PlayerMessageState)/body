@@ -1,0 +1,7 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> setCurrentVideoPlayerState, currentVideoPlayer " + currentVideoPlayer + ", playerMessageState "+ playerMessageState);
+synchronized (mCurrentPlayerState) {
+    mCurrentPlayerState.set(playerMessageState);
+  }
+  if (SHOW_LOGS)   Logger.v(TAG,"<< setCurrentVideoPlayerState");
+}

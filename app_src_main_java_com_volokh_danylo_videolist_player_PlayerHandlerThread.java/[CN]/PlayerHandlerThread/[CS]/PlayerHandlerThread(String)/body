@@ -1,24 +1,24 @@
 {
-  mTag=tag;
-  mExecutor.execute(new Runnable(){
+  mTag=getClass().getSimpleName() + " " + tag;
+  mQueueProcessingThread.execute(new Runnable(){
     @Override public void run(){
       if (SHOW_LOGS)       Logger.v(mTag,"start worker thread");
       do {
-synchronized (mPlayerMessagesQueue) {
-          if (SHOW_LOGS)           Logger.v(mTag,"mPlayerMessagesQueue " + mPlayerMessagesQueue);
-          if (mPlayerMessagesQueue.isEmpty()) {
-            try {
-              if (SHOW_LOGS)               Logger.v(mTag,"queue is empty, wait for new messages");
-              mPlayerMessagesQueue.wait();
-            }
- catch (            InterruptedException e) {
-              e.printStackTrace();
-              throw new RuntimeException("InterruptedException");
-            }
+        mQueueLock.lock(mTag);
+        if (SHOW_LOGS)         Logger.v(mTag,"mPlayerMessagesQueue " + mPlayerMessagesQueue);
+        if (mPlayerMessagesQueue.isEmpty()) {
+          try {
+            if (SHOW_LOGS)             Logger.v(mTag,"queue is empty, wait for new messages");
+            mPlayerMessagesQueue.wait();
           }
-          mLastMessage=mPlayerMessagesQueue.poll();
-          if (SHOW_LOGS)           Logger.v(mTag,"poll mLastMessage " + mLastMessage);
+ catch (          InterruptedException e) {
+            e.printStackTrace();
+            throw new RuntimeException("InterruptedException");
+          }
         }
+        mLastMessage=mPlayerMessagesQueue.poll();
+        if (SHOW_LOGS)         Logger.v(mTag,"poll mLastMessage " + mLastMessage);
+        mQueueLock.unlock(mTag);
         if (SHOW_LOGS)         Logger.v(mTag,"run, mLastMessage " + mLastMessage);
         mLastMessage.run();
       }

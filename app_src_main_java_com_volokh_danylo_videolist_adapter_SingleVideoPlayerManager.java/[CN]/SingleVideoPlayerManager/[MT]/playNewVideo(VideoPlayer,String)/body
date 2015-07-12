@@ -1,25 +1,48 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> playNewVideo, videoPlayer " + videoPlayer + ", videoUrl "+ videoUrl);
 synchronized (mCurrentPlayerState) {
+    mPlayerHandler.pauseQueueProcessing(TAG);
+    if (SHOW_LOGS)     Logger.v(TAG,"playNewVideo, videoPlayer " + videoPlayer + ", videoUrl "+ videoUrl+ ", mCurrentPlayerState "+ mCurrentPlayerState);
+    mPlayerHandler.clearAllPendingMessages(TAG);
 switch (mCurrentPlayerState.get()) {
-    }
-    if (mPlayerHandler.isPlaying()) {
-      mPlayerHandler.addMessage(new Stop(videoPlayer,videoUrl));
-      mPlayerHandler.addMessage(new Reset(videoPlayer,videoUrl));
-      mPlayerHandler.addMessage(new Release(videoPlayer,videoUrl));
-      mPlayerHandler.addMessage(new ClearPlayerInstance(videoPlayer,videoUrl));
-      mPlayerHandler.addMessage(new CreateNewPlayerInstance(videoPlayer,videoUrl));
-      mPlayerHandler.addMessage(new Prepare(videoPlayer,videoUrl));
-      mPlayerHandler.addMessage(new PlayNewVideoMessage(videoPlayer,videoUrl));
-    }
- else {
-      PlayerMessage pendingMessage=mPlayerHandler.getPendingMessage();
-      if (mPlayerHandler.isPendingPlayBack()) {
-        if (SHOW_LOGS)         Logger.v(TAG,"Pending playback, do nothing");
-      }
-    }
-    mPlayerHandler.addMessage(new Prepare(videoPlayer,videoUrl));
-    mPlayerHandler.addMessage(new PlayNewVideoMessage(videoPlayer,videoUrl));
-  }
-  if (SHOW_LOGS)   Logger.v(TAG,"<< playNewVideo, videoPlayer " + videoPlayer + ", videoUrl "+ videoUrl);
+case IDLE:
+      break;
+case INITIALIZED:
+case PREPARING:
+case PREPARED:
+case STARTING:
+case STARTED:
+case PAUSING:
+case PAUSED:
+case PLAYBACK_COMPLETED:
+    mPlayerHandler.addMessages(Arrays.asList(new Stop(videoPlayer,videoUrl),new Reset(videoPlayer,videoUrl),new Release(videoPlayer,videoUrl),new ClearPlayerInstance(videoPlayer,videoUrl),new CreateNewPlayerInstance(videoPlayer,videoUrl),new SetDataSourceMessage(videoPlayer,videoUrl),new Prepare(videoPlayer,videoUrl),new Start(videoPlayer,videoUrl)));
+  break;
+case STOPPING:
+case STOPPED:
+mPlayerHandler.addMessage(new Stop(videoPlayer,videoUrl));
+case RESETTING:
+case RESET:
+mPlayerHandler.addMessage(new Reset(videoPlayer,videoUrl));
+case RELEASING:
+case RELEASED:
+mPlayerHandler.addMessage(new ClearPlayerInstance(videoPlayer,videoUrl));
+case CLEARING_PLAYER_INSTANCE:
+case PLAYER_INSTANCE_CLEARED:
+mPlayerHandler.addMessage(new CreateNewPlayerInstance(videoPlayer,videoUrl));
+case CREATING_PLAYER_INSTANCE:
+case PLAYER_INSTANCE_CREATED:
+mPlayerHandler.addMessages(Arrays.asList(new SetDataSourceMessage(videoPlayer,videoUrl),new Prepare(videoPlayer,videoUrl),new Start(videoPlayer,videoUrl)));
+break;
+case SETTING_VIDEO_SOURCE:
+throw new RuntimeException("unhandled " + mCurrentPlayerState);
+case VIDEO_SOURCE_SET:
+throw new RuntimeException("unhandled " + mCurrentPlayerState);
+case END:
+throw new RuntimeException("unhandled " + mCurrentPlayerState);
+case ERROR:
+throw new RuntimeException("unhandled " + mCurrentPlayerState);
+}
+mPlayerHandler.resumeQueueProcessing(TAG);
+}
+if (SHOW_LOGS) Logger.v(TAG,"<< playNewVideo, videoPlayer " + videoPlayer + ", videoUrl "+ videoUrl);
 }
