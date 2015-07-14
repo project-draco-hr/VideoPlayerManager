@@ -1,0 +1,4 @@
+{
+  setScaleType(ScaleType.CENTER_CROP);
+  setSurfaceTextureListener(this);
+}

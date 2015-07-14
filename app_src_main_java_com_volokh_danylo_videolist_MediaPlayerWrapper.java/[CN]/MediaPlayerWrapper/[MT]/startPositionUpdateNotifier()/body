@@ -1,3 +1,9 @@
 {
-  if (SHOW_LOGS)   Log.v(TAG,"startPositionUpdateNotifier");
+  if (SHOW_LOGS)   Logger.v(TAG,"startPositionUpdateNotifier, mPositionUpdateNotifier " + mPositionUpdateNotifier);
+  mFuture=mPositionUpdateNotifier.scheduleAtFixedRate(new Runnable(){
+    @Override public void run(){
+      notifyPositionUpdated();
+    }
+  }
+,0,POSITION_UPDATE_NOTIFYING_PERIOD,TimeUnit.MILLISECONDS);
 }

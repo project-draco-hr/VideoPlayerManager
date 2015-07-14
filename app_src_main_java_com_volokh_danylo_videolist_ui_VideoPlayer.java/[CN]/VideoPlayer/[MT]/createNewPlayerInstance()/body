@@ -1,2 +1,4 @@
 {
+  mMediaPlayer=new MediaPlayerWrapper();
+  setMediaPlayerListeners();
 }

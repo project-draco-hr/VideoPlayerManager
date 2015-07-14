@@ -1,0 +1,25 @@
+{
+  if (SHOW_LOGS)   Log.v(TAG,"playWhenReady, mMediaPlayer.isReadyForPlayback() " + mMediaPlayer.isReadyForPlayback() + ", mIsViewAvailable "+ mIsViewAvailable);
+  if (SHOW_LOGS)   Log.v(TAG,"playWhenReady, w " + mVideoWidth + ", h "+ mVideoHeight);
+  if (mMediaPlayer.isReadyForPlayback() && mIsViewAvailable) {
+    if (mVideoWidth != null && mVideoHeight != null) {
+      if (mVideoWidth > 0 && mVideoHeight > 0) {
+        if (SHOW_LOGS)         Log.d(TAG,"playWhenReady, everything is ok, playing");
+        play();
+      }
+ else {
+        if (SHOW_LOGS)         Log.d(TAG,"playWhenReady, video not loaded, resetting");
+        setDataSource(mDataSource);
+        mPlayAsReady=true;
+      }
+    }
+ else {
+      if (SHOW_LOGS)       Log.d(TAG,"playWhenReady, waiting for video size");
+      mPlayAsReady=true;
+    }
+  }
+ else {
+    if (SHOW_LOGS)     Log.d(TAG,"playWhenReady, not ready yet, waiting");
+    mPlayAsReady=true;
+  }
+}

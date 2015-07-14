@@ -1,0 +1,3 @@
+{
+  return PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(IS_VIDEO_LIST_MUTED,false);
+}

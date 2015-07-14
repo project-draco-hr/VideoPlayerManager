@@ -1,0 +1,43 @@
+{
+  mMediaPlayer.setListener(new MediaPlayerWrapper.MediaPlayerListener(){
+    @Override public void onVideoSizeChanged(    int width,    int height){
+      mVideoWidth=width;
+      mVideoHeight=height;
+      updateTextureViewSize();
+      if (mMediaPlayerListener != null) {
+        mMediaPlayerListener.onVideoSizeChanged(width,height);
+      }
+      if (mPlayAsReady) {
+        playWhenReady();
+      }
+    }
+    @Override public void onVideoCompletion(){
+    }
+    @Override public void onVideoPrepared(){
+synchronized (TextureVideoView.this) {
+        if (mPlayAsReady) {
+          log("Player is prepared and play() was called.");
+          playWhenReady();
+        }
+        if (mMediaPlayerListener != null) {
+          mMediaPlayerListener.onVideoPrepared();
+        }
+      }
+    }
+    @Override public void onVideoEnd(){
+      if (SHOW_LOGS)       Log.v(TAG,"onVideoEnd, this " + TextureVideoView.this);
+      if (mMediaPlayerListener != null) {
+        mMediaPlayerListener.onVideoEnd();
+      }
+synchronized (TextureVideoView.this) {
+        setDataSource(mDataSource);
+        playWhenReady();
+      }
+    }
+    @Override public void onError(    int what,    int extra){
+      if (SHOW_LOGS)       Log.v(TAG,"onError, this " + VideoPlayer.this);
+    }
+  }
+);
+  mMediaPlayer.setVideoStateListener(mVideoStateListener);
+}

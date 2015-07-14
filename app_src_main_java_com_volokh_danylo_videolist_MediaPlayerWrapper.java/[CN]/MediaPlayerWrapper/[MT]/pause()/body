@@ -1,6 +1,6 @@
 {
 synchronized (mState) {
-    if (SHOW_LOGS)     Log.v(TAG,"pause, mState " + mState + ", mMediaPlayer isPlaying "+ mMediaPlayer.isPlaying());
+    if (SHOW_LOGS)     Logger.v(TAG,"pause, mState " + mState + ", mMediaPlayer isPlaying "+ mMediaPlayer.isPlaying());
 switch (mState.get()) {
 case IDLE:
 case INITIALIZED:
@@ -11,7 +11,7 @@ case PREPARING:
 case STOPPED:
 case PREPARED:
 case END:
-      if (SHOW_LOGS)       Log.e(TAG,"pause, called from illegal state " + mState);
+      if (SHOW_LOGS)       Logger.err(TAG,"pause, called from illegal state " + mState);
     break;
 case STARTED:
   mMediaPlayer.pause();

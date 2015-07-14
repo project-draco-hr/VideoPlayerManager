@@ -1,0 +1,11 @@
+{
+  if (SHOW_LOGS) {
+    Log.d(TAG,"updateMatrixTranslate, mVideoX " + mVideoX + ", mVideoY "+ mVideoY);
+  }
+  float scaleX=mVideoScaleX * mVideoScaleMultiplier;
+  float scaleY=mVideoScaleY * mVideoScaleMultiplier;
+  mTransformMatrix.reset();
+  mTransformMatrix.setScale(scaleX,scaleY,mPivotPointX,mPivotPointY);
+  mTransformMatrix.postTranslate(mVideoX,mVideoY);
+  setTransform(mTransformMatrix);
+}

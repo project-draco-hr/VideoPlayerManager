@@ -1,5 +1,5 @@
 {
-  if (SHOW_LOGS)   Log.v(TAG,">> prepare, mState " + mState.get());
+  if (SHOW_LOGS)   Logger.v(TAG,">> prepare, mState " + mState.get());
 synchronized (mState) {
 switch (mState.get()) {
 case STOPPED:
@@ -11,12 +11,8 @@ case INITIALIZED:
           mListener.onVideoPrepared();
         }
       }
- catch (      IllegalStateException ex) {
-        if (SHOW_LOGS)         Log.e(TAG,ex.getMessage());
-        mState.set(State.ERROR);
-      }
-catch (      IOException ex) {
-        if (SHOW_LOGS)         Log.e(TAG,ex.getMessage());
+ catch (      IllegalStateException|IOException ex) {
+        if (SHOW_LOGS)         Logger.err(TAG,ex.getMessage());
         mState.set(State.ERROR);
       }
     break;
@@ -31,5 +27,5 @@ case ERROR:
   throw new IllegalStateException("prepare, called from illegal state " + mState);
 }
 }
-if (SHOW_LOGS) Log.v(TAG,"<< prepare, mState " + mState.get());
+if (SHOW_LOGS) Logger.v(TAG,"<< prepare, mState " + mState.get());
 }

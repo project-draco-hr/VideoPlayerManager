@@ -1,0 +1,4 @@
+{
+  mVideoY=(int)y - (getMeasuredHeight() - getScaledVideoHeight()) / 2;
+  updateMatrixTranslate();
+}

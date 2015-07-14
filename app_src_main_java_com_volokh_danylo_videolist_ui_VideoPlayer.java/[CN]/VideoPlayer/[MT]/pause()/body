@@ -1,0 +1,5 @@
+{
+  mPlayAsReady=false;
+  mMediaPlayer.pause();
+  mIsVideoStartedCalled.set(false);
+}

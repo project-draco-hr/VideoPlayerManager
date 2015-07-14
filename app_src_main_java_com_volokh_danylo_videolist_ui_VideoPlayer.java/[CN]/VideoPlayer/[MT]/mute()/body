@@ -1,0 +1,3 @@
+{
+  mMediaPlayer.setVolume(0,0);
+}

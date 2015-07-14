@@ -1,27 +1,27 @@
 {
 synchronized (mState) {
-    if (SHOW_LOGS)     Log.v(TAG,"stop, mState " + mState);
+    if (SHOW_LOGS)     Logger.v(TAG,"stop, mState " + mState);
 switch (mState.get()) {
 case STARTED:
 case PAUSED:
 case PLAYBACK_COMPLETED:
 case PREPARED:
 case PREPARING:
-      if (SHOW_LOGS)       Log.v(TAG,">> stop");
+      if (SHOW_LOGS)       Logger.v(TAG,">> stop");
     mMediaPlayer.stop();
-  if (SHOW_LOGS)   Log.v(TAG,"<< stop");
+  if (SHOW_LOGS)   Logger.v(TAG,"<< stop");
 seekToPercent(0);
 stopPositionUpdateNotifier();
 mState.set(State.STOPPED);
 break;
 case STOPPED:
-if (SHOW_LOGS) Log.v(TAG,"stop, already stopped");
+if (SHOW_LOGS) Logger.v(TAG,"stop, already stopped");
 break;
 case IDLE:
 case INITIALIZED:
 case END:
 case ERROR:
-if (SHOW_LOGS) Log.v(TAG,"stop, cannot stop. Player in mState " + mState);
+if (SHOW_LOGS) Logger.v(TAG,"stop, cannot stop. Player in mState " + mState);
 break;
 }
 }

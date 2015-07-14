@@ -1,7 +1,7 @@
 {
 synchronized (mState) {
     State state=mState.get();
-    if (SHOW_LOGS)     Log.v(TAG,"seekToPercent, percent " + percent + ", mState "+ state);
+    if (SHOW_LOGS)     Logger.v(TAG,"seekToPercent, percent " + percent + ", mState "+ state);
 switch (state) {
 case IDLE:
 case INITIALIZED:
@@ -9,7 +9,7 @@ case ERROR:
 case PREPARING:
 case END:
 case STOPPED:
-      if (SHOW_LOGS)       Log.w(TAG,"seekToPercent, illegal state");
+      if (SHOW_LOGS)       Logger.w(TAG,"seekToPercent, illegal state");
     break;
 case PREPARED:
 case STARTED:

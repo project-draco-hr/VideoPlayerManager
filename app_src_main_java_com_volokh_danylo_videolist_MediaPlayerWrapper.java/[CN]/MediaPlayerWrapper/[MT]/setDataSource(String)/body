@@ -1,6 +1,6 @@
 {
 synchronized (mState) {
-    if (SHOW_LOGS)     Log.v(TAG,"setDataSource, filePath " + filePath + ", mState "+ mState.get());
+    if (SHOW_LOGS)     Logger.v(TAG,"setDataSource, filePath " + filePath + ", mState "+ mState.get());
 switch (mState.get()) {
 case IDLE:
       mMediaPlayer.setDataSource(filePath);

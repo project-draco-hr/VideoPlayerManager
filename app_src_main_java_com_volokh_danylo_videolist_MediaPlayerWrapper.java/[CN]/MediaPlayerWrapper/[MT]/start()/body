@@ -1,35 +1,35 @@
 {
 synchronized (mState) {
-    if (SHOW_LOGS)     Log.v(TAG,"start, mState " + mState.get());
+    if (SHOW_LOGS)     Logger.v(TAG,"start, mState " + mState.get());
 switch (mState.get()) {
 case IDLE:
-      if (SHOW_LOGS)       Log.d(TAG,"start, data source was not set");
+      if (SHOW_LOGS)       Logger.v(TAG,"start, data source was not set");
     break;
 case INITIALIZED:
-  if (SHOW_LOGS)   Log.d(TAG,"start, video is not prepared yet, waiting.");
+  if (SHOW_LOGS)   Logger.v(TAG,"start, video is not prepared yet, waiting.");
 prepare();
-if (SHOW_LOGS) Log.d(TAG,"start, video is " + mState.get() + ", starting playback.");
+if (SHOW_LOGS) Logger.v(TAG,"start, video is " + mState.get() + ", starting playback.");
 mMediaPlayer.start();
 startPositionUpdateNotifier();
 mState.set(State.STARTED);
 break;
 case STARTED:
-if (SHOW_LOGS) Log.d(TAG,"start, video is already playing.");
+if (SHOW_LOGS) Logger.v(TAG,"start, video is already playing.");
 break;
 case PREPARING:
-if (SHOW_LOGS) Log.d(TAG,"start, video is preparing");
+if (SHOW_LOGS) Logger.v(TAG,"start, video is preparing");
 break;
 case PREPARED:
 case PLAYBACK_COMPLETED:
 case PAUSED:
 case STOPPED:
-if (SHOW_LOGS) Log.d(TAG,"start, video is " + mState.get() + ", starting playback.");
+if (SHOW_LOGS) Logger.v(TAG,"start, video is " + mState.get() + ", starting playback.");
 mMediaPlayer.start();
 startPositionUpdateNotifier();
 mState.set(State.STARTED);
 break;
 case ERROR:
-if (SHOW_LOGS) Log.d(TAG,"start, player is in error state");
+if (SHOW_LOGS) Logger.v(TAG,"start, player is in error state");
 case END:
 throw new IllegalStateException("start, called from illegal state " + mState);
 }

@@ -1,0 +1,8 @@
+{
+  if (mVideoWidth != null && mVideoHeight != null) {
+    return (float)mVideoWidth / (float)mVideoHeight;
+  }
+ else {
+    return 0;
+  }
+}

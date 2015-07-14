@@ -1,0 +1,92 @@
+{
+  if (mVideoWidth == null || mVideoHeight == null) {
+    return;
+  }
+  float viewWidth=getMeasuredWidth();
+  float viewHeight=getMeasuredHeight();
+  float videoWidth=mVideoWidth;
+  float videoHeight=mVideoHeight;
+  if (SHOW_LOGS) {
+    Log.v(TAG,"updateTextureViewSize, mVideoWidth " + mVideoWidth + ", mVideoHeight "+ mVideoHeight+ ", mScaleType "+ mScaleType);
+    Log.v(TAG,"updateTextureViewSize, viewWidth " + viewWidth + ", viewHeight "+ viewHeight);
+  }
+  float scaleX=1.0f;
+  float scaleY=1.0f;
+switch (mScaleType) {
+case FILL:
+    if (viewWidth > viewHeight) {
+      scaleX=(viewHeight * videoWidth) / (viewWidth * videoHeight);
+    }
+ else {
+      scaleY=(viewWidth * videoHeight) / (viewHeight * videoWidth);
+    }
+  break;
+case BOTTOM:
+case CENTER_CROP:
+case TOP:
+if (videoWidth > viewWidth && videoHeight > viewHeight) {
+  scaleX=videoWidth / viewWidth;
+  scaleY=videoHeight / viewHeight;
+}
+ else if (videoWidth < viewWidth && videoHeight < viewHeight) {
+  scaleY=viewWidth / videoWidth;
+  scaleX=viewHeight / videoHeight;
+}
+ else if (viewWidth > videoWidth) {
+  scaleY=(viewWidth / videoWidth) / (viewHeight / videoHeight);
+}
+ else if (viewHeight > videoHeight) {
+  scaleX=(viewHeight / videoHeight) / (viewWidth / videoWidth);
+}
+break;
+}
+if (SHOW_LOGS) {
+Log.v(TAG,"updateTextureViewSize, scaleX " + scaleX + ", scaleY "+ scaleY);
+}
+float pivotPointX;
+float pivotPointY;
+switch (mScaleType) {
+case TOP:
+pivotPointX=0;
+pivotPointY=0;
+break;
+case BOTTOM:
+pivotPointX=viewWidth;
+pivotPointY=viewHeight;
+break;
+case CENTER_CROP:
+pivotPointX=viewWidth / 2;
+pivotPointY=viewHeight / 2;
+break;
+case FILL:
+pivotPointX=mPivotPointX;
+pivotPointY=mPivotPointY;
+break;
+default :
+throw new IllegalStateException("pivotPointX, pivotPointY for ScaleType " + mScaleType + " are not defined");
+}
+if (SHOW_LOGS) Logger.v(TAG,"updateTextureViewSize, pivotPointX " + pivotPointX + ", pivotPointY "+ pivotPointY);
+float fitCoef=1;
+switch (mScaleType) {
+case FILL:
+break;
+case BOTTOM:
+case CENTER_CROP:
+case TOP:
+if (mVideoHeight > mVideoWidth) {
+fitCoef=viewWidth / (viewWidth * scaleX);
+}
+ else {
+fitCoef=viewHeight / (viewHeight * scaleY);
+}
+break;
+}
+if (SHOW_LOGS) {
+Log.v(TAG,"updateTextureViewSize, fitCoef " + fitCoef + ", manualCoef "+ manualCoef);
+}
+mVideoScaleX=fitCoef * scaleX;
+mVideoScaleY=fitCoef * scaleY;
+mPivotPointX=pivotPointX;
+mPivotPointY=pivotPointY;
+updateMatrixScaleRotate();
+}

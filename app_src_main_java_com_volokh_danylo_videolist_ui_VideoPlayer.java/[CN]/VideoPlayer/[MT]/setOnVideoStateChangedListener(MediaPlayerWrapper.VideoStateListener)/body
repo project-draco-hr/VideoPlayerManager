@@ -1,0 +1,4 @@
+{
+  mVideoStateListener=listener;
+  mMediaPlayer.setVideoStateListener(listener);
+}

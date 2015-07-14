@@ -1,0 +1,10 @@
+{
+  if (SHOW_LOGS)   Log.v(TAG,"play, staring playback");
+  checkMute();
+  mMediaPlayer.setLooping(true);
+  mIsVideoStartedCalled.set(false);
+  mMediaPlayer.start();
+  if (mMediaPlayer.getState() == State.PLAY) {
+    mPlayAsReady=false;
+  }
+}

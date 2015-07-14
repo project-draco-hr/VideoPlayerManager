@@ -1,0 +1,17 @@
+{
+  if (SHOW_LOGS)   Log.v(TAG,"setDataSource, path " + path + ", this "+ this);
+  if (mMediaPlayer.getState() != State.UNINITIALIZED) {
+    initPlayer();
+  }
+  try {
+    mMediaPlayer.setDataSource(path);
+    if (!path.equals(mDataSource)) {
+      mRestartAttempt=0;
+    }
+    mDataSource=path;
+    prepare();
+  }
+ catch (  IOException e) {
+    Log.d(TAG,e.getMessage());
+  }
+}

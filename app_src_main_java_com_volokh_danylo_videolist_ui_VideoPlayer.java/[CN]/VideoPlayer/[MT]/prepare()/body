@@ -1,0 +1,12 @@
+{
+  try {
+    mIsVideoStartedCalled.set(false);
+    mMediaPlayer.prepareAsync();
+  }
+ catch (  IllegalArgumentException|SecurityException e) {
+    Log.d(TAG,e.getMessage());
+  }
+catch (  IllegalStateException e) {
+    Log.d(TAG,e.toString());
+  }
+}

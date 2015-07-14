@@ -1,0 +1,11 @@
+{
+  if (!holdsMediaPlayer()) {
+    return;
+  }
+  boolean playing=mMediaPlayer != null && mMediaPlayer.getState() == State.PLAY;
+  if (playing && mIsVideoStartedCalled.compareAndSet(false,true)) {
+    if (mPlaybackStartedListener != null) {
+      mPlaybackStartedListener.onPlaybackStarted();
+    }
+  }
+}

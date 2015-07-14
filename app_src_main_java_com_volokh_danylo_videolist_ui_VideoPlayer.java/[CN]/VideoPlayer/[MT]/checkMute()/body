@@ -1,0 +1,4 @@
+{
+  float volumeLevel=isAllVideosMuted() ? 0 : 1;
+  mMediaPlayer.setVolume(volumeLevel,volumeLevel);
+}

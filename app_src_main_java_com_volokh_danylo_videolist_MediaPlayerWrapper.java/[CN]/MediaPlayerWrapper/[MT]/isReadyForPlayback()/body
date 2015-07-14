@@ -1,7 +1,7 @@
 {
   boolean isReadyForPlayback=false;
 synchronized (mState) {
-    if (SHOW_LOGS)     Log.v(TAG,"isReadyForPlayback, mState " + mState);
+    if (SHOW_LOGS)     Logger.v(TAG,"isReadyForPlayback, mState " + mState);
     State state=mState.get();
 switch (state) {
 case IDLE:

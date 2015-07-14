@@ -1,0 +1,17 @@
+{
+  if (SHOW_LOGS)   Log.v(TAG,"onSurfaceTextureAvailable, width " + width + ", height "+ height+ ", this "+ this);
+  if (!holdsMediaPlayer()) {
+    if (SHOW_LOGS)     Log.d(TAG,"onSurfaceTextureAvailable, not holding player at moment, ignoring call");
+    return;
+  }
+  mMediaPlayer.setSurfaceTexture(surfaceTexture);
+  mIsViewAvailable=true;
+  if (mVideoWidth != null && mVideoHeight != null) {
+    if (SHOW_LOGS)     Log.d(TAG,"onSurfaceTextureAvailable, video size available, updating texture view size");
+    updateTextureViewSize();
+  }
+  if (mPlayAsReady) {
+    log("View is available and play() was called.");
+    playWhenReady();
+  }
+}

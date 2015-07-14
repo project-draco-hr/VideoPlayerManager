@@ -1,0 +1,4 @@
+{
+  if (SHOW_LOGS)   Log.d(TAG,"setPivotY, pivotY " + pivotY);
+  mPivotPointY=pivotY;
+}

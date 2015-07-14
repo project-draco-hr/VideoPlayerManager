@@ -1,0 +1,7 @@
+{
+  if (SHOW_LOGS)   Log.v(TAG,"updateMediaPlayer, state " + mMediaPlayer.getState() + ", this "+ this);
+  setMediaPlayer(mMediaPlayer,mDataSource);
+  if (mMediaPlayer.getState() == State.ERROR) {
+    setDataSource(mDataSource);
+  }
+}
