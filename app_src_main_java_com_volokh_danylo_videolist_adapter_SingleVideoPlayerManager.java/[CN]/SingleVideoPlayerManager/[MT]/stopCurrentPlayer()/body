@@ -27,6 +27,7 @@ mPlayerHandler.addMessage(new Release(mCurrentPlayer.get(),this));
 case RELEASING:
 case RELEASED:
 mPlayerHandler.addMessage(new ClearPlayerInstance(mCurrentPlayer.get(),this));
+break;
 case END:
 case ERROR:
 throw new RuntimeException("unhandled " + mCurrentPlayerState);
