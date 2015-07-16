@@ -1,4 +1,10 @@
 {
+  checkThread();
   mMediaPlayer=new MediaPlayerWrapper();
+synchronized (mReadyForPlaybackIndicator) {
+    if (mReadyForPlaybackIndicator.isSurfaceTextureAvailable()) {
+      mMediaPlayer.setSurfaceTexture(getSurfaceTexture());
+    }
+  }
   setMediaPlayerListeners();
 }

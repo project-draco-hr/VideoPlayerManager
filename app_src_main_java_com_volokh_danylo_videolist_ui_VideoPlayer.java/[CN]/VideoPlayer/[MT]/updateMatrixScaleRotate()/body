@@ -1,6 +1,6 @@
 {
   if (SHOW_LOGS) {
-    Log.d(TAG,"updateMatrixScaleRotate, mVideoRotation " + mVideoRotation + ", mVideoScaleMultiplier "+ mVideoScaleMultiplier+ ", mPivotPointX "+ mPivotPointX+ ", mPivotPointY "+ mPivotPointY);
+    Logger.d(TAG,"updateMatrixScaleRotate, mVideoRotation " + mVideoRotation + ", mVideoScaleMultiplier "+ mVideoScaleMultiplier+ ", mPivotPointX "+ mPivotPointX+ ", mPivotPointY "+ mPivotPointY);
   }
   mTransformMatrix.reset();
   mTransformMatrix.setScale(mVideoScaleX * mVideoScaleMultiplier,mVideoScaleY * mVideoScaleMultiplier,mPivotPointX,mPivotPointY);

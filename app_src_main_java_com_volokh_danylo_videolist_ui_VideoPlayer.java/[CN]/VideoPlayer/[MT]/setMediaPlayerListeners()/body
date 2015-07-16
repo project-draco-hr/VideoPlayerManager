@@ -1,41 +1,28 @@
 {
   mMediaPlayer.setListener(new MediaPlayerWrapper.MediaPlayerListener(){
     @Override public void onVideoSizeChanged(    int width,    int height){
+      if (SHOW_LOGS)       Logger.v(TAG,"onVideoSizeChanged, width " + width + ", height "+ height);
       mVideoWidth=width;
       mVideoHeight=height;
-      updateTextureViewSize();
+      if (mVideoWidth != 0 && mVideoHeight != 0) {
+        onVideoSizeAvailable();
+      }
       if (mMediaPlayerListener != null) {
         mMediaPlayerListener.onVideoSizeChanged(width,height);
       }
-      if (mPlayAsReady) {
-        playWhenReady();
-      }
     }
     @Override public void onVideoCompletion(){
+      if (mMediaPlayerListener != null) {
+        mMediaPlayerListener.onVideoCompletion();
+      }
     }
     @Override public void onVideoPrepared(){
-synchronized (TextureVideoView.this) {
-        if (mPlayAsReady) {
-          log("Player is prepared and play() was called.");
-          playWhenReady();
-        }
-        if (mMediaPlayerListener != null) {
-          mMediaPlayerListener.onVideoPrepared();
-        }
-      }
-    }
-    @Override public void onVideoEnd(){
-      if (SHOW_LOGS)       Log.v(TAG,"onVideoEnd, this " + TextureVideoView.this);
       if (mMediaPlayerListener != null) {
-        mMediaPlayerListener.onVideoEnd();
-      }
-synchronized (TextureVideoView.this) {
-        setDataSource(mDataSource);
-        playWhenReady();
+        mMediaPlayerListener.onVideoPrepared();
       }
     }
     @Override public void onError(    int what,    int extra){
-      if (SHOW_LOGS)       Log.v(TAG,"onError, this " + VideoPlayer.this);
+      if (SHOW_LOGS)       Logger.v(TAG,"onError, this " + VideoPlayer.this);
     }
   }
 );

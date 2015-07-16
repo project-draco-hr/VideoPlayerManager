@@ -1,14 +1,14 @@
 {
   if (mVideoWidth == null || mVideoHeight == null) {
-    return;
+    throw new RuntimeException("null size");
   }
   float viewWidth=getMeasuredWidth();
   float viewHeight=getMeasuredHeight();
   float videoWidth=mVideoWidth;
   float videoHeight=mVideoHeight;
   if (SHOW_LOGS) {
-    Log.v(TAG,"updateTextureViewSize, mVideoWidth " + mVideoWidth + ", mVideoHeight "+ mVideoHeight+ ", mScaleType "+ mScaleType);
-    Log.v(TAG,"updateTextureViewSize, viewWidth " + viewWidth + ", viewHeight "+ viewHeight);
+    Logger.v(TAG,"updateTextureViewSize, mVideoWidth " + mVideoWidth + ", mVideoHeight "+ mVideoHeight+ ", mScaleType "+ mScaleType);
+    Logger.v(TAG,"updateTextureViewSize, viewWidth " + viewWidth + ", viewHeight "+ viewHeight);
   }
   float scaleX=1.0f;
   float scaleY=1.0f;
@@ -41,7 +41,7 @@ if (videoWidth > viewWidth && videoHeight > viewHeight) {
 break;
 }
 if (SHOW_LOGS) {
-Log.v(TAG,"updateTextureViewSize, scaleX " + scaleX + ", scaleY "+ scaleY);
+Logger.v(TAG,"updateTextureViewSize, scaleX " + scaleX + ", scaleY "+ scaleY);
 }
 float pivotPointX;
 float pivotPointY;
@@ -80,9 +80,6 @@ fitCoef=viewWidth / (viewWidth * scaleX);
 fitCoef=viewHeight / (viewHeight * scaleY);
 }
 break;
-}
-if (SHOW_LOGS) {
-Log.v(TAG,"updateTextureViewSize, fitCoef " + fitCoef + ", manualCoef "+ manualCoef);
 }
 mVideoScaleX=fitCoef * scaleX;
 mVideoScaleY=fitCoef * scaleY;

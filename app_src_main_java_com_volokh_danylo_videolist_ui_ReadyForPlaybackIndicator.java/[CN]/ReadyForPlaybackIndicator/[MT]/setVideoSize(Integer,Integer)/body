@@ -1,0 +1,3 @@
+{
+  mVideoSize=new Pair<>(videoHeight,videoWidth);
+}

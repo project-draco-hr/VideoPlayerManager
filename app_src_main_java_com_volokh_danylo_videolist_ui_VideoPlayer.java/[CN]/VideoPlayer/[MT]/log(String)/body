@@ -1,5 +1,0 @@
-{
-  if (SHOW_LOGS) {
-    Log.d(TAG,message);
-  }
-}

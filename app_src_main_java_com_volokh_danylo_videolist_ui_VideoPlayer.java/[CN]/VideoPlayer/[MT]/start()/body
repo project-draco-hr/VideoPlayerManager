@@ -1,0 +1,20 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> start");
+synchronized (mReadyForPlaybackIndicator) {
+    if (mReadyForPlaybackIndicator.isReadyForPlayback()) {
+      mMediaPlayer.start();
+    }
+ else {
+      if (SHOW_LOGS)       Logger.v(TAG,"start, >> wait");
+      try {
+        mReadyForPlaybackIndicator.wait();
+      }
+ catch (      InterruptedException e) {
+        throw new RuntimeException(e);
+      }
+      if (SHOW_LOGS)       Logger.v(TAG,"start, << wait");
+      mMediaPlayer.start();
+    }
+  }
+  if (SHOW_LOGS)   Logger.v(TAG,"<< start");
+}

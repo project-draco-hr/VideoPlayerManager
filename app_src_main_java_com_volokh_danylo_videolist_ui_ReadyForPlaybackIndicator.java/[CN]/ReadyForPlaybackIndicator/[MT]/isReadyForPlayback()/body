@@ -1,0 +1,5 @@
+{
+  boolean isReadyForPlayback=isVideoSizeAvailable() && isSurfaceTextureAvailable();
+  if (SHOW_LOGS)   Logger.v(TAG,"isReadyForPlayback " + isReadyForPlayback);
+  return isReadyForPlayback;
+}

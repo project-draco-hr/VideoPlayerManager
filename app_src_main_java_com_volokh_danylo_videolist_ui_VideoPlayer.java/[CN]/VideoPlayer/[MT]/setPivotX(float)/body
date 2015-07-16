@@ -1,4 +1,4 @@
 {
-  if (SHOW_LOGS)   Log.d(TAG,"setPivotX, pivotX " + pivotX);
+  if (SHOW_LOGS)   Logger.d(TAG,"setPivotX, pivotX " + pivotX);
   mPivotPointX=pivotX;
 }

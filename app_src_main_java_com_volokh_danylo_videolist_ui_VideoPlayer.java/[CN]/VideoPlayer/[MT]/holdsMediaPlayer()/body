@@ -1,3 +1,0 @@
-{
-  return mMediaPlayer != null && mMediaPlayer.getHolderId() == getMediaPlayerHolderId();
-}

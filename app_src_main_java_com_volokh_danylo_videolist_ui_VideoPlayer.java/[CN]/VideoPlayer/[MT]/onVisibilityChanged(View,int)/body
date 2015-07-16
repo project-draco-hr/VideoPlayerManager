@@ -1,7 +1,0 @@
-{
-  if (SHOW_LOGS)   Log.v(TAG,"onVisibilityChanged, view " + changedView + ", visibility "+ visibility);
-  super.onVisibilityChanged(changedView,visibility);
-  if (visibility != VISIBLE && mMediaPlayer != null && mMediaPlayer.isPlaying()) {
-    pause();
-  }
-}

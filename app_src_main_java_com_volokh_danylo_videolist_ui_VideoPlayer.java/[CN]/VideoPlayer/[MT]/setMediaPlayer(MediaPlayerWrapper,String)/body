@@ -1,5 +1,5 @@
 {
-  if (SHOW_LOGS)   Log.v(TAG,"setMediaPlayer, player " + player + ", dataSource "+ dataSource+ ", this "+ this);
+  if (SHOW_LOGS)   Logger.v(TAG,"setMediaPlayer, player " + player + ", dataSource "+ dataSource+ ", this "+ this);
   if (player != null) {
     mMediaPlayer.setListener(null);
     mMediaPlayer=player;

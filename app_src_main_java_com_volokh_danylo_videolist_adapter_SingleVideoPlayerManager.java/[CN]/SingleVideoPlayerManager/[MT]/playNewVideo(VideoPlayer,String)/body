@@ -4,46 +4,10 @@ synchronized (mCurrentPlayerState) {
     mPlayerHandler.pauseQueueProcessing(TAG);
     if (SHOW_LOGS)     Logger.v(TAG,"playNewVideo, videoUrl " + videoUrl + ", mCurrentPlayerState "+ mCurrentPlayerState);
     mPlayerHandler.clearAllPendingMessages(TAG);
-switch (mCurrentPlayerState.get()) {
-case IDLE:
-      mPlayerHandler.addMessages(Arrays.asList(new CreateNewPlayerInstance(videoPlayer,this),new SetDataSourceMessage(videoPlayer,videoUrl,this),new Prepare(videoPlayer,videoUrl,this),new Start(videoPlayer,videoUrl,this)));
-    break;
-case INITIALIZED:
-case PREPARING:
-case PREPARED:
-case STARTING:
-case STARTED:
-case PAUSING:
-case PAUSED:
-case PLAYBACK_COMPLETED:
-  mPlayerHandler.addMessages(Arrays.asList(new Stop(videoPlayer,this),new Reset(videoPlayer,this),new Release(videoPlayer,this),new ClearPlayerInstance(videoPlayer,this),new CreateNewPlayerInstance(videoPlayer,this),new SetDataSourceMessage(videoPlayer,videoUrl,this),new Prepare(videoPlayer,videoUrl,this),new Start(videoPlayer,videoUrl,this)));
-break;
-case STOPPING:
-case STOPPED:
-mPlayerHandler.addMessage(new Stop(videoPlayer,this));
-case RESETTING:
-case RESET:
-mPlayerHandler.addMessage(new Reset(videoPlayer,this));
-case RELEASING:
-case RELEASED:
-mPlayerHandler.addMessage(new ClearPlayerInstance(videoPlayer,this));
-case CLEARING_PLAYER_INSTANCE:
-case PLAYER_INSTANCE_CLEARED:
-mPlayerHandler.addMessage(new CreateNewPlayerInstance(videoPlayer,this));
-case CREATING_PLAYER_INSTANCE:
-case PLAYER_INSTANCE_CREATED:
-mPlayerHandler.addMessages(Arrays.asList(new SetDataSourceMessage(videoPlayer,videoUrl,this),new Prepare(videoPlayer,videoUrl,this),new Start(videoPlayer,videoUrl,this)));
-break;
-case SETTING_DATA_SOURCE:
-throw new RuntimeException("unhandled " + mCurrentPlayerState);
-case DATA_SOURCE_SET:
-throw new RuntimeException("unhandled " + mCurrentPlayerState);
-case END:
-throw new RuntimeException("unhandled " + mCurrentPlayerState);
-case ERROR:
-throw new RuntimeException("unhandled " + mCurrentPlayerState);
-}
-mPlayerHandler.resumeQueueProcessing(TAG);
-}
-if (SHOW_LOGS) Logger.v(TAG,"<< playNewVideo, videoPlayer " + videoPlayer + ", videoUrl "+ videoUrl);
+    stopCurrentPlayer();
+    setNewViewForPlayback(videoPlayer);
+    startPlayback(videoPlayer,videoUrl);
+    mPlayerHandler.resumeQueueProcessing(TAG);
+  }
+  if (SHOW_LOGS)   Logger.v(TAG,"<< playNewVideo, videoPlayer " + videoPlayer + ", videoUrl "+ videoUrl);
 }

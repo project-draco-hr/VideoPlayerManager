@@ -1,0 +1,4 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"setNewViewForPlayback");
+  mPlayerHandler.addMessage(new SetNewViewForPlayback(videoPlayer,this));
+}

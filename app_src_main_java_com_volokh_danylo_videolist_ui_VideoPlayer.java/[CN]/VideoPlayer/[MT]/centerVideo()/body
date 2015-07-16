@@ -3,9 +3,9 @@
   int measuredHeight=getMeasuredHeight();
   int scaledVideoWidth=getScaledVideoWidth();
   int scaledVideoHeight=getScaledVideoHeight();
-  if (SHOW_LOGS)   Log.d(TAG,"centerVideo, measuredWidth " + measuredWidth + ", measuredHeight "+ measuredHeight+ ", scaledVideoWidth "+ scaledVideoWidth+ ", scaledVideoHeight "+ scaledVideoHeight);
+  if (SHOW_LOGS)   Logger.d(TAG,"centerVideo, measuredWidth " + measuredWidth + ", measuredHeight "+ measuredHeight+ ", scaledVideoWidth "+ scaledVideoWidth+ ", scaledVideoHeight "+ scaledVideoHeight);
   mVideoX=0;
   mVideoY=0;
-  if (SHOW_LOGS)   Log.d(TAG,"centerVideo, mVideoX " + mVideoX + ", mVideoY "+ mVideoY);
+  if (SHOW_LOGS)   Logger.d(TAG,"centerVideo, mVideoX " + mVideoX + ", mVideoY "+ mVideoY);
   updateMatrixScaleRotate();
 }

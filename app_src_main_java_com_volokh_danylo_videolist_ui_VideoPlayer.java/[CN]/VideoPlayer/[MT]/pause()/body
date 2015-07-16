@@ -1,5 +1,5 @@
 {
-  mPlayAsReady=false;
+  if (SHOW_LOGS)   Logger.d(TAG,">> pause ");
   mMediaPlayer.pause();
-  mIsVideoStartedCalled.set(false);
+  if (SHOW_LOGS)   Logger.d(TAG,"<< pause");
 }

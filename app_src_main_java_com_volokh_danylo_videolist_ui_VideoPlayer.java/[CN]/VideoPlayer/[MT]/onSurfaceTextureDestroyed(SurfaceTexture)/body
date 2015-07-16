@@ -1,10 +1,4 @@
 {
-  if (SHOW_LOGS)   Log.v(TAG,"onSurfaceTextureDestroyed");
-  mIsViewAvailable=false;
-  if (!holdsMediaPlayer()) {
-    if (SHOW_LOGS)     Log.d(TAG,"onSurfaceTextureDestroyed, not holding player at moment, ignoring call");
-    return false;
-  }
-  pause();
+  if (SHOW_LOGS)   Logger.v(TAG,"onSurfaceTextureDestroyed");
   return false;
 }
