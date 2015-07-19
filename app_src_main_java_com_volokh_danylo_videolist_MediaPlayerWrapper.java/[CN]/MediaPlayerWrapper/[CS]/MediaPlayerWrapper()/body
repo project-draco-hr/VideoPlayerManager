@@ -1,4 +1,6 @@
 {
+  TAG="" + this;
+  if (SHOW_LOGS)   Logger.v(TAG,"constructor of MediaPlayerWrapper");
   mMediaPlayer=new MediaPlayer();
   mState.set(State.IDLE);
   mMediaPlayer.setOnVideoSizeChangedListener(mOnVideoSizeChangedListener);

@@ -1,10 +1,15 @@
 {
+  if (SHOW_LOGS)   Logger.v(TAG,">> createNewPlayerInstance");
   checkThread();
   mMediaPlayer=new MediaPlayerWrapper();
 synchronized (mReadyForPlaybackIndicator) {
     if (mReadyForPlaybackIndicator.isSurfaceTextureAvailable()) {
       mMediaPlayer.setSurfaceTexture(getSurfaceTexture());
     }
+ else {
+      if (SHOW_LOGS)       Logger.v(TAG,"texture not available");
+    }
   }
   setMediaPlayerListeners();
+  if (SHOW_LOGS)   Logger.v(TAG,"<< createNewPlayerInstance");
 }

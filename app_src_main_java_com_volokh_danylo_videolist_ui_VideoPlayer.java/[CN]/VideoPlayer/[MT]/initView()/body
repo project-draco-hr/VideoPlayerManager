@@ -1,4 +1,6 @@
 {
+  TAG="" + this;
+  if (SHOW_LOGS)   Logger.v(TAG,"initView");
   setScaleType(ScaleType.CENTER_CROP);
   setSurfaceTextureListener(this);
 }
