@@ -1,8 +1,8 @@
 {
-  if (SHOW_LOGS)   Logger.v(TAG,">> playNewVideo, videoPlayer " + videoPlayer + ", videoUrl "+ videoUrl);
+  if (SHOW_LOGS)   Logger.v(TAG,">> playNewVideo, videoPlayer " + videoPlayer + ", mCurrentPlayer "+ mCurrentPlayer+ ", videoUrl "+ videoUrl);
 synchronized (mCurrentPlayerState) {
     mPlayerHandler.pauseQueueProcessing(TAG);
-    if (SHOW_LOGS)     Logger.v(TAG,"playNewVideo, videoUrl " + videoUrl + ", mCurrentPlayerState "+ mCurrentPlayerState);
+    if (SHOW_LOGS)     Logger.v(TAG,"playNewVideo, mCurrentPlayerState " + mCurrentPlayerState);
     mPlayerHandler.clearAllPendingMessages(TAG);
     stopCurrentPlayer();
     setNewViewForPlayback(videoPlayer);

@@ -11,7 +11,6 @@ case PREPARING:
       if (SHOW_LOGS)       Logger.v(TAG,">> stop");
     mMediaPlayer.stop();
   if (SHOW_LOGS)   Logger.v(TAG,"<< stop");
-seekToPercent(0);
 stopPositionUpdateNotifier();
 mState.set(State.STOPPED);
 break;
