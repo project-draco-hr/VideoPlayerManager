@@ -1,0 +1,34 @@
+{
+switch (what) {
+case MediaPlayer.MEDIA_INFO_UNKNOWN:
+    if (SHOW_LOGS)     Logger.inf(TAG,"onInfo, MEDIA_INFO_UNKNOWN");
+  break;
+case MediaPlayer.MEDIA_INFO_VIDEO_TRACK_LAGGING:
+if (SHOW_LOGS) Logger.inf(TAG,"onInfo, MEDIA_INFO_VIDEO_TRACK_LAGGING");
+break;
+case MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:
+if (SHOW_LOGS) Logger.inf(TAG,"onInfo, MEDIA_INFO_VIDEO_RENDERING_START");
+break;
+case MediaPlayer.MEDIA_INFO_BUFFERING_START:
+if (SHOW_LOGS) Logger.inf(TAG,"onInfo, MEDIA_INFO_BUFFERING_START");
+break;
+case MediaPlayer.MEDIA_INFO_BUFFERING_END:
+if (SHOW_LOGS) Logger.inf(TAG,"onInfo, MEDIA_INFO_BUFFERING_END");
+break;
+case MediaPlayer.MEDIA_INFO_BAD_INTERLEAVING:
+if (SHOW_LOGS) Logger.inf(TAG,"onInfo, MEDIA_INFO_BAD_INTERLEAVING");
+break;
+case MediaPlayer.MEDIA_INFO_NOT_SEEKABLE:
+if (SHOW_LOGS) Logger.inf(TAG,"onInfo, MEDIA_INFO_NOT_SEEKABLE");
+break;
+case MediaPlayer.MEDIA_INFO_METADATA_UPDATE:
+if (SHOW_LOGS) Logger.inf(TAG,"onInfo, MEDIA_INFO_METADATA_UPDATE");
+break;
+case MediaPlayer.MEDIA_INFO_UNSUPPORTED_SUBTITLE:
+if (SHOW_LOGS) Logger.inf(TAG,"onInfo, MEDIA_INFO_UNSUPPORTED_SUBTITLE");
+break;
+case MediaPlayer.MEDIA_INFO_SUBTITLE_TIMED_OUT:
+if (SHOW_LOGS) Logger.inf(TAG,"onInfo, MEDIA_INFO_SUBTITLE_TIMED_OUT");
+break;
+}
+}

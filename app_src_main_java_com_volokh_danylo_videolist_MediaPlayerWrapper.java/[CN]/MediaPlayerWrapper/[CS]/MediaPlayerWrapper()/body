@@ -5,4 +5,5 @@
   mMediaPlayer.setOnCompletionListener(mOnCompletionListener);
   mMediaPlayer.setOnErrorListener(mOnErrorListener);
   mMediaPlayer.setOnBufferingUpdateListener(mOnBufferingUpdateListener);
+  mMediaPlayer.setOnInfoListener(mOnInfoListener);
 }

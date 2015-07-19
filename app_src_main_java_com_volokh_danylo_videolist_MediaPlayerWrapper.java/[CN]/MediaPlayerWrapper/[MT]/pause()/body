@@ -16,7 +16,6 @@ case END:
     break;
 case STARTED:
   mMediaPlayer.pause();
-stopPositionUpdateNotifier();
 mState.set(State.PAUSED);
 break;
 }

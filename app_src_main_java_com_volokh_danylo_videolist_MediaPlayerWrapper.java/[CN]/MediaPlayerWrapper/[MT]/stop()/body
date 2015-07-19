@@ -5,13 +5,13 @@ synchronized (mState) {
 switch (mState.get()) {
 case STARTED:
 case PAUSED:
+      stopPositionUpdateNotifier();
 case PLAYBACK_COMPLETED:
 case PREPARED:
 case PREPARING:
-      if (SHOW_LOGS)       Logger.v(TAG,">> stop");
-    mMediaPlayer.stop();
-  if (SHOW_LOGS)   Logger.v(TAG,"<< stop");
-stopPositionUpdateNotifier();
+    if (SHOW_LOGS)     Logger.v(TAG,">> stop");
+  mMediaPlayer.stop();
+if (SHOW_LOGS) Logger.v(TAG,"<< stop");
 mState.set(State.STOPPED);
 break;
 case STOPPED:

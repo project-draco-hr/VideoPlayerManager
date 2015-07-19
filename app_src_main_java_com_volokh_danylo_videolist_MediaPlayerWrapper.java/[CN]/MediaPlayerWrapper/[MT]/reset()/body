@@ -1,7 +1,6 @@
 {
-  if (SHOW_LOGS)   Logger.v(TAG,"<< reset , mState " + mState);
+  if (SHOW_LOGS)   Logger.v(TAG,">> reset , mState " + mState);
 synchronized (mState) {
-    stopPositionUpdateNotifier();
     mMediaPlayer.reset();
     mState.set(State.IDLE);
   }
