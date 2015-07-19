@@ -1,6 +1,5 @@
 {
 synchronized (mState) {
-    if (SHOW_LOGS)     Logger.v(TAG,"notifyPositionUpdated, mVideoStateListener " + mVideoStateListener + ", mMediaPlayer "+ mMediaPlayer+ (mMediaPlayer != null ? ", mMediaPlayer.isPlaying() " + mMediaPlayer.isPlaying() : "")+ ", mState "+ mState.get());
     if (mVideoStateListener != null && mState.get() == State.STARTED) {
       mVideoStateListener.onVideoPlayTimeChanged(mMediaPlayer.getCurrentPosition());
     }

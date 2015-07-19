@@ -1,5 +1,8 @@
 {
   mMediaPlayer=new MediaPlayer();
   mState.set(State.IDLE);
-  setMediaPlayerListeners();
+  mMediaPlayer.setOnVideoSizeChangedListener(mOnVideoSizeChangedListener);
+  mMediaPlayer.setOnCompletionListener(mOnCompletionListener);
+  mMediaPlayer.setOnErrorListener(mOnErrorListener);
+  mMediaPlayer.setOnBufferingUpdateListener(mOnBufferingUpdateListener);
 }

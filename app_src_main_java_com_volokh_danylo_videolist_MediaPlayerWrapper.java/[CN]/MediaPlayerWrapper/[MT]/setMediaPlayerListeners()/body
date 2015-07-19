@@ -1,6 +1,0 @@
-{
-  mMediaPlayer.setOnVideoSizeChangedListener(mOnVideoSizeChangedListener);
-  mMediaPlayer.setOnCompletionListener(mOnCompletionListener);
-  mMediaPlayer.setOnErrorListener(mOnErrorListener);
-  mMediaPlayer.setOnBufferingUpdateListener(mOnBufferingUpdateListener);
-}

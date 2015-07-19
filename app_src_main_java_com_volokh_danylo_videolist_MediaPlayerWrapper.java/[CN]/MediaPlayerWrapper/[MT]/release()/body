@@ -1,8 +1,8 @@
 {
+  if (SHOW_LOGS)   Logger.v(TAG,">> release, mState " + mState);
 synchronized (mState) {
-    if (SHOW_LOGS)     Logger.v(TAG,">> release, mState " + mState);
     mMediaPlayer.release();
     mState.set(State.END);
-    if (SHOW_LOGS)     Logger.v(TAG,"<< release, mState " + mState.get());
   }
+  if (SHOW_LOGS)   Logger.v(TAG,"<< release, mState " + mState);
 }

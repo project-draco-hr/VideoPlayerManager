@@ -1,4 +1,5 @@
 {
+  if (SHOW_LOGS)   Logger.v(TAG,"onVideoSizeChanged");
   mMediaPlayer.setListener(new MediaPlayerWrapper.MediaPlayerListener(){
     @Override public void onVideoSizeChanged(    int width,    int height){
       if (SHOW_LOGS)       Logger.v(TAG,"onVideoSizeChanged, width " + width + ", height "+ height);
@@ -23,8 +24,18 @@
     }
     @Override public void onError(    int what,    int extra){
       if (SHOW_LOGS)       Logger.v(TAG,"onError, this " + VideoPlayer.this);
-    }
-  }
+switch (what) {
+case MediaPlayer.MEDIA_ERROR_SERVER_DIED:
+        if (SHOW_LOGS)         Logger.v(TAG,"onError, what MEDIA_ERROR_SERVER_DIED");
+      printErrorExtra(extra);
+    break;
+case MediaPlayer.MEDIA_ERROR_UNKNOWN:
+  if (SHOW_LOGS)   Logger.v(TAG,"onError, what MEDIA_ERROR_UNKNOWN");
+printErrorExtra(extra);
+break;
+}
+}
+}
 );
-  mMediaPlayer.setVideoStateListener(mVideoStateListener);
+mMediaPlayer.setVideoStateListener(mVideoStateListener);
 }

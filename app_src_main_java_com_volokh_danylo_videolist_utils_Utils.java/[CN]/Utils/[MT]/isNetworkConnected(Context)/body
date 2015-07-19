@@ -1,0 +1,8 @@
+{
+  boolean isNetworkConnected;
+  ConnectivityManager cm=(ConnectivityManager)ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+  NetworkInfo ni=cm.getActiveNetworkInfo();
+  isNetworkConnected=ni != null;
+  if (SHOW_LOGS)   Logger.v(TAG,"isNetworkConnected, " + isNetworkConnected);
+  return isNetworkConnected;
+}

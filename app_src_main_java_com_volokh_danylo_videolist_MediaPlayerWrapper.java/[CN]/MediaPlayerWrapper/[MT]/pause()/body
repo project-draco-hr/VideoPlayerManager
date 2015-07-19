@@ -1,6 +1,7 @@
 {
+  if (SHOW_LOGS)   Logger.v(TAG,">> pause");
 synchronized (mState) {
-    if (SHOW_LOGS)     Logger.v(TAG,"pause, mState " + mState + ", mMediaPlayer isPlaying "+ mMediaPlayer.isPlaying());
+    if (SHOW_LOGS)     Logger.v(TAG,"pause, mState " + mState);
 switch (mState.get()) {
 case IDLE:
 case INITIALIZED:
@@ -20,4 +21,5 @@ mState.set(State.PAUSED);
 break;
 }
 }
+if (SHOW_LOGS) Logger.v(TAG,"<< pause");
 }

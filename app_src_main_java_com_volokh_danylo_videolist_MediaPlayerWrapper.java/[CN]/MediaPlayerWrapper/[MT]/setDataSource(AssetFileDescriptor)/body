@@ -15,7 +15,7 @@ case PLAYBACK_COMPLETED:
 case END:
 case ERROR:
 default :
-throw new IllegalStateException("setDataSource called in state " + mState.get());
+throw new IllegalStateException("setDataSource called in state " + mState);
 }
 }
 }

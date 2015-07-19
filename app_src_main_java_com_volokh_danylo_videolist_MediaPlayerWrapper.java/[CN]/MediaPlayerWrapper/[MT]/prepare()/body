@@ -1,5 +1,5 @@
 {
-  if (SHOW_LOGS)   Logger.v(TAG,">> prepare, mState " + mState.get());
+  if (SHOW_LOGS)   Logger.v(TAG,">> prepare, mState " + mState);
 synchronized (mState) {
 switch (mState.get()) {
 case STOPPED:
@@ -12,7 +12,7 @@ case INITIALIZED:
         }
       }
  catch (      IllegalStateException|IOException ex) {
-        if (SHOW_LOGS)         Logger.err(TAG,ex.getMessage());
+        if (SHOW_LOGS)         Logger.err(TAG,"catch exception [" + ex.getMessage() + "]");
         mState.set(State.ERROR);
       }
     break;
@@ -27,5 +27,5 @@ case ERROR:
   throw new IllegalStateException("prepare, called from illegal state " + mState);
 }
 }
-if (SHOW_LOGS) Logger.v(TAG,"<< prepare, mState " + mState.get());
+if (SHOW_LOGS) Logger.v(TAG,"<< prepare, mState " + mState);
 }

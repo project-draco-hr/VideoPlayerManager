@@ -1,0 +1,3 @@
+{
+  return SetNewViewForPlayback.class.getSimpleName() + ", mCurrentPlayer " + mCurrentPlayer;
+}

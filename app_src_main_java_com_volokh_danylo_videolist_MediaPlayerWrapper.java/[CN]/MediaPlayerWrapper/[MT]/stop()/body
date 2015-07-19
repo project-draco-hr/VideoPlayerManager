@@ -1,4 +1,5 @@
 {
+  if (SHOW_LOGS)   Logger.v(TAG,">> stop");
 synchronized (mState) {
     if (SHOW_LOGS)     Logger.v(TAG,"stop, mState " + mState);
 switch (mState.get()) {
@@ -25,4 +26,5 @@ if (SHOW_LOGS) Logger.v(TAG,"stop, cannot stop. Player in mState " + mState);
 break;
 }
 }
+if (SHOW_LOGS) Logger.v(TAG,"<< stop");
 }

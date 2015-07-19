@@ -1,6 +1,6 @@
 {
 synchronized (mState) {
-    if (SHOW_LOGS)     Logger.v(TAG,"setDataSource, filePath " + filePath + ", mState "+ mState.get());
+    if (SHOW_LOGS)     Logger.v(TAG,"setDataSource, filePath " + filePath + ", mState "+ mState);
 switch (mState.get()) {
 case IDLE:
       mMediaPlayer.setDataSource(filePath);
@@ -16,7 +16,7 @@ case PLAYBACK_COMPLETED:
 case END:
 case ERROR:
 default :
-throw new IllegalStateException("setDataSource called in state " + mState.get());
+throw new IllegalStateException("setDataSource called in state " + mState);
 }
 }
 }
