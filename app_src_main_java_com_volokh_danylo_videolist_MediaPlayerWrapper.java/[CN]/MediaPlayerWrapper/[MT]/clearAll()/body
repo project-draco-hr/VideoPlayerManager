@@ -1,0 +1,17 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> clearAll, mState " + mState);
+synchronized (mState) {
+    mMediaPlayer.setOnVideoSizeChangedListener(null);
+    mMediaPlayer.setOnCompletionListener(null);
+    mMediaPlayer.setOnErrorListener(null);
+    mMediaPlayer.setOnBufferingUpdateListener(null);
+    mMediaPlayer.setOnInfoListener(null);
+    if (SHOW_LOGS)     Logger.v(TAG,"clearAll, mSurface " + mSurface);
+    if (SHOW_LOGS)     Logger.v(TAG,"clearAll, surface isValid " + mSurface.isValid());
+    if (SHOW_LOGS)     Logger.v(TAG,"clearAll, >> surface release ");
+    mSurface.release();
+    if (SHOW_LOGS)     Logger.v(TAG,"clearAll, << surface release, surface isValid " + mSurface.isValid());
+    mSurface=null;
+  }
+  if (SHOW_LOGS)   Logger.v(TAG,"<< clearAll, mState " + mState);
+}

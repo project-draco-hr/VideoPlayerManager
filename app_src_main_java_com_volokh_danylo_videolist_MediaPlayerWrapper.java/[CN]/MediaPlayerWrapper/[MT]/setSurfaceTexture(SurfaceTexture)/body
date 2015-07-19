@@ -1,6 +1,11 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> setSurfaceTexture " + surfaceTexture);
-  Surface surface=new Surface(surfaceTexture);
-  mMediaPlayer.setSurface(surface);
+  if (surfaceTexture != null) {
+    mSurface=new Surface(surfaceTexture);
+    mMediaPlayer.setSurface(mSurface);
+  }
+ else {
+    mMediaPlayer.setSurface(null);
+  }
   if (SHOW_LOGS)   Logger.v(TAG,"<< setSurfaceTexture " + surfaceTexture);
 }

@@ -2,7 +2,7 @@
   if (SHOW_LOGS)   Logger.v(TAG,"setMediaPlayerListeners");
   mMediaPlayer.setListener(new MediaPlayerWrapper.MediaPlayerListener(){
     @Override public void onVideoSizeChanged(    int width,    int height){
-      if (SHOW_LOGS)       Logger.v(TAG,"onVideoSizeChanged, width " + width + ", height "+ height);
+      if (SHOW_LOGS)       Logger.v(TAG,">> onVideoSizeChanged, width " + width + ", height "+ height);
       if (width != 0 && height != 0) {
         mVideoWidth=width;
         mVideoHeight=height;
@@ -11,6 +11,7 @@
       if (mMediaPlayerListener != null) {
         mMediaPlayerListener.onVideoSizeChanged(width,height);
       }
+      if (SHOW_LOGS)       Logger.v(TAG,"<< onVideoSizeChanged, width " + width + ", height "+ height);
     }
     @Override public void onVideoCompletion(){
       if (mMediaPlayerListener != null) {

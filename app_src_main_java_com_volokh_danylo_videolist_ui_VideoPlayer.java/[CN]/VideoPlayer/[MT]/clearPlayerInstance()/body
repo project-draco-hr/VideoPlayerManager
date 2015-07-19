@@ -1,4 +1,5 @@
 {
   checkThread();
+  mMediaPlayer.clearAll();
   mMediaPlayer=null;
 }
