@@ -1,0 +1,11 @@
+{
+  checkThread();
+  if (SHOW_LOGS)   Logger.v(TAG,"setDataSource, assetFileDescriptor " + assetFileDescriptor + ", this "+ this);
+  try {
+    mMediaPlayer.setDataSource(assetFileDescriptor);
+  }
+ catch (  IOException e) {
+    Logger.d(TAG,e.getMessage());
+    throw new RuntimeException(e);
+  }
+}

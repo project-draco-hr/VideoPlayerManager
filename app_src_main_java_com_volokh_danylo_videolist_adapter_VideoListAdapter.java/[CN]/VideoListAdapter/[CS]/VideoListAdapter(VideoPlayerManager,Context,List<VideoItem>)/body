@@ -1,0 +1,5 @@
+{
+  mVideoPlayerManager=videoPlayerManager;
+  mContext=context;
+  mList=list;
+}

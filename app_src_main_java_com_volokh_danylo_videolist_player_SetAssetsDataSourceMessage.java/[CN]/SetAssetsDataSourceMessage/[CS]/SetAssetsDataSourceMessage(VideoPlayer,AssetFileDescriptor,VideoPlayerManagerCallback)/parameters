@@ -1,0 +1,3 @@
+VideoPlayer videoPlayer
+AssetFileDescriptor assetFileDescriptor
+VideoPlayerManagerCallback callback

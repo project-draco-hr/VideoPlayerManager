@@ -1,4 +1,4 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,"startPlayback");
-  mPlayerHandler.addMessages(Arrays.asList(new CreateNewPlayerInstance(videoPlayer,this),new SetDataSourceMessage(videoPlayer,videoUrl,this),new Prepare(videoPlayer,videoUrl,this),new Start(videoPlayer,videoUrl,this)));
+  mPlayerHandler.addMessages(Arrays.asList(new CreateNewPlayerInstance(videoPlayer,this),new SetUrlDataSourceMessage(videoPlayer,videoUrl,this),new Prepare(videoPlayer,this),new Start(videoPlayer,this)));
 }

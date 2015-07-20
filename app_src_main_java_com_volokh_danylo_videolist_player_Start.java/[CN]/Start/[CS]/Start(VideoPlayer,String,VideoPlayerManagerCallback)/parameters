@@ -1,3 +1,0 @@
-VideoPlayer videoPlayer
-String videoUrl
-VideoPlayerManagerCallback callback
