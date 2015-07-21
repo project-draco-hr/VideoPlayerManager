@@ -1,9 +1,9 @@
 {
-synchronized (mCurrentPlayerState) {
-    mPlayerHandler.pauseQueueProcessing(TAG);
-    if (SHOW_LOGS)     Logger.v(TAG,"stopAnyPlayback, mCurrentPlayerState " + mCurrentPlayerState);
-    mPlayerHandler.clearAllPendingMessages(TAG);
-    stopCurrentPlayer();
-    mPlayerHandler.resumeQueueProcessing(TAG);
-  }
+  if (SHOW_LOGS)   Logger.v(TAG,">> stopAnyPlayback, mCurrentPlayerState " + mCurrentPlayerState);
+  mPlayerHandler.pauseQueueProcessing(TAG);
+  if (SHOW_LOGS)   Logger.v(TAG,"stopAnyPlayback, mCurrentPlayerState " + mCurrentPlayerState);
+  mPlayerHandler.clearAllPendingMessages(TAG);
+  stopCurrentPlayer();
+  mPlayerHandler.resumeQueueProcessing(TAG);
+  if (SHOW_LOGS)   Logger.v(TAG,"<< stopAnyPlayback, mCurrentPlayerState " + mCurrentPlayerState);
 }

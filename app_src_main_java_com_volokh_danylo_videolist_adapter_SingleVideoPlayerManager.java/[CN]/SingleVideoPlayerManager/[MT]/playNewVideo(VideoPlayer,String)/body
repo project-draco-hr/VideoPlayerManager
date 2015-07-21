@@ -1,13 +1,11 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> playNewVideo, videoPlayer " + videoPlayer + ", mCurrentPlayer "+ mCurrentPlayer+ ", videoUrl "+ videoUrl);
-synchronized (mCurrentPlayerState) {
-    mPlayerHandler.pauseQueueProcessing(TAG);
-    if (SHOW_LOGS)     Logger.v(TAG,"playNewVideo, mCurrentPlayerState " + mCurrentPlayerState);
-    mPlayerHandler.clearAllPendingMessages(TAG);
-    stopCurrentPlayer();
-    setNewViewForPlayback(videoPlayer);
-    startPlayback(videoPlayer,videoUrl);
-    mPlayerHandler.resumeQueueProcessing(TAG);
-  }
+  mPlayerHandler.pauseQueueProcessing(TAG);
+  if (SHOW_LOGS)   Logger.v(TAG,"playNewVideo, mCurrentPlayerState " + mCurrentPlayerState);
+  mPlayerHandler.clearAllPendingMessages(TAG);
+  stopCurrentPlayer();
+  setNewViewForPlayback(videoPlayer);
+  startPlayback(videoPlayer,videoUrl);
+  mPlayerHandler.resumeQueueProcessing(TAG);
   if (SHOW_LOGS)   Logger.v(TAG,"<< playNewVideo, videoPlayer " + videoPlayer + ", videoUrl "+ videoUrl);
 }

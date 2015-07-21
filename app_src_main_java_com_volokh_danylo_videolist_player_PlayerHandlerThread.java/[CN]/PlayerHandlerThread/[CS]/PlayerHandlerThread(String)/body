@@ -17,10 +17,14 @@
           }
         }
         mLastMessage=mPlayerMessagesQueue.poll();
+        mLastMessage.polledFromQueue();
         if (SHOW_LOGS)         Logger.v(mTag,"poll mLastMessage " + mLastMessage);
         mQueueLock.unlock(mTag);
         if (SHOW_LOGS)         Logger.v(mTag,"run, mLastMessage " + mLastMessage);
         mLastMessage.runMessage();
+        mQueueLock.lock(mTag);
+        mLastMessage.messageFinished();
+        mQueueLock.unlock(mTag);
       }
  while (!mTerminated.get());
     }

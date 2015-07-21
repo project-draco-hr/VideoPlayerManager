@@ -1,5 +1,7 @@
 {
+  if (SHOW_LOGS)   Logger.v(TAG,">> clearPlayerInstance");
   checkThread();
   mMediaPlayer.clearAll();
   mMediaPlayer=null;
+  if (SHOW_LOGS)   Logger.v(TAG,"<< clearPlayerInstance");
 }

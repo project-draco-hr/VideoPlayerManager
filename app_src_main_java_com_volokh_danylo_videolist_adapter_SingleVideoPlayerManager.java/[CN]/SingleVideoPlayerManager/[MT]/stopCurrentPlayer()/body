@@ -1,6 +1,7 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,"stopCurrentPlayer, mCurrentPlayerState " + mCurrentPlayerState + ", mCurrentPlayer "+ mCurrentPlayer);
-switch (mCurrentPlayerState.get()) {
+switch (mCurrentPlayerState) {
+case SETTING_NEW_PLAYER:
 case IDLE:
 case CREATING_PLAYER_INSTANCE:
 case PLAYER_INSTANCE_CREATED:
@@ -8,7 +9,6 @@ case SETTING_DATA_SOURCE:
 case DATA_SOURCE_SET:
 case CLEARING_PLAYER_INSTANCE:
 case PLAYER_INSTANCE_CLEARED:
-case PLAYBACK_COMPLETED:
     break;
 case INITIALIZED:
 case PREPARING:
@@ -17,19 +17,20 @@ case STARTING:
 case STARTED:
 case PAUSING:
 case PAUSED:
-  mPlayerHandler.addMessage(new Stop(mCurrentPlayer.get(),this));
+  mPlayerHandler.addMessage(new Stop(mCurrentPlayer,this));
 case STOPPING:
 case STOPPED:
-mPlayerHandler.addMessage(new Reset(mCurrentPlayer.get(),this));
+mPlayerHandler.addMessage(new Reset(mCurrentPlayer,this));
 case RESETTING:
 case RESET:
-mPlayerHandler.addMessage(new Release(mCurrentPlayer.get(),this));
+mPlayerHandler.addMessage(new Release(mCurrentPlayer,this));
 case RELEASING:
 case RELEASED:
-mPlayerHandler.addMessage(new ClearPlayerInstance(mCurrentPlayer.get(),this));
+mPlayerHandler.addMessage(new ClearPlayerInstance(mCurrentPlayer,this));
 break;
 case END:
 case ERROR:
+case PLAYBACK_COMPLETED:
 throw new RuntimeException("unhandled " + mCurrentPlayerState);
 }
 }

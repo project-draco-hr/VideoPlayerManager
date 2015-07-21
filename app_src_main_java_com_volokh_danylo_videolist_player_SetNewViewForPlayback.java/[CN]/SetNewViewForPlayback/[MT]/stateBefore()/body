@@ -1,0 +1,3 @@
+{
+  return PlayerMessageState.SETTING_NEW_PLAYER;
+}

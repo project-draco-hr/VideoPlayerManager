@@ -1,4 +1,5 @@
 {
+  super(videoPlayer,callback);
   mCurrentPlayer=videoPlayer;
   mCallback=callback;
 }

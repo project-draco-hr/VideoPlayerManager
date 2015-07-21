@@ -1,1 +1,2 @@
 ViewGroup parent
+int screenWidth
