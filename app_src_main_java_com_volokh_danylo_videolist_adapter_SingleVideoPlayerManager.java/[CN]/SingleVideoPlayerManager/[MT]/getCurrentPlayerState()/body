@@ -1,0 +1,4 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"getCurrentPlayerState, mCurrentPlayerState " + mCurrentPlayerState);
+  return mCurrentPlayerState;
+}

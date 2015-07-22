@@ -1,3 +1,21 @@
 {
-  currentPlayer.prepare();
+  MediaPlayerWrapper.State resultOfPrepare=currentPlayer.prepare();
+  if (SHOW_LOGS)   Logger.v(TAG,"resultOfPrepare " + resultOfPrepare);
+switch (resultOfPrepare) {
+case IDLE:
+case INITIALIZED:
+case PREPARING:
+case STARTED:
+case PAUSED:
+case STOPPED:
+case PLAYBACK_COMPLETED:
+case END:
+    throw new RuntimeException("unhandled state " + resultOfPrepare);
+case PREPARED:
+  mResultPlayerMessageState=PlayerMessageState.PREPARED;
+break;
+case ERROR:
+mResultPlayerMessageState=PlayerMessageState.ERROR;
+break;
+}
 }

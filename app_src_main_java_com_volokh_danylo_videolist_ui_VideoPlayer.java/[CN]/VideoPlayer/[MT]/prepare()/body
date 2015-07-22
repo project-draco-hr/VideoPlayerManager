@@ -1,4 +1,5 @@
 {
   checkThread();
   mMediaPlayer.prepare();
+  return mMediaPlayer.getCurrentState();
 }
