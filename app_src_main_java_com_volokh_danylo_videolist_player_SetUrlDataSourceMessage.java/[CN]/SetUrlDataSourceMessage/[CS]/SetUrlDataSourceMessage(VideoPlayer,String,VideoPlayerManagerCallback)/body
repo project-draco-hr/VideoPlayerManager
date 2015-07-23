@@ -1,4 +1,0 @@
-{
-  super(videoPlayer,callback);
-  mVideoUrl=videoUrl;
-}

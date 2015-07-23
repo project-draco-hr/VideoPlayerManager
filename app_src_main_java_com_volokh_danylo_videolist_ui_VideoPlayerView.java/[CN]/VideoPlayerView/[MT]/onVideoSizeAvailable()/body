@@ -1,0 +1,12 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> onVideoSizeAvailable");
+  updateTextureViewSize();
+synchronized (mReadyForPlaybackIndicator) {
+    if (SHOW_LOGS)     Logger.v(TAG,"onVideoSizeAvailable, mReadyForPlaybackIndicator " + mReadyForPlaybackIndicator);
+    mReadyForPlaybackIndicator.setVideoSize(getContentHeight(),getContentWidth());
+    if (mReadyForPlaybackIndicator.isReadyForPlayback()) {
+      mReadyForPlaybackIndicator.notify();
+    }
+  }
+  if (SHOW_LOGS)   Logger.v(TAG,"<< onVideoSizeAvailable");
+}

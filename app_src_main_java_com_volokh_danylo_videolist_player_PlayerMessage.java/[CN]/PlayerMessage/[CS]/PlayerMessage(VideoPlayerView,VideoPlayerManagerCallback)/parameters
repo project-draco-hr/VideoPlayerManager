@@ -1,0 +1,2 @@
+VideoPlayerView currentPlayer
+VideoPlayerManagerCallback callback

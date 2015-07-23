@@ -1,4 +1,0 @@
-{
-  mVideoX=(int)x - (getMeasuredWidth() - getScaledVideoWidth()) / 2;
-  updateMatrixTranslate();
-}

@@ -1,5 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.d(TAG,"setVideoScale, videoScale " + videoScale);
-  mVideoScaleMultiplier=videoScale;
-  updateMatrixScaleRotate();
-}

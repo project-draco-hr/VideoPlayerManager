@@ -1,0 +1,5 @@
+{
+  boolean isVideoSizeAvailable=getContentHeight() != null && getContentWidth() != null;
+  if (SHOW_LOGS)   Logger.v(TAG,"isVideoSizeAvailable " + isVideoSizeAvailable);
+  return isVideoSizeAvailable;
+}

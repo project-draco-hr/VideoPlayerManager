@@ -1,0 +1,4 @@
+{
+  super(videoPlayerView,callback);
+  mVideoUrl=videoUrl;
+}

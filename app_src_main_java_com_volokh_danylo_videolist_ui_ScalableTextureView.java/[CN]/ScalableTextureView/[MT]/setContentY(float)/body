@@ -1,0 +1,4 @@
+{
+  mContentY=(int)y - (getMeasuredHeight() - getScaledContentHeight()) / 2;
+  updateMatrixTranslate();
+}

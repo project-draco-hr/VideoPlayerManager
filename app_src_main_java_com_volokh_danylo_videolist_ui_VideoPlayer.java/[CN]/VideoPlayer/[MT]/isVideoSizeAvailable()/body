@@ -1,5 +1,0 @@
-{
-  boolean isVideoSizeAvailable=mVideoHeight != null && mVideoWidth != null;
-  if (SHOW_LOGS)   Logger.v(TAG,"isVideoSizeAvailable " + isVideoSizeAvailable);
-  return isVideoSizeAvailable;
-}

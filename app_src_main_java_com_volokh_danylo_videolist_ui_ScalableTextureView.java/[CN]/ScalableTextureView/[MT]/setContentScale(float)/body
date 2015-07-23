@@ -1,0 +1,5 @@
+{
+  if (SHOW_LOGS)   Logger.d(TAG,"setContentScale, contentScale " + contentScale);
+  mContentScaleMultiplier=contentScale;
+  updateMatrixScaleRotate();
+}

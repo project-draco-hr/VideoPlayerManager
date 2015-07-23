@@ -1,0 +1,42 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"setMediaPlayerListeners");
+  mMediaPlayer.setListener(new MediaPlayerWrapper.MediaPlayerListener(){
+    @Override public void onVideoSizeChanged(    int width,    int height){
+      if (SHOW_LOGS)       Logger.v(TAG,">> onVideoSizeChanged, width " + width + ", height "+ height);
+      if (width != 0 && height != 0) {
+        setContentWidth(width);
+        setContentHeight(height);
+        onVideoSizeAvailable();
+      }
+      if (mMediaPlayerListener != null) {
+        mMediaPlayerListener.onVideoSizeChanged(width,height);
+      }
+      if (SHOW_LOGS)       Logger.v(TAG,"<< onVideoSizeChanged, width " + width + ", height "+ height);
+    }
+    @Override public void onVideoCompletion(){
+      if (mMediaPlayerListener != null) {
+        mMediaPlayerListener.onVideoCompletion();
+      }
+    }
+    @Override public void onVideoPrepared(){
+      if (mMediaPlayerListener != null) {
+        mMediaPlayerListener.onVideoPrepared();
+      }
+    }
+    @Override public void onError(    int what,    int extra){
+      if (SHOW_LOGS)       Logger.v(TAG,"onError, this " + VideoPlayerView.this);
+switch (what) {
+case MediaPlayer.MEDIA_ERROR_SERVER_DIED:
+        if (SHOW_LOGS)         Logger.v(TAG,"onError, what MEDIA_ERROR_SERVER_DIED");
+      printErrorExtra(extra);
+    break;
+case MediaPlayer.MEDIA_ERROR_UNKNOWN:
+  if (SHOW_LOGS)   Logger.v(TAG,"onError, what MEDIA_ERROR_UNKNOWN");
+printErrorExtra(extra);
+break;
+}
+}
+}
+);
+mMediaPlayer.setVideoStateListener(mVideoStateListener);
+}

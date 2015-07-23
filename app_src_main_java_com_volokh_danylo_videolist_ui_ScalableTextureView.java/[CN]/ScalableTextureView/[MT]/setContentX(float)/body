@@ -1,0 +1,4 @@
+{
+  mContentX=(int)x - (getMeasuredWidth() - getScaledContentWidth()) / 2;
+  updateMatrixTranslate();
+}

@@ -1,0 +1,11 @@
+{
+  int measuredWidth=getMeasuredWidth();
+  int measuredHeight=getMeasuredHeight();
+  int scaledContentWidth=getScaledContentWidth();
+  int scaledContentHeight=getScaledContentHeight();
+  if (SHOW_LOGS)   Logger.d(TAG,"centralizeContent, measuredWidth " + measuredWidth + ", measuredHeight "+ measuredHeight+ ", scaledContentWidth "+ scaledContentWidth+ ", scaledContentHeight "+ scaledContentHeight);
+  mContentX=0;
+  mContentY=0;
+  if (SHOW_LOGS)   Logger.d(TAG,"centerVideo, mContentX " + mContentX + ", mContentY "+ mContentY);
+  updateMatrixScaleRotate();
+}

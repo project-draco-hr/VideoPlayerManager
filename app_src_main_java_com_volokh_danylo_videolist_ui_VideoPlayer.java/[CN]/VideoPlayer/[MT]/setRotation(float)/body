@@ -1,5 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.d(TAG,"setRotation, degrees " + degrees + ", mPivotPointX "+ mPivotPointX+ ", mPivotPointY "+ mPivotPointY);
-  mVideoRotation=degrees;
-  updateMatrixScaleRotate();
-}

@@ -1,0 +1,3 @@
+VideoPlayerView videoPlayerView
+String videoUrl
+VideoPlayerManagerCallback callback

@@ -1,0 +1,9 @@
+{
+  if (SHOW_LOGS) {
+    Logger.d(TAG,"updateMatrixScaleRotate, mContentRotation " + mContentRotation + ", mContentScaleMultiplier "+ mContentScaleMultiplier+ ", mPivotPointX "+ mPivotPointX+ ", mPivotPointY "+ mPivotPointY);
+  }
+  mTransformMatrix.reset();
+  mTransformMatrix.setScale(mContentScaleX * mContentScaleMultiplier,mContentScaleY * mContentScaleMultiplier,mPivotPointX,mPivotPointY);
+  mTransformMatrix.postRotate(mContentRotation,mPivotPointX,mPivotPointY);
+  setTransform(mTransformMatrix);
+}

@@ -1,0 +1,7 @@
+{
+  super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+  if (SHOW_LOGS)   Logger.v(TAG,"onMeasure, mContentoWidth " + mContentWidth + ", mContentHeight "+ mContentHeight);
+  if (mContentWidth != null && mContentHeight != null) {
+    updateTextureViewSize();
+  }
+}

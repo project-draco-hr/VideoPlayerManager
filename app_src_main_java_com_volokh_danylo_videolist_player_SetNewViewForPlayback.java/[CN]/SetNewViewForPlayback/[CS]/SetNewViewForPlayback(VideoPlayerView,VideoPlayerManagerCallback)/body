@@ -1,0 +1,5 @@
+{
+  super(videoPlayerView,callback);
+  mCurrentPlayer=videoPlayerView;
+  mCallback=callback;
+}

@@ -1,0 +1,3 @@
+{
+  return mContentWidth != null && mContentHeight != null ? (float)mContentWidth / (float)mContentHeight : 0;
+}

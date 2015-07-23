@@ -1,9 +1,0 @@
-{
-  super.onMeasure(widthMeasureSpec,heightMeasureSpec);
-  if (SHOW_LOGS) {
-    Logger.v(TAG,"onMeasure, mVideoWidth " + mVideoWidth + ", mVideoHeight "+ mVideoHeight);
-  }
-  if (mVideoWidth != null && mVideoHeight != null) {
-    updateTextureViewSize();
-  }
-}

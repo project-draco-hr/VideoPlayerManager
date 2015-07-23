@@ -1,3 +1,0 @@
-{
-  return (int)(mVideoScaleY * mVideoScaleMultiplier * getMeasuredHeight());
-}
