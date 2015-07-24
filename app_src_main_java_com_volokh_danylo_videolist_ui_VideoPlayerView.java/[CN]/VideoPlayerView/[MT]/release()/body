@@ -1,4 +1,6 @@
 {
   checkThread();
-  mMediaPlayer.release();
+synchronized (mReadyForPlaybackIndicator) {
+    mMediaPlayer.release();
+  }
 }

@@ -1,11 +1,13 @@
 {
   checkThread();
-  if (SHOW_LOGS)   Logger.v(TAG,"setDataSource, path " + path + ", this "+ this);
-  try {
-    mMediaPlayer.setDataSource(path);
-  }
- catch (  IOException e) {
-    Logger.d(TAG,e.getMessage());
-    throw new RuntimeException(e);
+synchronized (mReadyForPlaybackIndicator) {
+    if (SHOW_LOGS)     Logger.v(TAG,"setDataSource, path " + path + ", this "+ this);
+    try {
+      mMediaPlayer.setDataSource(path);
+    }
+ catch (    IOException e) {
+      Logger.d(TAG,e.getMessage());
+      throw new RuntimeException(e);
+    }
   }
 }

@@ -1,15 +1,21 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> createNewPlayerInstance");
+  if (SHOW_LOGS)   Logger.v(TAG,"createNewPlayerInstance main Looper " + Looper.getMainLooper());
+  if (SHOW_LOGS)   Logger.v(TAG,"createNewPlayerInstance my Looper " + Looper.myLooper());
   checkThread();
-  mMediaPlayer=new MediaPlayerWrapper();
 synchronized (mReadyForPlaybackIndicator) {
+    mMediaPlayer=new MediaPlayerWrapper();
+    mReadyForPlaybackIndicator.setVideoSize(null,null);
+    mReadyForPlaybackIndicator.setFailedToPrepareUiForPlayback(false);
     if (mReadyForPlaybackIndicator.isSurfaceTextureAvailable()) {
-      mMediaPlayer.setSurfaceTexture(getSurfaceTexture());
+      SurfaceTexture texture=getSurfaceTexture();
+      if (SHOW_LOGS)       Logger.v(TAG,"texture " + texture);
+      mMediaPlayer.setSurfaceTexture(texture);
     }
  else {
       if (SHOW_LOGS)       Logger.v(TAG,"texture not available");
     }
+    setMediaPlayerListeners();
   }
-  setMediaPlayerListeners();
   if (SHOW_LOGS)   Logger.v(TAG,"<< createNewPlayerInstance");
 }

@@ -1,7 +1,10 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> clearPlayerInstance");
   checkThread();
-  mMediaPlayer.clearAll();
-  mMediaPlayer=null;
+synchronized (mReadyForPlaybackIndicator) {
+    mReadyForPlaybackIndicator.setVideoSize(null,null);
+    mMediaPlayer.clearAll();
+    mMediaPlayer=null;
+  }
   if (SHOW_LOGS)   Logger.v(TAG,"<< clearPlayerInstance");
 }

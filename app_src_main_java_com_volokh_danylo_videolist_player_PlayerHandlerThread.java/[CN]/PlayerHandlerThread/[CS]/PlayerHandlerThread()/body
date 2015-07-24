@@ -1,0 +1,32 @@
+{
+  mQueueProcessingThread.execute(new Runnable(){
+    @Override public void run(){
+      if (SHOW_LOGS)       Logger.v(TAG,"start worker thread");
+      do {
+        mQueueLock.lock(TAG);
+        if (SHOW_LOGS)         Logger.v(TAG,"mPlayerMessagesQueue " + mPlayerMessagesQueue);
+        if (mPlayerMessagesQueue.isEmpty()) {
+          try {
+            if (SHOW_LOGS)             Logger.v(TAG,"queue is empty, wait for new messages");
+            mQueueLock.wait(TAG);
+          }
+ catch (          InterruptedException e) {
+            e.printStackTrace();
+            throw new RuntimeException("InterruptedException");
+          }
+        }
+        mLastMessage=mPlayerMessagesQueue.poll();
+        mLastMessage.polledFromQueue();
+        if (SHOW_LOGS)         Logger.v(TAG,"poll mLastMessage " + mLastMessage);
+        mQueueLock.unlock(TAG);
+        if (SHOW_LOGS)         Logger.v(TAG,"run, mLastMessage " + mLastMessage);
+        mLastMessage.runMessage();
+        mQueueLock.lock(TAG);
+        mLastMessage.messageFinished();
+        mQueueLock.unlock(TAG);
+      }
+ while (!mTerminated.get());
+    }
+  }
+);
+}

@@ -1,4 +1,7 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,"onSurfaceTextureAvailable, width " + width + ", height "+ height+ ", this "+ this);
+  if (mLocalSurfaceTextureListener != null) {
+    mLocalSurfaceTextureListener.onSurfaceTextureAvailable(surfaceTexture,width,height);
+  }
   notifyTextureAvailable();
 }

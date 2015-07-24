@@ -1,4 +1,5 @@
 {
+  if (SHOW_LOGS)   Logger.d(TAG,">> updateTextureViewSize");
   if (mContentWidth == null || mContentHeight == null) {
     throw new RuntimeException("null content size");
   }
@@ -86,4 +87,5 @@ mContentScaleY=fitCoef * scaleY;
 mPivotPointX=pivotPointX;
 mPivotPointY=pivotPointY;
 updateMatrixScaleRotate();
+if (SHOW_LOGS) Logger.d(TAG,"<< updateTextureViewSize");
 }

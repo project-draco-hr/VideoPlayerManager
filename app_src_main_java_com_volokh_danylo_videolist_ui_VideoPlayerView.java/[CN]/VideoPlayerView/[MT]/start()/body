@@ -6,14 +6,24 @@ synchronized (mReadyForPlaybackIndicator) {
     }
  else {
       if (SHOW_LOGS)       Logger.v(TAG,"start, >> wait");
-      try {
-        mReadyForPlaybackIndicator.wait();
+      if (!mReadyForPlaybackIndicator.isFailedToPrepareUiForPlayback()) {
+        try {
+          mReadyForPlaybackIndicator.wait();
+        }
+ catch (        InterruptedException e) {
+          throw new RuntimeException(e);
+        }
+        if (SHOW_LOGS)         Logger.v(TAG,"start, << wait");
+        if (mReadyForPlaybackIndicator.isReadyForPlayback()) {
+          mMediaPlayer.start();
+        }
+ else {
+          if (SHOW_LOGS)           Logger.w(TAG,"start, movie is not ready, Player become STARTED state, but it will actually don't play");
+        }
       }
- catch (      InterruptedException e) {
-        throw new RuntimeException(e);
+ else {
+        if (SHOW_LOGS)         Logger.w(TAG,"start, movie is not ready. Video size will not become available");
       }
-      if (SHOW_LOGS)       Logger.v(TAG,"start, << wait");
-      mMediaPlayer.start();
     }
   }
   if (SHOW_LOGS)   Logger.v(TAG,"<< start");

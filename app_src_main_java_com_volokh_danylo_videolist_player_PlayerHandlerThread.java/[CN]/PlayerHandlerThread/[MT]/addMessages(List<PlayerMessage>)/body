@@ -1,8 +1,8 @@
 {
-  if (SHOW_LOGS)   Logger.v(mTag,">> addMessages, lock " + messages);
-  mQueueLock.lock(mTag);
+  if (SHOW_LOGS)   Logger.v(TAG,">> addMessages, lock " + messages);
+  mQueueLock.lock(TAG);
   mPlayerMessagesQueue.addAll(messages);
-  mQueueLock.notify(mTag);
-  if (SHOW_LOGS)   Logger.v(mTag,"<< addMessages, unlock " + messages);
-  mQueueLock.unlock(mTag);
+  mQueueLock.notify(TAG);
+  if (SHOW_LOGS)   Logger.v(TAG,"<< addMessages, unlock " + messages);
+  mQueueLock.unlock(TAG);
 }

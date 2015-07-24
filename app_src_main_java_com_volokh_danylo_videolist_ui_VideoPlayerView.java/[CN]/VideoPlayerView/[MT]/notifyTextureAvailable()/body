@@ -1,17 +1,25 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> notifyTextureAvailable");
+  mViewHandlerBackgroundThread.post(new Runnable(){
+    @Override public void run(){
+      if (SHOW_LOGS)       Logger.v(TAG,">> run notifyTextureAvailable");
 synchronized (mReadyForPlaybackIndicator) {
-    if (mMediaPlayer != null) {
-      mMediaPlayer.setSurfaceTexture(getSurfaceTexture());
-    }
+        if (mMediaPlayer != null) {
+          mMediaPlayer.setSurfaceTexture(getSurfaceTexture());
+        }
  else {
-      if (SHOW_LOGS)       Logger.v(TAG,"mMediaPlayer null, cannot set surface texture");
-    }
-    mReadyForPlaybackIndicator.setSurfaceTextureAvailable(true);
-    if (mReadyForPlaybackIndicator.isReadyForPlayback()) {
-      if (SHOW_LOGS)       Logger.v(TAG,"notify ready for playback");
-      mReadyForPlaybackIndicator.notify();
+          mReadyForPlaybackIndicator.setVideoSize(null,null);
+          if (SHOW_LOGS)           Logger.v(TAG,"mMediaPlayer null, cannot set surface texture");
+        }
+        mReadyForPlaybackIndicator.setSurfaceTextureAvailable(true);
+        if (mReadyForPlaybackIndicator.isReadyForPlayback()) {
+          if (SHOW_LOGS)           Logger.v(TAG,"notify ready for playback");
+          mReadyForPlaybackIndicator.notifyAll();
+        }
+      }
+      if (SHOW_LOGS)       Logger.v(TAG,"<< run notifyTextureAvailable");
     }
   }
+);
   if (SHOW_LOGS)   Logger.v(TAG,"<< notifyTextureAvailable");
 }

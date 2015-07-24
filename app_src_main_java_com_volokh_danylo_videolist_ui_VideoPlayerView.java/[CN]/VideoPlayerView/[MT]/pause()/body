@@ -1,5 +1,7 @@
 {
   if (SHOW_LOGS)   Logger.d(TAG,">> pause ");
-  mMediaPlayer.pause();
+synchronized (mReadyForPlaybackIndicator) {
+    mMediaPlayer.pause();
+  }
   if (SHOW_LOGS)   Logger.d(TAG,"<< pause");
 }

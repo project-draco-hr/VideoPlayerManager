@@ -1,5 +1,5 @@
 {
-  boolean isVideoSizeAvailable=mVideoSize != null;
+  boolean isVideoSizeAvailable=mVideoSize.first != null && mVideoSize.second != null;
   if (SHOW_LOGS)   Logger.v(TAG,"isVideoSizeAvailable " + isVideoSizeAvailable);
   return isVideoSizeAvailable;
 }

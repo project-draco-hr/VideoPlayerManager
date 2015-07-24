@@ -1,3 +1,5 @@
 {
-  return mMediaPlayer.getDuration();
+synchronized (mReadyForPlaybackIndicator) {
+    return mMediaPlayer.getDuration();
+  }
 }

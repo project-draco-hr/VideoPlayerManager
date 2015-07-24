@@ -1,5 +1,7 @@
 {
   checkThread();
-  mMediaPlayer.prepare();
-  return mMediaPlayer.getCurrentState();
+synchronized (mReadyForPlaybackIndicator) {
+    mMediaPlayer.prepare();
+    return mMediaPlayer.getCurrentState();
+  }
 }

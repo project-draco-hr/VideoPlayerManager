@@ -1,4 +1,4 @@
 {
-  if (SHOW_LOGS)   Logger.v(mTag,"resumeQueueProcessing, unlock " + mQueueLock);
+  if (SHOW_LOGS)   Logger.v(TAG,"resumeQueueProcessing, unlock " + mQueueLock);
   mQueueLock.unlock(outer);
 }

@@ -8,21 +8,17 @@ case INITIALIZED:
         mMediaPlayer.prepare();
         mState.set(State.PREPARED);
         if (mListener != null) {
-          mListener.onVideoPrepared();
+          mMainThreadHandler.post(mOnVideoPreparedMessage);
         }
       }
  catch (      IllegalStateException ex) {
-        if (SHOW_LOGS)         Logger.err(TAG,"catch exception [" + ex + "]");
-        mState.set(State.ERROR);
-        if (mListener != null) {
-          mListener.onError(1,-1004);
-        }
+        throw new RuntimeException(ex);
       }
 catch (      IOException ex) {
         if (SHOW_LOGS)         Logger.err(TAG,"catch IO exception [" + ex + "]");
         mState.set(State.ERROR);
         if (mListener != null) {
-          mListener.onError(1,-1004);
+          mMainThreadHandler.post(mOnErrorWhenPreparingMessage);
         }
       }
     break;

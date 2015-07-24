@@ -1,0 +1,9 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> resetMediaPlayer, mCurrentPlayerState " + mCurrentPlayerState);
+  mPlayerHandler.pauseQueueProcessing(TAG);
+  if (SHOW_LOGS)   Logger.v(TAG,"resetMediaPlayer, mCurrentPlayerState " + mCurrentPlayerState);
+  mPlayerHandler.clearAllPendingMessages(TAG);
+  resetReleaseCurrentPlayer();
+  mPlayerHandler.resumeQueueProcessing(TAG);
+  if (SHOW_LOGS)   Logger.v(TAG,"<< resetMediaPlayer, mCurrentPlayerState " + mCurrentPlayerState);
+}

@@ -1,0 +1,14 @@
+{
+  super.onVisibilityChanged(changedView,visibility);
+  if (SHOW_LOGS)   Logger.v(TAG,">> onVisibilityChanged " + visibilityStr(visibility));
+switch (visibility) {
+case View.VISIBLE:
+    break;
+case View.INVISIBLE:
+case View.GONE:
+synchronized (mReadyForPlaybackIndicator) {
+    mReadyForPlaybackIndicator.notifyAll();
+  }
+}
+if (SHOW_LOGS) Logger.v(TAG,"<< onVisibilityChanged");
+}

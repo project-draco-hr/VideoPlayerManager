@@ -1,5 +1,5 @@
 {
   if (Looper.myLooper() == Looper.getMainLooper()) {
-    throw new RuntimeException("not in main thread");
+    throw new RuntimeException("cannot be in main thread");
   }
 }

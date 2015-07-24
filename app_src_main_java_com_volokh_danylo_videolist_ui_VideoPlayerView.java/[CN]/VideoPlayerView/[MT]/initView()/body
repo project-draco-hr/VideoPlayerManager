@@ -2,5 +2,5 @@
   TAG="" + this;
   if (SHOW_LOGS)   Logger.v(TAG,"initView");
   setScaleType(ScalableTextureView.ScaleType.CENTER_CROP);
-  setSurfaceTextureListener(this);
+  super.setSurfaceTextureListener(this);
 }

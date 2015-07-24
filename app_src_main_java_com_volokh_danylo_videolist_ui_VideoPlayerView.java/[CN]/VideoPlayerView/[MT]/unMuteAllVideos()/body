@@ -1,4 +1,0 @@
-{
-  PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putBoolean(IS_VIDEO_LIST_MUTED,false).commit();
-  checkMute();
-}

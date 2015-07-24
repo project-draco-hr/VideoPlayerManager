@@ -1,0 +1,12 @@
+{
+switch (visibility) {
+case View.VISIBLE:
+    return "VISIBLE";
+case View.INVISIBLE:
+  return "INVISIBLE";
+case View.GONE:
+return "GONE";
+default :
+throw new RuntimeException("unexpected");
+}
+}

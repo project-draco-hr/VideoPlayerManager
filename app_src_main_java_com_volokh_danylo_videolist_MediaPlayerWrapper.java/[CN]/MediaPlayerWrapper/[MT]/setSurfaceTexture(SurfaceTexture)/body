@@ -1,5 +1,6 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> setSurfaceTexture " + surfaceTexture);
+  if (SHOW_LOGS)   Logger.v(TAG,"setSurfaceTexture mSurface " + mSurface);
   if (surfaceTexture != null) {
     mSurface=new Surface(surfaceTexture);
     mMediaPlayer.setSurface(mSurface);

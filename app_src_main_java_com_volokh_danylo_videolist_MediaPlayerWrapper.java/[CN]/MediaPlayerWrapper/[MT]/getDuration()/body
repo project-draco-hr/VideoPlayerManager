@@ -6,6 +6,7 @@ case END:
 case IDLE:
 case INITIALIZED:
 case PREPARING:
+case ERROR:
       duration=0;
     break;
 case PREPARED:
@@ -13,7 +14,6 @@ case STARTED:
 case PAUSED:
 case STOPPED:
 case PLAYBACK_COMPLETED:
-case ERROR:
   duration=mMediaPlayer.getDuration();
 }
 }

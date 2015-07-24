@@ -1,4 +1,4 @@
 {
-  if (SHOW_LOGS)   Logger.v(mTag,"pauseQueueProcessing, lock " + mQueueLock);
+  if (SHOW_LOGS)   Logger.v(TAG,"pauseQueueProcessing, lock " + mQueueLock);
   mQueueLock.lock(outer);
 }

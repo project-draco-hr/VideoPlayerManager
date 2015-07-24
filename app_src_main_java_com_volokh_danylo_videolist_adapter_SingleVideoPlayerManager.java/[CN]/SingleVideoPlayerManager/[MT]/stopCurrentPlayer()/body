@@ -24,7 +24,6 @@ case ERROR:
 mPlayerHandler.addMessage(new Reset(mCurrentPlayer,this));
 case RESETTING:
 case RESET:
-mPlayerHandler.addMessage(new Release(mCurrentPlayer,this));
 case RELEASING:
 case RELEASED:
 mPlayerHandler.addMessage(new ClearPlayerInstance(mCurrentPlayer,this));

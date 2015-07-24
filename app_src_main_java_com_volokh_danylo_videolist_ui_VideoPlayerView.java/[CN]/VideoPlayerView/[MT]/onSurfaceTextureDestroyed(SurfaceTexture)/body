@@ -1,4 +1,17 @@
 {
-  if (SHOW_LOGS)   Logger.v(TAG,"onSurfaceTextureDestroyed");
+  if (SHOW_LOGS)   Logger.v(TAG,"onSurfaceTextureDestroyed, surface " + surface);
+  if (mLocalSurfaceTextureListener != null) {
+    mLocalSurfaceTextureListener.onSurfaceTextureDestroyed(surface);
+  }
+  mViewHandlerBackgroundThread.post(new Runnable(){
+    @Override public void run(){
+synchronized (mReadyForPlaybackIndicator) {
+        mReadyForPlaybackIndicator.setSurfaceTextureAvailable(false);
+        mReadyForPlaybackIndicator.notifyAll();
+      }
+    }
+  }
+);
+  surface.release();
   return false;
 }

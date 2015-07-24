@@ -1,10 +1,10 @@
 {
-  if (SHOW_LOGS)   Logger.v(mTag,">> clearAllPendingMessages, mPlayerMessagesQueue " + mPlayerMessagesQueue);
+  if (SHOW_LOGS)   Logger.v(TAG,">> clearAllPendingMessages, mPlayerMessagesQueue " + mPlayerMessagesQueue);
   if (mQueueLock.isLocked(outer)) {
     mPlayerMessagesQueue.clear();
   }
  else {
     throw new RuntimeException("cannot perform action, you are not holding a lock");
   }
-  if (SHOW_LOGS)   Logger.v(mTag,"<< clearAllPendingMessages, mPlayerMessagesQueue " + mPlayerMessagesQueue);
+  if (SHOW_LOGS)   Logger.v(TAG,"<< clearAllPendingMessages, mPlayerMessagesQueue " + mPlayerMessagesQueue);
 }

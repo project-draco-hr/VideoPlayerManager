@@ -1,4 +1,7 @@
 {
   mVideoStateListener=listener;
-  mMediaPlayer.setVideoStateListener(listener);
+  checkThread();
+synchronized (mReadyForPlaybackIndicator) {
+    mMediaPlayer.setVideoStateListener(listener);
+  }
 }

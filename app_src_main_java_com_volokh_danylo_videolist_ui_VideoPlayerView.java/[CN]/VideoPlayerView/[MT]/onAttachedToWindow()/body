@@ -1,0 +1,7 @@
+{
+  super.onAttachedToWindow();
+  if (SHOW_LOGS)   Logger.v(TAG,">> onAttachedToWindow");
+  mViewHandlerBackgroundThread=new HandlerThreadExtension(TAG,false);
+  mViewHandlerBackgroundThread.startThread();
+  if (SHOW_LOGS)   Logger.v(TAG,"<< onAttachedToWindow");
+}
