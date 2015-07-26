@@ -1,0 +1,8 @@
+{
+  if (mMediaPlayerListenerMainThread != null) {
+    mMediaPlayerListenerMainThread.onVideoPreparedMainThread();
+  }
+  if (mMediaPlayerListenerBackgroundThread != null) {
+    mViewHandlerBackgroundThread.post(mVideoPreparedBackgroundThreadRunnable);
+  }
+}

@@ -1,0 +1,21 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"onErrorMainThread, this " + VideoPlayerView.this);
+switch (what) {
+case MediaPlayer.MEDIA_ERROR_SERVER_DIED:
+    if (SHOW_LOGS)     Logger.v(TAG,"onErrorMainThread, what MEDIA_ERROR_SERVER_DIED");
+  printErrorExtra(extra);
+break;
+case MediaPlayer.MEDIA_ERROR_UNKNOWN:
+if (SHOW_LOGS) Logger.v(TAG,"onErrorMainThread, what MEDIA_ERROR_UNKNOWN");
+printErrorExtra(extra);
+break;
+}
+if (mMediaPlayerListenerBackgroundThread != null) {
+mViewHandlerBackgroundThread.post(new Runnable(){
+@Override public void run(){
+mMediaPlayerListenerBackgroundThread.onErrorBackgroundThread(what,extra);
+}
+}
+);
+}
+}

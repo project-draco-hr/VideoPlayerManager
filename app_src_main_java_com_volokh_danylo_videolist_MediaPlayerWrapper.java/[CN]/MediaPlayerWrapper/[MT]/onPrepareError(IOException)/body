@@ -1,0 +1,17 @@
+{
+  if (SHOW_LOGS)   Logger.err(TAG,"catch IO exception [" + ex + "]");
+  mState.set(State.ERROR);
+  if (mListener != null) {
+    mListener.onErrorMainThread(1,-1004);
+  }
+  if (mListener != null) {
+    mMainThreadHandler.post(new Runnable(){
+      @Override public void run(){
+        if (SHOW_LOGS)         Logger.v(TAG,">> run, onVideoPreparedMainThread");
+        mListener.onErrorMainThread(1,-1004);
+        if (SHOW_LOGS)         Logger.v(TAG,"<< run, onVideoPreparedMainThread");
+      }
+    }
+);
+  }
+}

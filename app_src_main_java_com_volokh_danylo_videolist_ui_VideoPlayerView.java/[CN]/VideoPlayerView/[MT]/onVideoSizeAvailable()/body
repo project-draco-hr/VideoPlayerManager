@@ -1,23 +1,6 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> onVideoSizeAvailable");
   updateTextureViewSize();
-  mViewHandlerBackgroundThread.post(new Runnable(){
-    @Override public void run(){
-      if (SHOW_LOGS)       Logger.v(TAG,">> run, onVideoSizeAvailable");
-synchronized (mReadyForPlaybackIndicator) {
-        if (SHOW_LOGS)         Logger.v(TAG,"onVideoSizeAvailable, mReadyForPlaybackIndicator " + mReadyForPlaybackIndicator);
-        mReadyForPlaybackIndicator.setVideoSize(getContentHeight(),getContentWidth());
-        if (mReadyForPlaybackIndicator.isReadyForPlayback()) {
-          if (SHOW_LOGS)           Logger.v(TAG,"run, onVideoSizeAvailable, notifyAll");
-          mReadyForPlaybackIndicator.notifyAll();
-        }
-        if (SHOW_LOGS)         Logger.v(TAG,"<< run, onVideoSizeAvailable");
-      }
-      if (mMediaPlayerListenerBackgroundThread != null) {
-        mMediaPlayerListenerBackgroundThread.onVideoSizeChangedBackgroundThread(getContentHeight(),getContentWidth());
-      }
-    }
-  }
-);
+  mViewHandlerBackgroundThread.post(mVideoSizeAvailableRunnable);
   if (SHOW_LOGS)   Logger.v(TAG,"<< onVideoSizeAvailable");
 }

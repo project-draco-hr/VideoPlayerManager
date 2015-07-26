@@ -1,0 +1,11 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"onErrorMainThread, what " + what + ", extra "+ extra);
+synchronized (mState) {
+    mState.set(State.ERROR);
+  }
+  stopPositionUpdateNotifier();
+  if (mListener != null) {
+    mListener.onErrorMainThread(what,extra);
+  }
+  return true;
+}

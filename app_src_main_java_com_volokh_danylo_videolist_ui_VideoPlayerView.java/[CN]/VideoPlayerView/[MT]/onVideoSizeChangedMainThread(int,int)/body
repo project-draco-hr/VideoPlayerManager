@@ -1,0 +1,19 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> onVideoSizeChangedMainThread, width " + width + ", height "+ height);
+  if (width != 0 && height != 0) {
+    setContentWidth(width);
+    setContentHeight(height);
+    onVideoSizeAvailable();
+  }
+ else {
+    if (SHOW_LOGS)     Logger.w(TAG,"onVideoSizeChangedMainThread, size 0. Probably will be unable to start video");
+synchronized (mReadyForPlaybackIndicator) {
+      mReadyForPlaybackIndicator.setFailedToPrepareUiForPlayback(true);
+      mReadyForPlaybackIndicator.notifyAll();
+    }
+  }
+  if (mMediaPlayerListenerMainThread != null) {
+    mMediaPlayerListenerMainThread.onVideoSizeChangedMainThread(width,height);
+  }
+  if (SHOW_LOGS)   Logger.v(TAG,"<< onVideoSizeChangedMainThread, width " + width + ", height "+ height);
+}

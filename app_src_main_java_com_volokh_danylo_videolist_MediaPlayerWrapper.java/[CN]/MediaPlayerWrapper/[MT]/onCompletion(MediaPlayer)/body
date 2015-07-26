@@ -1,0 +1,9 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"onVideoCompletion, mState " + mState);
+synchronized (mState) {
+    mState.set(State.PLAYBACK_COMPLETED);
+  }
+  if (mListener != null) {
+    mListener.onVideoCompletionMainThread();
+  }
+}

@@ -15,11 +15,7 @@ case INITIALIZED:
         throw new RuntimeException(ex);
       }
 catch (      IOException ex) {
-        if (SHOW_LOGS)         Logger.err(TAG,"catch IO exception [" + ex + "]");
-        mState.set(State.ERROR);
-        if (mListener != null) {
-          mMainThreadHandler.post(mOnErrorWhenPreparingMessage);
-        }
+        onPrepareError(ex);
       }
     break;
 case IDLE:
