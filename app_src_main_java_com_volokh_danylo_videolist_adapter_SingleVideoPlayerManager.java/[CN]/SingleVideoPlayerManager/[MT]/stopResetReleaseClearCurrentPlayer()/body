@@ -1,12 +1,10 @@
 {
-  if (SHOW_LOGS)   Logger.v(TAG,"stopCurrentPlayer, mCurrentPlayerState " + mCurrentPlayerState + ", mCurrentPlayer "+ mCurrentPlayer);
+  if (SHOW_LOGS)   Logger.v(TAG,"stopResetReleaseClearCurrentPlayer, mCurrentPlayerState " + mCurrentPlayerState + ", mCurrentPlayer "+ mCurrentPlayer);
 switch (mCurrentPlayerState) {
 case SETTING_NEW_PLAYER:
 case IDLE:
 case CREATING_PLAYER_INSTANCE:
 case PLAYER_INSTANCE_CREATED:
-case SETTING_DATA_SOURCE:
-case DATA_SOURCE_SET:
 case CLEARING_PLAYER_INSTANCE:
 case PLAYER_INSTANCE_CLEARED:
     break;
@@ -18,12 +16,15 @@ case STARTED:
 case PAUSING:
 case PAUSED:
   mPlayerHandler.addMessage(new Stop(mCurrentPlayer,this));
+case SETTING_DATA_SOURCE:
+case DATA_SOURCE_SET:
 case STOPPING:
 case STOPPED:
 case ERROR:
 mPlayerHandler.addMessage(new Reset(mCurrentPlayer,this));
 case RESETTING:
 case RESET:
+mPlayerHandler.addMessage(new Release(mCurrentPlayer,this));
 case RELEASING:
 case RELEASED:
 mPlayerHandler.addMessage(new ClearPlayerInstance(mCurrentPlayer,this));

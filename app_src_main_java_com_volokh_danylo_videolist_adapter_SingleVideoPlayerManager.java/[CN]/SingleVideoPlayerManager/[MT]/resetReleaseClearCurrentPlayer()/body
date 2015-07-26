@@ -1,5 +1,5 @@
 {
-  if (SHOW_LOGS)   Logger.v(TAG,"stopCurrentPlayer, mCurrentPlayerState " + mCurrentPlayerState + ", mCurrentPlayer "+ mCurrentPlayer);
+  if (SHOW_LOGS)   Logger.v(TAG,"resetReleaseClearCurrentPlayer, mCurrentPlayerState " + mCurrentPlayerState + ", mCurrentPlayer "+ mCurrentPlayer);
 switch (mCurrentPlayerState) {
 case SETTING_NEW_PLAYER:
 case IDLE:

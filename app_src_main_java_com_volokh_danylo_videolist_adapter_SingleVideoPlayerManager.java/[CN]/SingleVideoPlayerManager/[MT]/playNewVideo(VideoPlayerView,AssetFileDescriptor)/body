@@ -3,7 +3,7 @@
   mPlayerHandler.pauseQueueProcessing(TAG);
   if (SHOW_LOGS)   Logger.v(TAG,"playNewVideo, mCurrentPlayerState " + mCurrentPlayerState);
   mPlayerHandler.clearAllPendingMessages(TAG);
-  stopCurrentPlayer();
+  stopResetReleaseClearCurrentPlayer();
   setNewViewForPlayback(videoPlayerView);
   startPlayback(videoPlayerView,assetFileDescriptor);
   mPlayerHandler.resumeQueueProcessing(TAG);
