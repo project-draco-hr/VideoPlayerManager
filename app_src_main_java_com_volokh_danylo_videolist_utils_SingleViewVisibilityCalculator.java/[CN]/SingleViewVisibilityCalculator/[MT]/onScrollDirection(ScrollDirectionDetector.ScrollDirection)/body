@@ -1,0 +1,4 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"onScrollDirection, scrollDirection " + scrollDirection);
+  mScrollDirection=scrollDirection;
+}

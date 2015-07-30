@@ -1,0 +1,12 @@
+{
+switch (scrollState) {
+case AbsListView.OnScrollListener.SCROLL_STATE_FLING:
+    return "SCROLL_STATE_FLING";
+case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
+  return "SCROLL_STATE_IDLE";
+case AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL:
+return "SCROLL_STATE_TOUCH_SCROLL";
+default :
+throw new RuntimeException("wrong data, scrollState " + scrollState);
+}
+}
