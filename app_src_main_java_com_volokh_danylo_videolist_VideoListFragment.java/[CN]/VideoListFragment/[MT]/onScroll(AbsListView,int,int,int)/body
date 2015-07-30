@@ -1,0 +1,5 @@
+{
+  if (!mList.isEmpty()) {
+    mVideoVisibilityCalculator.calculateItemsVisibility(view,firstVisibleItem,visibleItemCount,mScrollState);
+  }
+}

@@ -11,7 +11,6 @@
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("O_TORVALD_Ne_vona.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Nervy_cofe.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Nervy_kurim.mp4")));
-    mList.add(new DirectLinkVideoItem("https://duw49sogxuf9v.cloudfront.net/d/c/MlYeMAJVR21vBwdhCzE"));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Batman vs Dracula.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("DZIDZIO.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Tyrion speech during trial.mp4")));
@@ -23,7 +22,6 @@
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("O_TORVALD_Ne_vona.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Nervy_cofe.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Nervy_kurim.mp4")));
-    mList.add(new DirectLinkVideoItem("https://duw49sogxuf9v.cloudfront.net/d/c/MlYeMAJVR21vBwdhCzE"));
   }
  catch (  IOException e) {
     throw new RuntimeException(e);
@@ -31,5 +29,6 @@
   View rootView=inflater.inflate(R.layout.fragment_video_list,container,false);
   mListView=(ListView)rootView.findViewById(R.id.list_view);
   mListView.setAdapter(new VideoListAdapter(mVideoPlayerManager,getActivity(),mList));
+  mListView.setOnScrollListener(this);
   return rootView;
 }

@@ -1,0 +1,3 @@
+{
+  mSetVideoPlayerCallback=setVideoPlayerCallback;
+}
