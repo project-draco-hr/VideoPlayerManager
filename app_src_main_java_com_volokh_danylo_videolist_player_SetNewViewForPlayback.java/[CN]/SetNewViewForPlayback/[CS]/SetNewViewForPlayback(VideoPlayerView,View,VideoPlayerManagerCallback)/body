@@ -1,5 +1,6 @@
 {
   super(videoPlayerView,callback);
   mCurrentPlayer=videoPlayerView;
+  mListItemView=listItemView;
   mCallback=callback;
 }

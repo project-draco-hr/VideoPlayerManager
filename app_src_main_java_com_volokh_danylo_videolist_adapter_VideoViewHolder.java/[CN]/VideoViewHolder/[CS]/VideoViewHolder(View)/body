@@ -1,3 +1,4 @@
 {
+  mListItemView=view;
   mPlayer=(VideoPlayerView)view.findViewById(R.id.player);
 }

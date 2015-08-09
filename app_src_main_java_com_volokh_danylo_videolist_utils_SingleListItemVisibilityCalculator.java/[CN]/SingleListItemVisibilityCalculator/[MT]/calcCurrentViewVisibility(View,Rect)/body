@@ -1,0 +1,10 @@
+{
+  if (currentViewRect.top < mEnclosureTop) {
+    int viewInvisibilityPixels=currentViewRect.top;
+    float viewInvisibilityPercents=(float)viewInvisibilityPixels / (float)currentView.getHeight() * 100f;
+    if (SHOW_LOGS)     Logger.v(TAG,"calculateItemsVisibility, viewInvisibilityPercents " + viewInvisibilityPercents);
+    if (CURRENT_LIST_ITEM_MINIMUM_INVISIBILITY_PERCENTS >= viewInvisibilityPercents) {
+      mCurrentViewInvisibleReady=true;
+    }
+  }
+}

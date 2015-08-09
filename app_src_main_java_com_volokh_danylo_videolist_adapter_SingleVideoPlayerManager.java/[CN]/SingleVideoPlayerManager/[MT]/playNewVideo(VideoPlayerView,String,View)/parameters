@@ -1,0 +1,3 @@
+VideoPlayerView videoPlayerView
+String videoUrl
+View listItemView

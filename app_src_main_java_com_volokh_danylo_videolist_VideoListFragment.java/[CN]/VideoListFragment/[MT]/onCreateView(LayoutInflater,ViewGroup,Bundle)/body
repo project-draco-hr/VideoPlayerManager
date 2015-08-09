@@ -1,4 +1,5 @@
 {
+  mVideoVisibilityCalculator.setEnclosureTopBottom(getActivity().getResources().getDisplayMetrics().heightPixels,0);
   try {
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Batman vs Dracula.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("DZIDZIO.mp4")));
@@ -10,7 +11,6 @@
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Batman vs Dracula.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("O_TORVALD_Ne_vona.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Nervy_cofe.mp4")));
-    mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Nervy_kurim.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Batman vs Dracula.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("DZIDZIO.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Tyrion speech during trial.mp4")));
@@ -21,7 +21,6 @@
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Batman vs Dracula.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("O_TORVALD_Ne_vona.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Nervy_cofe.mp4")));
-    mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Nervy_kurim.mp4")));
   }
  catch (  IOException e) {
     throw new RuntimeException(e);

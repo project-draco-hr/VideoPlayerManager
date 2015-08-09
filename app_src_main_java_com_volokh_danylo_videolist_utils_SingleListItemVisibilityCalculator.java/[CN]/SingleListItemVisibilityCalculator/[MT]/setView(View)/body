@@ -1,7 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.v(TAG,">> setView");
-synchronized (mCurrentView) {
-    mCurrentView.set(view);
-  }
-  if (SHOW_LOGS)   Logger.v(TAG,"<< setView");
-}
