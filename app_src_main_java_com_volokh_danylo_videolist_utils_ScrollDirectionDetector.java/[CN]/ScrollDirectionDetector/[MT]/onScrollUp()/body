@@ -1,0 +1,9 @@
+{
+  if (mOldScrollDirection != ScrollDirection.UP) {
+    mOldScrollDirection=ScrollDirection.UP;
+    mOnDetectScrollListener.onScrollDirectionChanged(ScrollDirection.UP);
+  }
+ else {
+    if (SHOW_LOGS)     Logger.v(TAG,"onDetectedListScroll, scroll state not changed " + mOldScrollDirection);
+  }
+}
