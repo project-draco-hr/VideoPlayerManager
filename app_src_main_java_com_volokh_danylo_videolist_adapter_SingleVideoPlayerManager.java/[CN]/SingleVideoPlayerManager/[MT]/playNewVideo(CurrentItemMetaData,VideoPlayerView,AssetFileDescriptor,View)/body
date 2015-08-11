@@ -1,0 +1,11 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> playNewVideo, videoPlayer " + videoPlayerView + ", mCurrentPlayer "+ mCurrentPlayer+ ", assetFileDescriptor "+ assetFileDescriptor);
+  mPlayerHandler.pauseQueueProcessing(TAG);
+  if (SHOW_LOGS)   Logger.v(TAG,"playNewVideo, mCurrentPlayerState " + mCurrentPlayerState);
+  mPlayerHandler.clearAllPendingMessages(TAG);
+  stopResetReleaseClearCurrentPlayer();
+  setNewViewForPlayback(currentItemMetaData,videoPlayerView,listItemView);
+  startPlayback(videoPlayerView,assetFileDescriptor);
+  mPlayerHandler.resumeQueueProcessing(TAG);
+  if (SHOW_LOGS)   Logger.v(TAG,"<< playNewVideo, videoPlayer " + videoPlayerView + ", assetFileDescriptor "+ assetFileDescriptor);
+}

@@ -3,7 +3,9 @@
 synchronized (mState) {
     mState.set(State.ERROR);
   }
-  stopPositionUpdateNotifier();
+  if (positionUpdaterIsWorking()) {
+    stopPositionUpdateNotifier();
+  }
   if (mListener != null) {
     mListener.onErrorMainThread(what,extra);
   }

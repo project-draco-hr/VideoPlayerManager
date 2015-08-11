@@ -1,0 +1,15 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"calcNextViewVisibility, mActiveAreaBottom " + mActiveAreaBottom);
+  Rect nextViewRect=new Rect();
+  nextView.getLocalVisibleRect(nextViewRect);
+  if (nextViewRect.bottom > mActiveAreaBottom) {
+    int nextViewVisibilityPixels=nextViewRect.bottom;
+    float nextViewVisibilityPercents=((float)nextViewVisibilityPixels / (float)nextView.getHeight()) * 100f;
+    if (SHOW_LOGS)     Logger.v(TAG,"calcNextViewVisibility, nextViewRect " + nextViewRect);
+    if (SHOW_LOGS)     Logger.v(TAG,"calcNextViewVisibility, nextViewVisibilityPercents " + nextViewVisibilityPercents);
+  }
+ else {
+    int nextViewVisibilityPixels=nextViewRect.bottom;
+    if (SHOW_LOGS)     Logger.v(TAG,"calcNextViewVisibility, nextViewVisibilityPixels " + nextViewVisibilityPixels);
+  }
+}

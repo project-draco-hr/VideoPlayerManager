@@ -1,5 +1,0 @@
-{
-  VideoViewHolder viewHolder=(VideoViewHolder)view.getTag();
-  videoPlayerManager.playNewVideo(viewHolder.mPlayer,mAssetFileDescriptor,viewHolder.mListItemView);
-  return view;
-}

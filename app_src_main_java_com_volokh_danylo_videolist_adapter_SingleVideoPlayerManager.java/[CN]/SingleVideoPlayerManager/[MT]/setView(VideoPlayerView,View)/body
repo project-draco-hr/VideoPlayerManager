@@ -1,6 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.v(TAG,">> setView");
-  mCurrentPlayer=videoPlayerView;
-  mSetVideoPlayerCallback.setView(videoPlayerView,listItemView);
-  if (SHOW_LOGS)   Logger.v(TAG,"<< setView");
-}

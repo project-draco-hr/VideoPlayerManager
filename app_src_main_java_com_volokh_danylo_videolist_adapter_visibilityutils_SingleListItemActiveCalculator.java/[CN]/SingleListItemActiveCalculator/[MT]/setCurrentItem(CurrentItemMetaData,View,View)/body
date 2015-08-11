@@ -1,0 +1,7 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> setCurrentItem, currentItemMetaData " + currentItemMetaData);
+synchronized (mCurrentItem) {
+    mCurrentItem.set(new CurrentItem(currentItemMetaData.indexOfCurrentItem,listItemView));
+  }
+  if (SHOW_LOGS)   Logger.v(TAG,"<< setCurrentItem");
+}

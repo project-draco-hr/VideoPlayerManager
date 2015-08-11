@@ -1,0 +1,5 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"setActionAreaTopBottom, top " + top + ", bottom "+ bottom);
+  mActiveAreaTop=top;
+  mActiveAreaBottom=bottom;
+}

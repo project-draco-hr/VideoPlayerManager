@@ -1,0 +1,16 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> calculateItemsVisibility");
+  if (SHOW_LOGS)   Logger.v(TAG,"calculateItemsVisibility, firstVisibleItem " + firstVisibleItem + ", visibleItemCount "+ visibleItemCount+ ", scrollState "+ scrollStateStr(scrollState));
+  mScrollDirectionDetector.onDetectedListScroll(listView,firstVisibleItem);
+  if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+    CurrentItem currentItem=mCurrentItem.get();
+    if (SHOW_LOGS)     Logger.v(TAG,"calculateItemsVisibility, mScrollDirection " + mScrollDirection);
+switch (mScrollDirection) {
+case UP:
+      break;
+case DOWN:
+    break;
+}
+}
+if (SHOW_LOGS) Logger.v(TAG,"<< calculateItemsVisibility");
+}

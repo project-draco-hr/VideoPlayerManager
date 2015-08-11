@@ -1,8 +1,22 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> reset , mState " + mState);
 synchronized (mState) {
-    mMediaPlayer.reset();
+switch (mState.get()) {
+case IDLE:
+case INITIALIZED:
+case PREPARED:
+case STARTED:
+case PAUSED:
+case STOPPED:
+case PLAYBACK_COMPLETED:
+case ERROR:
+      mMediaPlayer.reset();
     mState.set(State.IDLE);
-  }
-  if (SHOW_LOGS)   Logger.v(TAG,"<< reset , mState " + mState);
+  break;
+case PREPARING:
+case END:
+throw new IllegalStateException("cannot call reset from state " + mState.get());
+}
+}
+if (SHOW_LOGS) Logger.v(TAG,"<< reset , mState " + mState);
 }

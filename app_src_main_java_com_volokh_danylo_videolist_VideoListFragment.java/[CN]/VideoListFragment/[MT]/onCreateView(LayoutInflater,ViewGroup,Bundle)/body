@@ -1,5 +1,5 @@
 {
-  mVideoVisibilityCalculator.setEnclosureTopBottom(getActivity().getResources().getDisplayMetrics().heightPixels,0);
+  mVideoVisibilityCalculator.setActionAreaTopBottom(getActivity().getResources().getDisplayMetrics().heightPixels,0);
   try {
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("Batman vs Dracula.mp4")));
     mList.add(new LocalVideoItem(getActivity().getAssets().openFd("DZIDZIO.mp4")));

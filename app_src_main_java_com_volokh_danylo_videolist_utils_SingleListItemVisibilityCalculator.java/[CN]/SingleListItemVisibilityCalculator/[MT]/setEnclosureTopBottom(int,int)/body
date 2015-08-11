@@ -1,5 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.v(TAG,"setEnclosureTopBottom, top " + top + ", bottom "+ bottom);
-  mEnclosureTop=top;
-  mEnclosureBottom=bottom;
-}

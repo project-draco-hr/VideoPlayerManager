@@ -1,7 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.v(TAG,">> setView");
-synchronized (mCurrentView) {
-    mCurrentView.set(listItemView);
-  }
-  if (SHOW_LOGS)   Logger.v(TAG,"<< setView");
-}
