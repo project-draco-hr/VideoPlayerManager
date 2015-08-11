@@ -7,9 +7,13 @@
     if (SHOW_LOGS)     Logger.v(TAG,"calculateItemsVisibility, mScrollDirection " + mScrollDirection);
 switch (mScrollDirection) {
 case UP:
-      break;
+      ListItem current=mListItems.get(currentItem.index);
+    if (SHOW_LOGS)     Logger.v(TAG,"calculateItemsVisibility, current " + current);
+  int currentItemVisibilityPercents=current.getVisibilityPercents(currentItem.view);
+int previousItemVisibilityPercents=getPreviousItemVisibilityPercents(listView,currentItem);
+break;
 case DOWN:
-    break;
+break;
 }
 }
 if (SHOW_LOGS) Logger.v(TAG,"<< calculateItemsVisibility");

@@ -1,3 +1,9 @@
 {
+  if (SHOW_LOGS)   Logger.v(TAG,">> getVisibilityPercents currentView " + currentView);
+  Rect currentViewRect=new Rect();
+  currentView.getLocalVisibleRect(currentViewRect);
+  if (SHOW_LOGS)   Logger.v(TAG,"getVisibilityPercents currentViewRect " + currentViewRect);
+  int height=currentView.getHeight();
+  if (SHOW_LOGS)   Logger.v(TAG,"getVisibilityPercents height " + height);
   return 0;
 }

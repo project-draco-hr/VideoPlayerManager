@@ -3,15 +3,17 @@
   if (mLocalSurfaceTextureListener != null) {
     mLocalSurfaceTextureListener.onSurfaceTextureDestroyed(surface);
   }
-  mViewHandlerBackgroundThread.post(new Runnable(){
-    @Override public void run(){
+  if (isAttachedToWindow()) {
+    mViewHandlerBackgroundThread.post(new Runnable(){
+      @Override public void run(){
 synchronized (mReadyForPlaybackIndicator) {
-        mReadyForPlaybackIndicator.setSurfaceTextureAvailable(false);
-        mReadyForPlaybackIndicator.notifyAll();
+          mReadyForPlaybackIndicator.setSurfaceTextureAvailable(false);
+          mReadyForPlaybackIndicator.notifyAll();
+        }
       }
     }
-  }
 );
+  }
   surface.release();
   return false;
 }
