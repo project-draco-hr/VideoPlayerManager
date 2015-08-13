@@ -1,0 +1,8 @@
+{
+  ListItem current=mListItems.get(currentItem.index);
+  if (SHOW_LOGS)   Logger.v(TAG,"handleScrollUp, current " + current);
+  int currentItemVisibilityPercents=current.getVisibilityPercents(currentItem.view);
+  int previousItemVisibilityPercents=getPreviousItemVisibilityPercents(listView,currentItem);
+  if (SHOW_LOGS)   Logger.v(TAG,"handleScrollUp, currentItemVisibilityPercents " + currentItemVisibilityPercents);
+  if (SHOW_LOGS)   Logger.v(TAG,"handleScrollUp, previousItemVisibilityPercents " + previousItemVisibilityPercents);
+}

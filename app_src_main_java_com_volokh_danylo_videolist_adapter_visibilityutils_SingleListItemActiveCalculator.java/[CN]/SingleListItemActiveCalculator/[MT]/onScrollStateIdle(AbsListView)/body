@@ -4,18 +4,14 @@
   if (currentItem != null) {
 switch (mScrollDirection) {
 case UP:
-      ListItem current=mListItems.get(currentItem.index);
-    if (SHOW_LOGS)     Logger.v(TAG,"onScroll, current " + current);
-  int currentItemVisibilityPercents=current.getVisibilityPercents(currentItem.view);
-int previousItemVisibilityPercents=getPreviousItemVisibilityPercents(listView,currentItem);
-break;
+      handleScrollUp(listView,currentItem);
+    break;
 case DOWN:
+  handleScrollDown(listView,currentItem);
 break;
 }
 }
  else {
-ListItem current=mListItems.get(0);
-View currentView=listView.getChildAt(0);
-mCallback.onNewListItemActive(current,currentView,0);
+if (SHOW_LOGS) Logger.v(TAG,"onScrollStateIdle, currentItem null. Do nothing");
 }
 }

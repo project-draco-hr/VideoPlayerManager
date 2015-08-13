@@ -1,6 +1,7 @@
 {
   int previousItemVisibilityPercents=0;
   int previousItemIndex=currentItem.index - 1;
+  if (SHOW_LOGS)   Logger.v(TAG,"getPreviousItemVisibilityPercents, previousItemIndex " + previousItemIndex);
   if (previousItemIndex >= 0) {
     int indexOfCurrentView=listView.indexOfChild(currentItem.view);
     if (SHOW_LOGS)     Logger.v(TAG,"getPreviousItemVisibilityPercents, indexOfCurrentView " + indexOfCurrentView);
