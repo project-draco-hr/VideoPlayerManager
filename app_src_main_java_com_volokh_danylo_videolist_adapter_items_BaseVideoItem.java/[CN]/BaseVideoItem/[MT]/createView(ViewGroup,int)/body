@@ -1,7 +1,7 @@
 {
   View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.video_item,parent,false);
   ViewGroup.LayoutParams layoutParams=view.getLayoutParams();
-  layoutParams.height=screenWidth;
+  layoutParams.height=screenWidth + 10;
   layoutParams.width=screenWidth;
   view.setTag(new VideoViewHolder(view));
   return view;

@@ -1,0 +1,3 @@
+{
+  return mCurrentViewRect.top > 0;
+}

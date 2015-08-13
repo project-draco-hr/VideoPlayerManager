@@ -1,0 +1,11 @@
+{
+  super.onResume();
+  if (!mList.isEmpty()) {
+    mListView.post(new Runnable(){
+      @Override public void run(){
+        mVideoVisibilityCalculator.onScrollStateIdle(mListView);
+      }
+    }
+);
+  }
+}
