@@ -1,0 +1,5 @@
+{
+  ListItem current=mListItems.get(listItemData.getIndex());
+  if (SHOW_LOGS)   Logger.v(TAG,"getCurrentItemVisibilityPercents, current " + current);
+  return current.getVisibilityPercents(listItemData.getView());
+}

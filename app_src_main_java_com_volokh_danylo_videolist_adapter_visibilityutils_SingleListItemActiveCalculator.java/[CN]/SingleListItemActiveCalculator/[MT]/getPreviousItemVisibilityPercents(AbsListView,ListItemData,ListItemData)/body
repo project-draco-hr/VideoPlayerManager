@@ -1,0 +1,22 @@
+{
+  int previousItemVisibilityPercents=0;
+  int previousItemIndex=listItemData.getIndex() - 1;
+  View previousView=null;
+  if (SHOW_LOGS)   Logger.v(TAG,"getPreviousItemVisibilityPercents, previousItemIndex " + previousItemIndex);
+  if (previousItemIndex >= 0) {
+    int indexOfCurrentView=listView.indexOfChild(listItemData.getView());
+    if (SHOW_LOGS)     Logger.v(TAG,"getPreviousItemVisibilityPercents, indexOfCurrentView " + indexOfCurrentView);
+    if (indexOfCurrentView > 0) {
+      previousView=listView.getChildAt(indexOfCurrentView - 1);
+      ListItem previous=mListItems.get(previousItemIndex);
+      if (SHOW_LOGS)       Logger.v(TAG,"getPreviousItemVisibilityPercents, previous " + previous + ", previousView "+ previousView);
+      previousItemVisibilityPercents=previous.getVisibilityPercents(previousView);
+    }
+ else {
+      if (SHOW_LOGS)       Logger.v(TAG,"getPreviousItemVisibilityPercents, current view is no longer attached to listView");
+    }
+  }
+  if (SHOW_LOGS)   Logger.v(TAG,"getPreviousItemVisibilityPercents, result " + previousItemVisibilityPercents);
+  neighbourItemData.fillWithData(previousItemIndex,previousView);
+  return previousItemVisibilityPercents;
+}

@@ -1,0 +1,5 @@
+{
+  boolean enoughPercentsForDeactivation=visibilityPercents <= INACTIVE_LIST_ITEM_VISIBILITY_PERCENTS;
+  if (SHOW_LOGS)   Logger.v(TAG,"enoughPercentsForDeactivation " + enoughPercentsForDeactivation);
+  return enoughPercentsForDeactivation;
+}

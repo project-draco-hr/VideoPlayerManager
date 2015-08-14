@@ -1,13 +1,6 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> onStateTouchScroll, mScrollDirection " + mScrollDirection);
-  CurrentItem currentItem=mCurrentItem.get();
-switch (mScrollDirection) {
-case UP:
-    handleScrollUp(listView,currentItem);
-  break;
-case DOWN:
-handleScrollDown(listView,currentItem);
-break;
-}
-if (SHOW_LOGS) Logger.v(TAG,"<< onStateTouchScroll, mScrollDirection " + mScrollDirection);
+  ListItemData listItemData=mCurrentItem.get();
+  calculateActiveItem(listView,listItemData);
+  if (SHOW_LOGS)   Logger.v(TAG,"<< onStateTouchScroll, mScrollDirection " + mScrollDirection);
 }

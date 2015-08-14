@@ -1,0 +1,3 @@
+{
+  videoPlayerManager.stopAnyPlayback();
+}

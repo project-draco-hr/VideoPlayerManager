@@ -1,3 +1,0 @@
-{
-  newListItem.setActive(currentView,position);
-}

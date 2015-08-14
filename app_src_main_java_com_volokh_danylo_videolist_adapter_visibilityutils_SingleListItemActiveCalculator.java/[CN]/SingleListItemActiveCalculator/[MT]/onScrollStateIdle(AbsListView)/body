@@ -1,17 +1,10 @@
 {
-  CurrentItem currentItem=mCurrentItem.get();
-  if (SHOW_LOGS)   Logger.v(TAG,"onScrollStateIdle, currentItem " + currentItem);
-  if (currentItem != null) {
-switch (mScrollDirection) {
-case UP:
-      handleScrollUp(listView,currentItem);
-    break;
-case DOWN:
-  handleScrollDown(listView,currentItem);
-break;
-}
-}
+  ListItemData listItemData=mCurrentItem.get();
+  if (SHOW_LOGS)   Logger.v(TAG,"onScrollStateIdle, listItemData " + listItemData);
+  if (listItemData != null) {
+    calculateActiveItem(listView,listItemData);
+  }
  else {
-if (SHOW_LOGS) Logger.v(TAG,"onScrollStateIdle, currentItem null. Do nothing");
-}
+    if (SHOW_LOGS)     Logger.v(TAG,"onScrollStateIdle, listItemData null. Do nothing");
+  }
 }

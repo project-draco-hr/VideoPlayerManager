@@ -1,0 +1,5 @@
+{
+  boolean itemIsInvisible=currentItemVisibilityPercents == 0;
+  if (SHOW_LOGS)   Logger.v(TAG,"itemIsInvisible " + itemIsInvisible);
+  return itemIsInvisible;
+}
