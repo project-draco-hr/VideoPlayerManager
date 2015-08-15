@@ -1,4 +1,5 @@
 {
   super(videoPlayerManager);
   mAssetFileDescriptor=assetFileDescriptor;
+  mTitle=title;
 }

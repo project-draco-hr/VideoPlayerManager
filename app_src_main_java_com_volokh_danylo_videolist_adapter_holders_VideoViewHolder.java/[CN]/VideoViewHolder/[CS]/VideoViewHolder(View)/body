@@ -1,4 +1,5 @@
 {
   mListItemView=view;
   mPlayer=(VideoPlayerView)view.findViewById(R.id.player);
+  mTitle=(TextView)view.findViewById(R.id.title);
 }

@@ -1,0 +1,5 @@
+{
+  boolean isAvailable=mIndexInAdapter != null && mView != null;
+  if (SHOW_LOGS)   Logger.v(TAG,"isAvailable " + isAvailable);
+  return isAvailable;
+}

@@ -1,22 +1,17 @@
 {
-  int currentItemVisibilityPercents=getCurrentItemVisibilityPercents(listItemData);
+  int currentItemVisibilityPercents=listItemData.getVisibilityPercents(mListItems);
   if (SHOW_LOGS)   Logger.v(TAG,"calculateActiveItem, mScrollDirection " + mScrollDirection);
-  int neighbourItemVisibilityPercents=0;
   ListItemData neighbourItemData=new ListItemData();
 switch (mScrollDirection) {
 case UP:
-    neighbourItemVisibilityPercents=getPreviousItemVisibilityPercents(listView,listItemData,neighbourItemData);
+    findPreviousItem(listView,listItemData,neighbourItemData);
   break;
 case DOWN:
-neighbourItemVisibilityPercents=getNextItemVisibilityPercents(listView,listItemData,neighbourItemData);
+findNextItem(listView,listItemData,neighbourItemData);
 break;
 }
 if (SHOW_LOGS) Logger.v(TAG,"calculateActiveItem, currentItemVisibilityPercents " + currentItemVisibilityPercents);
-if (SHOW_LOGS) Logger.v(TAG,"calculateActiveItem, neighbourItemVisibilityPercents " + neighbourItemVisibilityPercents);
-if (itemIsInvisible(currentItemVisibilityPercents)) {
-mCallback.onDeactivateCurrentItem(mListItems.get(listItemData.getIndex()),listItemData.getView(),listItemData.getIndex());
-}
-if (enoughPercentsForDeactivation(currentItemVisibilityPercents) && enoughPercentsForActivation(neighbourItemVisibilityPercents)) {
+if (enoughPercentsForDeactivation(currentItemVisibilityPercents) && neighbourItemData.isAvailable()) {
 mCallback.onActivateNewCurrentItem(mListItems.get(neighbourItemData.getIndex()),neighbourItemData.getView(),neighbourItemData.getIndex());
 }
 }

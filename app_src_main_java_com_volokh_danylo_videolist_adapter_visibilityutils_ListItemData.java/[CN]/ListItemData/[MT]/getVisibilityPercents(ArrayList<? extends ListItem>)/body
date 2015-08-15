@@ -1,0 +1,5 @@
+{
+  int visibilityPercents=listItems.get(getIndex()).getVisibilityPercents(getView());
+  if (SHOW_LOGS)   Logger.v(TAG,"getVisibilityPercents, visibilityPercents " + visibilityPercents);
+  return visibilityPercents;
+}

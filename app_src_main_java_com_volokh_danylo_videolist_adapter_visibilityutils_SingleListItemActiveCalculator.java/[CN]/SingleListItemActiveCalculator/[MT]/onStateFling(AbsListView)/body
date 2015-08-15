@@ -1,2 +1,4 @@
 {
+  ListItemData currentItemData=mCurrentItem.get();
+  mCallback.onDeactivateCurrentItem(mListItems.get(currentItemData.getIndex()),currentItemData.getView(),currentItemData.getIndex());
 }

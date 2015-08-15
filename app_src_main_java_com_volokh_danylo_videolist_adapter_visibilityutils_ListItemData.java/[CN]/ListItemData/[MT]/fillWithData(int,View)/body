@@ -1,5 +1,5 @@
 {
-  mIndex=index;
+  mIndexInAdapter=indexInAdapter;
   mView=view;
   return this;
 }

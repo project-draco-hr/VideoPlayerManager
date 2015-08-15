@@ -1,3 +1,5 @@
 {
+  VideoViewHolder viewHolder=(VideoViewHolder)view.getTag();
+  viewHolder.mTitle.setText(mTitle);
   return view;
 }

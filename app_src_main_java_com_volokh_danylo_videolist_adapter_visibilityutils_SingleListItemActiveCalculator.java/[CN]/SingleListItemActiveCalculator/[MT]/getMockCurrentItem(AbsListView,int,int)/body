@@ -1,0 +1,15 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"getMockCurrentItem, mScrollDirection " + mScrollDirection);
+  ListItemData mockCurrentItemData;
+switch (mScrollDirection) {
+case UP:
+    mockCurrentItemData=new ListItemData().fillWithData(lastVisiblePosition,listView.getChildAt(listView.getChildCount() - 1));
+  break;
+case DOWN:
+mockCurrentItemData=new ListItemData().fillWithData(firstVisiblePosition,listView.getChildAt(0));
+break;
+default :
+throw new RuntimeException("not handled mScrollDirection " + mScrollDirection);
+}
+return mockCurrentItemData;
+}

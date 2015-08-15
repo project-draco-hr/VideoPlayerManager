@@ -1,2 +1,2 @@
-Callback callback
+Callback<ListItem> callback
 ArrayList<? extends ListItem> listItems

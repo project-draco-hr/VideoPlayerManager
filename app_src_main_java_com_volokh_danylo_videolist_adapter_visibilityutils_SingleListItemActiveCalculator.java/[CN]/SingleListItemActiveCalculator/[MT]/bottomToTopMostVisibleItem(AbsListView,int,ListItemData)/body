@@ -1,0 +1,16 @@
+{
+  int mostVisibleItemVisibilityPercents=maxVisibilityPercents;
+  int currentItemVisibilityPercents;
+  for (int indexOfCurrentItem=listView.getLastVisiblePosition(), indexOfCurrentView=listView.indexOfChild(outMostVisibleItem.getView()); indexOfCurrentView >= 0; indexOfCurrentItem--, indexOfCurrentView--) {
+    if (SHOW_LOGS)     Logger.v(TAG,"bottomToTopMostVisibleItem, indexOfCurrentView " + indexOfCurrentView);
+    ListItem listItem=mListItems.get(indexOfCurrentItem);
+    View currentView=listView.getChildAt(indexOfCurrentView);
+    currentItemVisibilityPercents=listItem.getVisibilityPercents(currentView);
+    if (SHOW_LOGS)     Logger.v(TAG,"bottomToTopMostVisibleItem, currentItemVisibilityPercents " + currentItemVisibilityPercents);
+    if (currentItemVisibilityPercents >= mostVisibleItemVisibilityPercents) {
+      mostVisibleItemVisibilityPercents=currentItemVisibilityPercents;
+      outMostVisibleItem.fillWithData(indexOfCurrentItem,currentView);
+    }
+  }
+  if (SHOW_LOGS)   Logger.v(TAG,"bottomToTopMostVisibleItem, outMostVisibleItem " + outMostVisibleItem);
+}
