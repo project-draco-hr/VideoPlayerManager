@@ -1,0 +1,7 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"tearDown");
+  mMediaPlayer=null;
+  mMediaPlayerWrapper=null;
+  mHandlerThread.postQuit();
+  mHandlerThread=null;
+}

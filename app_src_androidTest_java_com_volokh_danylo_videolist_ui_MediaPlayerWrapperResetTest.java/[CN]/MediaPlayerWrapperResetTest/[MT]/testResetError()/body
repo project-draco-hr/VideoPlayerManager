@@ -1,0 +1,6 @@
+{
+  mMediaPlayer.failWithError();
+  assertEquals(MediaPlayerWrapper.State.ERROR,mMediaPlayerWrapper.getCurrentState());
+  mMediaPlayerWrapper.reset();
+  assertEquals(MediaPlayerWrapper.State.IDLE,mMediaPlayerWrapper.getCurrentState());
+}

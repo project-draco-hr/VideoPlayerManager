@@ -1,0 +1,23 @@
+{
+  mHandlerThread.post(new Runnable(){
+    @Override public void run(){
+      if (SHOW_LOGS)       Logger.v(TAG,"run " + Looper.myLooper());
+      Exception exception=null;
+      try {
+        mMediaPlayer=new MediaPlayerWrapperTest.MockMediaPlayer();
+        mMediaPlayerWrapper=new MediaPlayerWrapperTest.MockMediaPlayerWrapper(mMediaPlayer);
+      }
+ catch (      RuntimeException e) {
+        exception=e;
+      }
+      assertNotNull(exception);
+synchronized (mSyncObject) {
+        mSyncObject.notify();
+      }
+    }
+  }
+);
+synchronized (mSyncObject) {
+    mSyncObject.wait();
+  }
+}

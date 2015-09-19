@@ -1,0 +1,11 @@
+{
+  MediaPlayerWrapper.State state=null;
+  try {
+    mMediaPlayerWrapper.prepare();
+  }
+ catch (  IllegalStateException e) {
+    assertEquals(previousState,mMediaPlayerWrapper.getCurrentState());
+    state=previousState;
+  }
+  assertEquals(previousState,state);
+}

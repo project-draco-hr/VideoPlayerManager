@@ -1,0 +1,6 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"tearDown");
+  mMediaPlayerWrapper=null;
+  mExecutorService.shutdown();
+  mExecutorService=null;
+}

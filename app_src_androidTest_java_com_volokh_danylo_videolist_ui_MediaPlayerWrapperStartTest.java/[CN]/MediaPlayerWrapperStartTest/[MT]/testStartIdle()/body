@@ -1,0 +1,4 @@
+{
+  assertEquals(MediaPlayerWrapper.State.IDLE,mMediaPlayerWrapper.getCurrentState());
+  tryToFailStart(MediaPlayerWrapper.State.IDLE);
+}

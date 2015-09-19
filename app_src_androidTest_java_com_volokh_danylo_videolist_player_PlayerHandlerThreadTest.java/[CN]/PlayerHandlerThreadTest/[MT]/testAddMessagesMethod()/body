@@ -1,0 +1,15 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> testAddMessageMethod, mMessagesProcessed " + mMessagesProcessed);
+  List<Message> listToAdd=new ArrayList<>();
+  for (int messageCount=0; messageCount < MESSAGES_COUNT; messageCount++) {
+    listToAdd.add(new TestMessage());
+  }
+  mPlayerHandler.addMessages(listToAdd);
+  mPlayerHandler.addMessage(new LastTestMessage());
+synchronized (mSync) {
+    mSync.wait();
+  }
+  assertEquals(MESSAGES_COUNT,mMessagesProcessed);
+  assertEquals(MESSAGES_COUNT,mMessagesPolledFromQueue);
+  assertEquals(MESSAGES_COUNT,mMessagesFinished);
+}

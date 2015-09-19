@@ -1,0 +1,7 @@
+{
+  mMediaPlayerWrapper.setDataSource("");
+  mMediaPlayerWrapper.prepare();
+  mMediaPlayerWrapper.start();
+  mMediaPlayerWrapper.stop();
+  tryToFailSetDataSource(MediaPlayerWrapper.State.STOPPED);
+}

@@ -1,0 +1,5 @@
+{
+  mMediaPlayer.complete();
+  assertEquals(MediaPlayerWrapper.State.PLAYBACK_COMPLETED,mMediaPlayerWrapper.getCurrentState());
+  tryToFailSetDataSource(MediaPlayerWrapper.State.PLAYBACK_COMPLETED);
+}

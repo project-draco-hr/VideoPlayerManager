@@ -1,0 +1,5 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"setUp");
+  mMediaPlayer=new MediaPlayerWrapperTest.MockMediaPlayer();
+  mMediaPlayerWrapper=new MediaPlayerWrapperTest.MockMediaPlayerWrapper(mMediaPlayer);
+}

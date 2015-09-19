@@ -1,0 +1,6 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"setUp");
+  mExecutorService=Executors.newSingleThreadExecutor();
+  mMediaPlayerWrapper=new MediaPlayerWrapperTest.MockMediaPlayerWrapper(new MediaPlayerWrapperTest.MockMediaPlayer());
+  mMediaPlayerWrapper.setMainThreadMediaPlayerListener(mMainThreadMediaPlayerListener);
+}

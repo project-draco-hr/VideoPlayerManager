@@ -1,0 +1,7 @@
+{
+  mMediaPlayerWrapper.setDataSource(new AssetFileDescriptor(ParcelFileDescriptor.adoptFd(0),0,0));
+  mMediaPlayerWrapper.prepare();
+  assertEquals(MediaPlayerWrapper.State.PREPARED,mMediaPlayerWrapper.getCurrentState());
+  mMediaPlayerWrapper.stop();
+  assertEquals(MediaPlayerWrapper.State.STOPPED,mMediaPlayerWrapper.getCurrentState());
+}

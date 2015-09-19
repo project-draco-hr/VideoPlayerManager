@@ -4,7 +4,7 @@
   if (SHOW_LOGS)   Logger.v(TAG,"createNewPlayerInstance my Looper " + Looper.myLooper());
   checkThread();
 synchronized (mReadyForPlaybackIndicator) {
-    mMediaPlayer=new MediaPlayerWrapper();
+    mMediaPlayer=new MediaPlayerWrapperImpl();
     mReadyForPlaybackIndicator.setVideoSize(null,null);
     mReadyForPlaybackIndicator.setFailedToPrepareUiForPlayback(false);
     if (mReadyForPlaybackIndicator.isSurfaceTextureAvailable()) {

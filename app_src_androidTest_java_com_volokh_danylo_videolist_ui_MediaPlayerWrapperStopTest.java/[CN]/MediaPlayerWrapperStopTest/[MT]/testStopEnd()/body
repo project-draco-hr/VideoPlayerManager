@@ -1,0 +1,5 @@
+{
+  mMediaPlayerWrapper.release();
+  assertEquals(MediaPlayerWrapper.State.END,mMediaPlayerWrapper.getCurrentState());
+  tryToFailStop(MediaPlayerWrapper.State.END);
+}
