@@ -1,0 +1,25 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> onDetectedListScroll, firstVisibleItem " + firstVisibleItem + ", mOldFirstVisibleItem "+ mOldFirstVisibleItem);
+  View view=itemsPositionGetter.getChildAt(0);
+  int top=(view == null) ? 0 : view.getTop();
+  if (SHOW_LOGS)   Logger.v(TAG,"onDetectedListScroll, view " + view + ", top "+ top+ ", mOldTop "+ mOldTop);
+  if (firstVisibleItem == mOldFirstVisibleItem) {
+    if (top > mOldTop) {
+      onScrollUp();
+    }
+ else     if (top < mOldTop) {
+      onScrollDown();
+    }
+  }
+ else {
+    if (firstVisibleItem < mOldFirstVisibleItem) {
+      onScrollUp();
+    }
+ else {
+      onScrollDown();
+    }
+  }
+  mOldTop=top;
+  mOldFirstVisibleItem=firstVisibleItem;
+  if (SHOW_LOGS)   Logger.v(TAG,"<< onDetectedListScroll");
+}

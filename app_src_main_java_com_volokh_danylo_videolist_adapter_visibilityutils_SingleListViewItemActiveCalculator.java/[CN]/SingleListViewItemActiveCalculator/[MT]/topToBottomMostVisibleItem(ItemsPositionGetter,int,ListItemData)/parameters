@@ -1,0 +1,3 @@
+ItemsPositionGetter itemsPositionGetter
+int maxVisibilityPercents
+ListItemData outMostVisibleItem

@@ -1,0 +1,17 @@
+{
+  int currentItemVisibilityPercents=listItemData.getVisibilityPercents(mListItems);
+  if (SHOW_LOGS)   Logger.v(TAG,"calculateActiveItem, mScrollDirection " + mScrollDirection);
+  ListItemData neighbourItemData=new ListItemData();
+switch (mScrollDirection) {
+case UP:
+    findPreviousItem(itemsPositionGetter,listItemData,neighbourItemData);
+  break;
+case DOWN:
+findNextItem(itemsPositionGetter,listItemData,neighbourItemData);
+break;
+}
+if (SHOW_LOGS) Logger.v(TAG,"calculateActiveItem, currentItemVisibilityPercents " + currentItemVisibilityPercents);
+if (enoughPercentsForDeactivation(currentItemVisibilityPercents) && neighbourItemData.isAvailable()) {
+mCallback.onActivateNewCurrentItem(mListItems.get(neighbourItemData.getIndex()),neighbourItemData.getView(),neighbourItemData.getIndex());
+}
+}

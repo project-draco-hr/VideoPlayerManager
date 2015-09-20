@@ -1,0 +1,3 @@
+int position
+VideoViewHolder viewHolder
+VideoPlayerManager videoPlayerManager

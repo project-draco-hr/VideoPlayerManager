@@ -1,0 +1,3 @@
+{
+  viewHolder.mTitle.setText(mTitle);
+}

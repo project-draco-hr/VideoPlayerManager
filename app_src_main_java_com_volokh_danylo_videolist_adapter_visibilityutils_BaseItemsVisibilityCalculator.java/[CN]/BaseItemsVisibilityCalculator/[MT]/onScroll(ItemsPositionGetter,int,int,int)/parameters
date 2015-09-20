@@ -1,0 +1,4 @@
+ItemsPositionGetter itemsPositionGetter
+int firstVisibleItem
+int visibleItemCount
+int scrollState

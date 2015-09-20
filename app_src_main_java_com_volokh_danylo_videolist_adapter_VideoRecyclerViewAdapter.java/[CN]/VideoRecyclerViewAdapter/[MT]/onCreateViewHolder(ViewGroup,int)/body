@@ -1,0 +1,5 @@
+{
+  VideoItem videoItem=mList.get(position);
+  View resultView=videoItem.createView(viewGroup,mContext.getResources().getDisplayMetrics().widthPixels);
+  return new VideoViewHolder(resultView);
+}

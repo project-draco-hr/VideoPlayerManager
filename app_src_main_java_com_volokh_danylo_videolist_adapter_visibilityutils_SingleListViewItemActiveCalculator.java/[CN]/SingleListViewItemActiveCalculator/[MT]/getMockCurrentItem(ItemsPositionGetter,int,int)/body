@@ -1,0 +1,17 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"getMockCurrentItem, mScrollDirection " + mScrollDirection);
+  if (SHOW_LOGS)   Logger.v(TAG,"getMockCurrentItem, firstVisiblePosition " + firstVisiblePosition);
+  if (SHOW_LOGS)   Logger.v(TAG,"getMockCurrentItem, lastVisiblePosition " + lastVisiblePosition);
+  ListItemData mockCurrentItemData;
+switch (mScrollDirection) {
+case UP:
+    mockCurrentItemData=new ListItemData().fillWithData(lastVisiblePosition,itemsPositionGetter.getChildAt(itemsPositionGetter.getChildCount() - 1));
+  break;
+case DOWN:
+mockCurrentItemData=new ListItemData().fillWithData(firstVisiblePosition,itemsPositionGetter.getChildAt(0));
+break;
+default :
+throw new RuntimeException("not handled mScrollDirection " + mScrollDirection);
+}
+return mockCurrentItemData;
+}

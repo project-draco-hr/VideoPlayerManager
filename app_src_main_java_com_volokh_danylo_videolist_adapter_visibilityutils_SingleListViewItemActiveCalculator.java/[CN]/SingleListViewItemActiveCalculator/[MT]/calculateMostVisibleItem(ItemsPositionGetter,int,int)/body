@@ -1,0 +1,16 @@
+{
+  ListItemData mostVisibleItem=getMockCurrentItem(itemsPositionGetter,firstVisiblePosition,lastVisiblePosition);
+  int maxVisibilityPercents=mostVisibleItem.getVisibilityPercents(mListItems);
+switch (mScrollDirection) {
+case UP:
+    bottomToTopMostVisibleItem(itemsPositionGetter,maxVisibilityPercents,mostVisibleItem);
+  break;
+case DOWN:
+topToBottomMostVisibleItem(itemsPositionGetter,maxVisibilityPercents,mostVisibleItem);
+break;
+default :
+throw new RuntimeException("not handled mScrollDirection " + mScrollDirection);
+}
+if (SHOW_LOGS) Logger.v(TAG,"topToBottomMostVisibleItem, mostVisibleItem " + mostVisibleItem);
+mCallback.onActivateNewCurrentItem(mListItems.get(mostVisibleItem.getIndex()),mostVisibleItem.getView(),mostVisibleItem.getIndex());
+}

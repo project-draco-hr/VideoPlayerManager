@@ -2,6 +2,6 @@
   super.onCreate(savedInstanceState);
   setContentView(R.layout.activity_video_list);
   if (savedInstanceState == null) {
-    getSupportFragmentManager().beginTransaction().add(R.id.container,new VideoListFragment()).commit();
+    getSupportFragmentManager().beginTransaction().add(R.id.right_container,new VideoRecyclerViewFragment()).add(R.id.left_container,new VideoListFragment()).commit();
   }
 }

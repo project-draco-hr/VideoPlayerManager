@@ -1,0 +1,48 @@
+{
+  try {
+    mList.add(new LocalVideoItem("Batman vs Dracula.mp4",getActivity().getAssets().openFd("Batman vs Dracula.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("DZIDZIO.mp4",getActivity().getAssets().openFd("DZIDZIO.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("Tyrion speech during trial.mp4.mp4",getActivity().getAssets().openFd("Tyrion speech during trial.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("Grasshopper.mp4",getActivity().getAssets().openFd("Grasshopper.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("Neo vs. Luke Skywalker.mp4.mp4",getActivity().getAssets().openFd("Neo vs. Luke Skywalker.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("ne_lyubish.mp4",getActivity().getAssets().openFd("ne_lyubish.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("ostanus.mp4",getActivity().getAssets().openFd("ostanus.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("O_TORVALD_Ne_vona.mp4",getActivity().getAssets().openFd("O_TORVALD_Ne_vona.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("Nervy_cofe.mp4.mp4",getActivity().getAssets().openFd("Nervy_cofe.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("Batman vs Dracula.mp4",getActivity().getAssets().openFd("Batman vs Dracula.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("DZIDZIO.mp4",getActivity().getAssets().openFd("DZIDZIO.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("Tyrion speech during trial.mp4.mp4",getActivity().getAssets().openFd("Tyrion speech during trial.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("Grasshopper.mp4",getActivity().getAssets().openFd("Grasshopper.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("Neo vs. Luke Skywalker.mp4.mp4",getActivity().getAssets().openFd("Neo vs. Luke Skywalker.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("ne_lyubish.mp4",getActivity().getAssets().openFd("ne_lyubish.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("ostanus.mp4",getActivity().getAssets().openFd("ostanus.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("O_TORVALD_Ne_vona.mp4",getActivity().getAssets().openFd("O_TORVALD_Ne_vona.mp4"),mVideoPlayerManager));
+    mList.add(new LocalVideoItem("Nervy_cofe.mp4.mp4",getActivity().getAssets().openFd("Nervy_cofe.mp4"),mVideoPlayerManager));
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+  View rootView=inflater.inflate(R.layout.fragment_video_recycler_view,container,false);
+  mRecyclerView=(RecyclerView)rootView.findViewById(R.id.recycler_view);
+  mRecyclerView.setHasFixedSize(true);
+  mLayoutManager=new LinearLayoutManager(getActivity());
+  mRecyclerView.setLayoutManager(mLayoutManager);
+  mVideoRecyclerViewAdapter=new VideoRecyclerViewAdapter(mVideoPlayerManager,getActivity(),mList);
+  mRecyclerView.setAdapter(mVideoRecyclerViewAdapter);
+  mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener(){
+    @Override public void onScrollStateChanged(    RecyclerView recyclerView,    int scrollState){
+      mScrollState=scrollState;
+      if (scrollState == RecyclerView.SCROLL_STATE_IDLE && !mList.isEmpty()) {
+        mVideoVisibilityCalculator.onScrollStateIdle(VideoRecyclerViewFragment.this,mLayoutManager.findFirstVisibleItemPosition(),mLayoutManager.findLastVisibleItemPosition());
+      }
+    }
+    @Override public void onScrolled(    RecyclerView recyclerView,    int dx,    int dy){
+      if (!mList.isEmpty()) {
+        mVideoVisibilityCalculator.onScroll(VideoRecyclerViewFragment.this,mLayoutManager.findFirstVisibleItemPosition(),mLayoutManager.findLastVisibleItemPosition() - mLayoutManager.findFirstVisibleItemPosition() + 1,mScrollState);
+      }
+    }
+  }
+);
+  mVideoRecyclerViewAdapter.notifyDataSetChanged();
+  return rootView;
+}

@@ -1,4 +1,5 @@
 {
+  if (SHOW_LOGS)   Logger.v(TAG,"onScroll Down");
   if (mOldScrollDirection != ScrollDirection.DOWN) {
     mOldScrollDirection=ScrollDirection.DOWN;
     mOnDetectScrollListener.onScrollDirectionChanged(ScrollDirection.DOWN);

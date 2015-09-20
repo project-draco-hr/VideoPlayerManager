@@ -1,5 +1,0 @@
-{
-  VideoViewHolder viewHolder=(VideoViewHolder)view.getTag();
-  videoPlayerManager.playNewVideo(new CurrentItemMetaData(position),viewHolder.mPlayer,mDirectUrl,viewHolder.mListItemView);
-  return view;
-}

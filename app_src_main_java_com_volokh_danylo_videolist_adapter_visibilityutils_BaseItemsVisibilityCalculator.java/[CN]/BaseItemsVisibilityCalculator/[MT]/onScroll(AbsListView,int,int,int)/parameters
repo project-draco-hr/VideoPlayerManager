@@ -1,4 +1,0 @@
-AbsListView listView
-int firstVisibleItem
-int visibleItemCount
-int scrollState

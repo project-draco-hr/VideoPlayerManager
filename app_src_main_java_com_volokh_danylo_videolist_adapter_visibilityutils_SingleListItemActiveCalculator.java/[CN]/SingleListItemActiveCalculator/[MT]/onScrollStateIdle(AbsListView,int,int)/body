@@ -1,4 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.v(TAG,"onScrollStateIdle, firstVisiblePosition " + firstVisiblePosition + ", lastVisiblePosition "+ lastVisiblePosition);
-  calculateMostVisibleItem(listView,firstVisiblePosition,lastVisiblePosition);
-}

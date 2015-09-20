@@ -1,6 +1,6 @@
 {
   mScrollState=scrollState;
   if (scrollState == SCROLL_STATE_IDLE && !mList.isEmpty()) {
-    mVideoVisibilityCalculator.onScrollStateIdle(view,view.getFirstVisiblePosition(),view.getLastVisiblePosition());
+    mVideoVisibilityCalculator.onScrollStateIdle(VideoListFragment.this,view.getFirstVisiblePosition(),view.getLastVisiblePosition());
   }
 }

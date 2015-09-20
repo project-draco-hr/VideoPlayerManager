@@ -1,0 +1,6 @@
+{
+  int childCount=mRecyclerView.getChildCount();
+  if (SHOW_LOGS)   Logger.v(TAG,"getChildCount, mRecyclerView " + childCount);
+  if (SHOW_LOGS)   Logger.v(TAG,"getChildCount, mLayoutManager " + mLayoutManager.getChildCount());
+  return childCount;
+}

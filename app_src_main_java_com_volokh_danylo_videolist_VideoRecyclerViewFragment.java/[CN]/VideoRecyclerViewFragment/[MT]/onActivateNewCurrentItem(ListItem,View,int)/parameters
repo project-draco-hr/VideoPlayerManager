@@ -1,0 +1,3 @@
+ListItem newListItem
+View currentView
+int position

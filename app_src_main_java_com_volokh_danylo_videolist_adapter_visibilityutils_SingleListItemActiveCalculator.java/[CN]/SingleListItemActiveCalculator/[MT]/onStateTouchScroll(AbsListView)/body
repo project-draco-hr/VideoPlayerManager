@@ -1,6 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.v(TAG,">> onStateTouchScroll, mScrollDirection " + mScrollDirection);
-  ListItemData listItemData=mCurrentItem.get();
-  calculateActiveItem(listView,listItemData);
-  if (SHOW_LOGS)   Logger.v(TAG,"<< onStateTouchScroll, mScrollDirection " + mScrollDirection);
-}
