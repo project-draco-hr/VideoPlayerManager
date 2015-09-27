@@ -1,8 +1,25 @@
 {
   View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.video_item,parent,false);
   ViewGroup.LayoutParams layoutParams=view.getLayoutParams();
-  layoutParams.height=screenWidth / 2;
-  layoutParams.width=screenWidth / 2;
-  view.setTag(new VideoViewHolder(view));
+  layoutParams.height=screenWidth;
+  final VideoViewHolder videoViewHolder=new VideoViewHolder(view);
+  view.setTag(videoViewHolder);
+  videoViewHolder.mPlayer.addMediaPlayerListener(new MediaPlayerWrapper.MainThreadMediaPlayerListener(){
+    @Override public void onVideoSizeChangedMainThread(    int width,    int height){
+    }
+    @Override public void onVideoPreparedMainThread(){
+      videoViewHolder.mCover.setVisibility(View.INVISIBLE);
+    }
+    @Override public void onVideoCompletionMainThread(){
+    }
+    @Override public void onErrorMainThread(    int what,    int extra){
+    }
+    @Override public void onBufferingUpdateMainThread(    int percent){
+    }
+    @Override public void onVideoStoppedMainThread(){
+      videoViewHolder.mCover.setVisibility(View.VISIBLE);
+    }
+  }
+);
   return view;
 }

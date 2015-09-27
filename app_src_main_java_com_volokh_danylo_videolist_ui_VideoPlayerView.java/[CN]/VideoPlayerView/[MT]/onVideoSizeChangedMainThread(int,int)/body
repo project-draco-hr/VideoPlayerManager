@@ -12,8 +12,6 @@ synchronized (mReadyForPlaybackIndicator) {
       mReadyForPlaybackIndicator.notifyAll();
     }
   }
-  if (mMediaPlayerListenerMainThread != null) {
-    mMediaPlayerListenerMainThread.onVideoSizeChangedMainThread(width,height);
-  }
+  notifyOnVideoSizeChangedMainThread(width,height);
   if (SHOW_LOGS)   Logger.v(TAG,"<< onVideoSizeChangedMainThread, width " + width + ", height "+ height);
 }

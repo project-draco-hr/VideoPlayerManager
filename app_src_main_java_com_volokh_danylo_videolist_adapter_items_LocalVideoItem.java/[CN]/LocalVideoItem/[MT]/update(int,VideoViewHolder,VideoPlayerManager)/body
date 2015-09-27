@@ -1,3 +1,5 @@
 {
   viewHolder.mTitle.setText(mTitle);
+  viewHolder.mCover.setVisibility(View.VISIBLE);
+  mImageLoader.load(mImageResource).into(viewHolder.mCover);
 }

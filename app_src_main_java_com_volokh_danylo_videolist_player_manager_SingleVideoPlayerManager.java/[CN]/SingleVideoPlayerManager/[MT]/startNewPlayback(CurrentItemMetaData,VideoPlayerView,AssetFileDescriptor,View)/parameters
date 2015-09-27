@@ -1,0 +1,4 @@
+CurrentItemMetaData currentItemMetaData
+VideoPlayerView videoPlayerView
+AssetFileDescriptor assetFileDescriptor
+View listItemView

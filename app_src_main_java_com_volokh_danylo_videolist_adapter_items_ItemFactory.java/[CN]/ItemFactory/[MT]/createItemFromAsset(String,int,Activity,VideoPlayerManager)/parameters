@@ -1,0 +1,4 @@
+String assetName
+int imageResource
+Activity activity
+VideoPlayerManager videoPlayerManager

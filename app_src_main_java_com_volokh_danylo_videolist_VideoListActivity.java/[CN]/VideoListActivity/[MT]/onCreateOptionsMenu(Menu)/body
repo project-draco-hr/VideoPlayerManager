@@ -1,0 +1,4 @@
+{
+  getMenuInflater().inflate(R.menu.menu_video_list,menu);
+  return true;
+}

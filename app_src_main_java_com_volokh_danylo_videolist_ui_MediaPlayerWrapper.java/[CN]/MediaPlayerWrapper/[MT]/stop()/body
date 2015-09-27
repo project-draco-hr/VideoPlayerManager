@@ -13,6 +13,9 @@ case PREPARING:
   mMediaPlayer.stop();
 if (SHOW_LOGS) Logger.v(TAG,"<< stop");
 mState.set(State.STOPPED);
+if (mListener != null) {
+mMainThreadHandler.post(mOnVideoStopMessage);
+}
 break;
 case STOPPED:
 throw new IllegalStateException("stop, already stopped");

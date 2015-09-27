@@ -1,0 +1,5 @@
+{
+synchronized (mMediaPlayerMainThreadListeners) {
+    mMediaPlayerMainThreadListeners.add(listener);
+  }
+}

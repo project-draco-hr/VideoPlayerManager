@@ -2,6 +2,5 @@
   checkThread();
 synchronized (mReadyForPlaybackIndicator) {
     mMediaPlayer.prepare();
-    return mMediaPlayer.getCurrentState();
   }
 }

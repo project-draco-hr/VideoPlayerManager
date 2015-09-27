@@ -1,6 +1,8 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> onVideoSizeAvailable");
   updateTextureViewSize();
-  mViewHandlerBackgroundThread.post(mVideoSizeAvailableRunnable);
+  if (isAttachedToWindow()) {
+    mViewHandlerBackgroundThread.post(mVideoSizeAvailableRunnable);
+  }
   if (SHOW_LOGS)   Logger.v(TAG,"<< onVideoSizeAvailable");
 }

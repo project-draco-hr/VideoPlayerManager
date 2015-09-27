@@ -1,0 +1,5 @@
+{
+  boolean isPlaying=mCurrentPlayerState == PlayerMessageState.STARTED || mCurrentPlayerState == PlayerMessageState.STARTING;
+  if (SHOW_LOGS)   Logger.v(TAG,"isPlaying, " + isPlaying);
+  return isPlaying;
+}

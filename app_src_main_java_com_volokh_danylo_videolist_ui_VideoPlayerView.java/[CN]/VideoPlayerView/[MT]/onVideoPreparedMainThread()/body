@@ -1,7 +1,5 @@
 {
-  if (mMediaPlayerListenerMainThread != null) {
-    mMediaPlayerListenerMainThread.onVideoPreparedMainThread();
-  }
+  notifyOnVideoPreparedMainThread();
   if (mMediaPlayerListenerBackgroundThread != null) {
     mViewHandlerBackgroundThread.post(mVideoPreparedBackgroundThreadRunnable);
   }

@@ -11,6 +11,7 @@
  else   if (viewIsPartiallyHiddenBottom(height)) {
     percents=mCurrentViewRect.bottom * 100 / height;
   }
+  setVisibilityPercentsText(currentView,percents);
   if (SHOW_LOGS)   Logger.v(TAG,"<< getVisibilityPercents, percents " + percents);
   return percents;
 }
