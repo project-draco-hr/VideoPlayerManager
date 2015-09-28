@@ -9,5 +9,6 @@ synchronized (mReadyForPlaybackIndicator) {
       Logger.d(TAG,e.getMessage());
       throw new RuntimeException(e);
     }
+    mAssetFileDescriptor=assetFileDescriptor;
   }
 }

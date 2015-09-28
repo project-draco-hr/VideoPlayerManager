@@ -2,14 +2,15 @@
   if (SHOW_LOGS)   Logger.v(TAG,">> playNewVideo, videoPlayer " + videoPlayerView + ", mCurrentPlayer "+ mCurrentPlayer+ ", assetFileDescriptor "+ assetFileDescriptor);
   mPlayerHandler.pauseQueueProcessing(TAG);
   boolean currentPlayerIsActive=mCurrentPlayer == videoPlayerView;
+  boolean isAlreadyPlayingTheFile=mCurrentPlayer != null && mCurrentPlayer.getAssetFileDescriptorDataSource() == assetFileDescriptor;
+  if (SHOW_LOGS)   Logger.v(TAG,"playNewVideo, isAlreadyPlayingTheFile " + isAlreadyPlayingTheFile);
   if (SHOW_LOGS)   Logger.v(TAG,"playNewVideo, currentPlayerIsActive " + currentPlayerIsActive);
-  if (SHOW_LOGS)   Logger.v(TAG,"playNewVideo, mCurrentPlayerState " + mCurrentPlayerState);
   if (currentPlayerIsActive) {
-    if (!isPlaying()) {
-      startNewPlayback(currentItemMetaData,videoPlayerView,assetFileDescriptor,listItemView);
+    if (isInPlaybackState() && isAlreadyPlayingTheFile) {
+      if (SHOW_LOGS)       Logger.v(TAG,"playNewVideo, videoPlayer " + videoPlayerView + " is already in state "+ mCurrentPlayerState);
     }
  else {
-      if (SHOW_LOGS)       Logger.v(TAG,"playNewVideo, videoPlayer " + videoPlayerView + " is already in state "+ mCurrentPlayerState);
+      startNewPlayback(currentItemMetaData,videoPlayerView,assetFileDescriptor,listItemView);
     }
   }
  else {

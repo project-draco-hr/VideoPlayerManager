@@ -5,8 +5,15 @@
   ListItemData mockCurrentItemData;
 switch (mScrollDirection) {
 case UP:
-    mockCurrentItemData=new ListItemData().fillWithData(lastVisiblePosition,itemsPositionGetter.getChildAt(itemsPositionGetter.getChildCount() - 1));
-  break;
+    int lastVisibleItemIndex;
+  if (lastVisiblePosition < 0) {
+    lastVisibleItemIndex=firstVisiblePosition;
+  }
+ else {
+    lastVisibleItemIndex=lastVisiblePosition;
+  }
+mockCurrentItemData=new ListItemData().fillWithData(lastVisibleItemIndex,itemsPositionGetter.getChildAt(itemsPositionGetter.getChildCount() - 1));
+break;
 case DOWN:
 mockCurrentItemData=new ListItemData().fillWithData(firstVisiblePosition,itemsPositionGetter.getChildAt(0));
 break;
