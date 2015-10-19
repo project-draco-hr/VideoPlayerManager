@@ -1,0 +1,7 @@
+{
+  super(videoPlayerManager);
+  mDirectUrl=directUr;
+  mTitle=title;
+  mImageLoader=imageLoader;
+  mImageResource=imageResource;
+}

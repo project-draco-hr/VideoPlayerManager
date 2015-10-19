@@ -1,4 +1,0 @@
-{
-  super(videoPlayerManager);
-  mDirectUrl=directUr;
-}

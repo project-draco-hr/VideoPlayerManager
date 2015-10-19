@@ -1,2 +1,5 @@
+String title
 String directUr
 VideoPlayerManager videoPlayerManager
+Picasso imageLoader
+int imageResource

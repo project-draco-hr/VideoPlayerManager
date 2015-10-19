@@ -1,3 +1,5 @@
 {
-  videoPlayerManager.playNewVideo(new CurrentItemMetaData(position),viewHolder.mPlayer,mDirectUrl,viewHolder.mListItemView);
+  viewHolder.mTitle.setText(mTitle);
+  viewHolder.mCover.setVisibility(View.VISIBLE);
+  mImageLoader.load(mImageResource).into(viewHolder.mCover);
 }

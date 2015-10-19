@@ -1,11 +1,21 @@
 {
-  if (SHOW_LOGS)   Logger.v(TAG,">> playNewVideo, videoPlayer " + videoPlayerView + ", mCurrentPlayer "+ mCurrentPlayer+ ", videoUrl "+ videoUrl);
+  if (SHOW_LOGS)   Logger.v(TAG,">> playNewVideo, videoPlayer " + videoPlayerView + ", mCurrentPlayer "+ mCurrentPlayer+ ", videoPlayerView "+ videoPlayerView);
   mPlayerHandler.pauseQueueProcessing(TAG);
-  if (SHOW_LOGS)   Logger.v(TAG,"playNewVideo, mCurrentPlayerState " + mCurrentPlayerState);
-  mPlayerHandler.clearAllPendingMessages(TAG);
-  stopResetReleaseClearCurrentPlayer();
-  setNewViewForPlayback(currentItemMetaData,videoPlayerView,listItemView);
-  startPlayback(videoPlayerView,videoUrl);
+  boolean currentPlayerIsActive=mCurrentPlayer == videoPlayerView;
+  boolean isAlreadyPlayingTheFile=mCurrentPlayer != null && videoUrl.equals(mCurrentPlayer.getVideoUrlDataSource());
+  if (SHOW_LOGS)   Logger.v(TAG,"playNewVideo, isAlreadyPlayingTheFile " + isAlreadyPlayingTheFile);
+  if (SHOW_LOGS)   Logger.v(TAG,"playNewVideo, currentPlayerIsActive " + currentPlayerIsActive);
+  if (currentPlayerIsActive) {
+    if (isInPlaybackState() && isAlreadyPlayingTheFile) {
+      if (SHOW_LOGS)       Logger.v(TAG,"playNewVideo, videoPlayer " + videoPlayerView + " is already in state "+ mCurrentPlayerState);
+    }
+ else {
+      startNewPlayback(currentItemMetaData,videoPlayerView,videoUrl,listItemView);
+    }
+  }
+ else {
+    startNewPlayback(currentItemMetaData,videoPlayerView,videoUrl,listItemView);
+  }
   mPlayerHandler.resumeQueueProcessing(TAG);
   if (SHOW_LOGS)   Logger.v(TAG,"<< playNewVideo, videoPlayer " + videoPlayerView + ", videoUrl "+ videoUrl);
 }
