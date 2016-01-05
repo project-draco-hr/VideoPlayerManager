@@ -1,5 +1,0 @@
-{
-  int indexOfChild=mRecyclerView.indexOfChild(view);
-  if (SHOW_LOGS)   Logger.v(TAG,"indexOfChild, " + indexOfChild);
-  return indexOfChild;
-}

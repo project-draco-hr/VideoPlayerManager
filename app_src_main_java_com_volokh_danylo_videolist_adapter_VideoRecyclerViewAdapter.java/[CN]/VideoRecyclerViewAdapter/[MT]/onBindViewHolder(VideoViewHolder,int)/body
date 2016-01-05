@@ -1,4 +1,4 @@
 {
-  VideoItem videoItem=mList.get(position);
+  BaseVideoItem videoItem=mList.get(position);
   videoItem.update(position,viewHolder,mVideoPlayerManager);
 }

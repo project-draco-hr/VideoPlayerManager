@@ -1,0 +1,3 @@
+VideoPlayerManager videoPlayerManager
+Context context
+List<BaseVideoItem> list

@@ -1,4 +1,0 @@
-CurrentItemMetaData currentItemMetaData
-VideoPlayerView player
-VideoPlayerManager<CurrentItemMetaData> videoPlayerManager
-View view

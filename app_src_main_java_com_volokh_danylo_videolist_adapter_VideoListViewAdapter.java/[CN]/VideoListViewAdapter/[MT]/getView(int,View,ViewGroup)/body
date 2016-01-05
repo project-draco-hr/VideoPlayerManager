@@ -1,5 +1,5 @@
 {
-  VideoItem videoItem=mList.get(position);
+  BaseVideoItem videoItem=mList.get(position);
   View resultView;
   if (convertView == null) {
     resultView=videoItem.createView(parent,mContext.getResources().getDisplayMetrics().widthPixels);

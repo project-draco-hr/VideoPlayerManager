@@ -2,6 +2,5 @@
   if (SHOW_LOGS)   Logger.v(TAG,"setVisibilityPercentsText percents " + percents);
   VideoViewHolder videoViewHolder=(VideoViewHolder)currentView.getTag();
   String percentsText="Visibility percents: " + String.valueOf(percents);
-  videoViewHolder.mVisibilityPercentsBottom.setText(percentsText);
-  videoViewHolder.mVisibilityPercentsTop.setText(percentsText);
+  videoViewHolder.mVisibilityPercents.setText(percentsText);
 }

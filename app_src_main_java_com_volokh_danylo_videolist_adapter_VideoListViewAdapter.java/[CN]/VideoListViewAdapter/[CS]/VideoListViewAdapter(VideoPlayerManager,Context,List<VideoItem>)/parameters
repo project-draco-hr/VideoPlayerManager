@@ -1,3 +1,0 @@
-VideoPlayerManager videoPlayerManager
-Context context
-List<VideoItem> list

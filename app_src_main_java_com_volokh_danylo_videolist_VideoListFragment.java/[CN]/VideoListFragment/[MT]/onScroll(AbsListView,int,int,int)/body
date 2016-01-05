@@ -1,5 +1,0 @@
-{
-  if (!mList.isEmpty()) {
-    mVideoVisibilityCalculator.onScroll(VideoListFragment.this,firstVisibleItem,visibleItemCount,mScrollState);
-  }
-}

@@ -1,9 +1,7 @@
 {
   super(view);
-  mListItemView=view;
   mPlayer=(VideoPlayerView)view.findViewById(R.id.player);
   mTitle=(TextView)view.findViewById(R.id.title);
   mCover=(ImageView)view.findViewById(R.id.cover);
-  mVisibilityPercentsTop=(TextView)view.findViewById(R.id.visibility_percents_top);
-  mVisibilityPercentsBottom=(TextView)view.findViewById(R.id.visibility_percents_bottom);
+  mVisibilityPercents=(TextView)view.findViewById(R.id.visibility_percents);
 }

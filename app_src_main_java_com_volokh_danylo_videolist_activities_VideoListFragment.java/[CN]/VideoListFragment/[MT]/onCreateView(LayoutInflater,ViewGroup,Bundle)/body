@@ -1,0 +1,45 @@
+{
+  try {
+    mList.add(ItemFactory.createItemFromAsset("Batman vs Dracula.mp4",R.drawable.rocket_science1,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("DZIDZIO.mp4",R.drawable.rocket_science2,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("Tyrion speech during trial.mp4",R.drawable.rocket_science1,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("Grasshopper.mp4",R.drawable.rocket_science2,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("Neo vs. Luke Skywalker.mp4",R.drawable.rocket_science1,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("ne_lyubish.mp4",R.drawable.rocket_science2,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("ostanus.mp4",R.drawable.rocket_science1,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("O_TORVALD_Ne_vona.mp4",R.drawable.rocket_science2,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("Nervy_cofe.mp4",R.drawable.rocket_science1,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("Batman vs Dracula.mp4",R.drawable.rocket_science1,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("DZIDZIO.mp4",R.drawable.rocket_science2,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("Tyrion speech during trial.mp4",R.drawable.rocket_science1,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("Grasshopper.mp4",R.drawable.rocket_science2,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("Neo vs. Luke Skywalker.mp4",R.drawable.rocket_science1,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("ne_lyubish.mp4",R.drawable.rocket_science2,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("ostanus.mp4",R.drawable.rocket_science1,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("O_TORVALD_Ne_vona.mp4",R.drawable.rocket_science2,getActivity(),mVideoPlayerManager));
+    mList.add(ItemFactory.createItemFromAsset("Nervy_cofe.mp4",R.drawable.rocket_science1,getActivity(),mVideoPlayerManager));
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+  View rootView=inflater.inflate(R.layout.fragment_video_list_view,container,false);
+  mListView=(ListView)rootView.findViewById(R.id.list_view);
+  VideoListViewAdapter mVideoListViewAdapter=new VideoListViewAdapter(mVideoPlayerManager,getActivity(),mList);
+  mListView.setAdapter(mVideoListViewAdapter);
+  mListView.setOnScrollListener(new AbsListView.OnScrollListener(){
+    @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
+      mScrollState=scrollState;
+      if (scrollState == SCROLL_STATE_IDLE && !mList.isEmpty()) {
+        mListItemVisibilityCalculator.onScrollStateIdle(mItemsPositionGetter,view.getFirstVisiblePosition(),view.getLastVisiblePosition());
+      }
+    }
+    @Override public void onScroll(    AbsListView view,    int firstVisibleItem,    int visibleItemCount,    int totalItemCount){
+      if (!mList.isEmpty()) {
+        mListItemVisibilityCalculator.onScroll(mItemsPositionGetter,firstVisibleItem,visibleItemCount,mScrollState);
+      }
+    }
+  }
+);
+  mVideoListViewAdapter.notifyDataSetChanged();
+  return rootView;
+}
