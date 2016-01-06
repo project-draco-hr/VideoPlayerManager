@@ -1,0 +1,26 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.visibility_utils_activity);
+  mRecyclerView=(RecyclerView)findViewById(R.id.visibility_demo_recycler_view);
+  mRecyclerView.setHasFixedSize(true);
+  mLayoutManager=new LinearLayoutManager(this);
+  mRecyclerView.setLayoutManager(mLayoutManager);
+  VisibilityUtilsAdapter adapter=new VisibilityUtilsAdapter(mList);
+  mRecyclerView.setAdapter(adapter);
+  mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
+    @Override public void onScrollStateChanged(    RecyclerView recyclerView,    int scrollState){
+      mScrollState=scrollState;
+      if (scrollState == RecyclerView.SCROLL_STATE_IDLE && !mList.isEmpty()) {
+        mListItemVisibilityCalculator.onScrollStateIdle(mItemsPositionGetter,mLayoutManager.findFirstVisibleItemPosition(),mLayoutManager.findLastVisibleItemPosition());
+      }
+    }
+    @Override public void onScrolled(    RecyclerView recyclerView,    int dx,    int dy){
+      if (!mList.isEmpty()) {
+        mListItemVisibilityCalculator.onScroll(mItemsPositionGetter,mLayoutManager.findFirstVisibleItemPosition(),mLayoutManager.findLastVisibleItemPosition() - mLayoutManager.findFirstVisibleItemPosition() + 1,mScrollState);
+      }
+    }
+  }
+);
+  adapter.notifyDataSetChanged();
+  mItemsPositionGetter=new RecyclerViewItemPositionGetter(mLayoutManager,mRecyclerView);
+}

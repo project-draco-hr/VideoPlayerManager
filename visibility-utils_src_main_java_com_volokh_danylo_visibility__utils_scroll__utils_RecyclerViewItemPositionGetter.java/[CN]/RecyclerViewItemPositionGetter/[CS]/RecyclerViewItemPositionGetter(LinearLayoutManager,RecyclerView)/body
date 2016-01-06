@@ -1,0 +1,4 @@
+{
+  mLayoutManager=layoutManager;
+  mRecyclerView=recyclerView;
+}

@@ -1,0 +1,16 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,">> getVisibilityPercents view " + view);
+  int percents=100;
+  view.getLocalVisibleRect(mCurrentViewRect);
+  if (SHOW_LOGS)   Logger.v(TAG,"getVisibilityPercents mCurrentViewRect top " + mCurrentViewRect.top + ", left "+ mCurrentViewRect.left+ ", bottom "+ mCurrentViewRect.bottom+ ", right "+ mCurrentViewRect.right);
+  int height=view.getHeight();
+  if (SHOW_LOGS)   Logger.v(TAG,"getVisibilityPercents height " + height);
+  if (viewIsPartiallyHiddenTop()) {
+    percents=(height - mCurrentViewRect.top) * 100 / height;
+  }
+ else   if (viewIsPartiallyHiddenBottom(height)) {
+    percents=mCurrentViewRect.bottom * 100 / height;
+  }
+  if (SHOW_LOGS)   Logger.v(TAG,"<< getVisibilityPercents, percents " + percents);
+  return percents;
+}

@@ -1,0 +1,12 @@
+{
+  if (SHOW_LOGS) {
+    Logger.v(TAG,"getChildAt, mRecyclerView.getChildCount " + mRecyclerView.getChildCount());
+    Logger.v(TAG,"getChildAt, mLayoutManager.getChildCount " + mLayoutManager.getChildCount());
+  }
+  View view=mLayoutManager.getChildAt(position);
+  if (SHOW_LOGS) {
+    Logger.v(TAG,"mRecyclerView getChildAt, position " + position + ", view "+ view);
+    Logger.v(TAG,"mLayoutManager getChildAt, position " + position + ", view "+ mLayoutManager.getChildAt(position));
+  }
+  return view;
+}

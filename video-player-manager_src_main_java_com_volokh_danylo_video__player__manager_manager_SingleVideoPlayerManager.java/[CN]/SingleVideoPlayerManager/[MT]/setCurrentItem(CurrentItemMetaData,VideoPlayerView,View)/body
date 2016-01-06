@@ -1,6 +1,6 @@
 {
-  if (SHOW_LOGS)   Logger.v(TAG,">> setCurrentItem");
+  if (SHOW_LOGS)   Logger.v(TAG,">> onPlayerItemChanged");
   mCurrentPlayer=videoPlayerView;
-  mSetVideoPlayerCallback.setCurrentItem(currentItemMetaData,listItemView);
-  if (SHOW_LOGS)   Logger.v(TAG,"<< setCurrentItem");
+  mPlayerItemChangeListener.onPlayerItemChanged(currentItemMetaData,listItemView);
+  if (SHOW_LOGS)   Logger.v(TAG,"<< onPlayerItemChanged");
 }

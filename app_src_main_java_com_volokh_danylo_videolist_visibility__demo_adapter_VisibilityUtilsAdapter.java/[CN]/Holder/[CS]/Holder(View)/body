@@ -1,0 +1,4 @@
+{
+  super(itemView);
+  coloredView=itemView.findViewById(R.id.colored_view);
+}

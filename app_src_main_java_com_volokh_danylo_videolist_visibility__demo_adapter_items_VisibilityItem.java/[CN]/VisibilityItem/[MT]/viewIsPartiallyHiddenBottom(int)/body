@@ -1,0 +1,3 @@
+{
+  return mCurrentViewRect.bottom > 0 && mCurrentViewRect.bottom < height;
+}

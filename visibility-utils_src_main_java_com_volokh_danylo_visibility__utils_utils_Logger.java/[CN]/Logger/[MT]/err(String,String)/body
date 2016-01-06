@@ -1,0 +1,3 @@
+{
+  return Log.e(TAG,attachThreadId(message));
+}

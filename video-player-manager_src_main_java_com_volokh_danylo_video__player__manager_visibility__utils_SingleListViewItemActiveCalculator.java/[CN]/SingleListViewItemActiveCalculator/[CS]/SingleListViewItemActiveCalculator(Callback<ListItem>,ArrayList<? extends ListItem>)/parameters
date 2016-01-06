@@ -1,2 +1,0 @@
-Callback<ListItem> callback
-ArrayList<? extends ListItem> listItems

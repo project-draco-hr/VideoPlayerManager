@@ -1,0 +1,5 @@
+{
+  View newColoredView=newActiveView.findViewById(R.id.colored_view);
+  int newColor=newActiveView.getResources().getColor(android.R.color.holo_green_dark);
+  newColoredView.setBackgroundColor(newColor);
+}

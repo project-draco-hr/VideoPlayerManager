@@ -1,0 +1,4 @@
+{
+  VideoViewHolder viewHolder=(VideoViewHolder)newActiveView.getTag();
+  playNewVideo(new CurrentItemMetaData(newActiveViewPosition),viewHolder.mPlayer,mVideoPlayerManager,newActiveView);
+}

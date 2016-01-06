@@ -1,5 +1,5 @@
 {
-  mPlayerHandler=new PlayerHandlerThread();
+  mPlayerHandler=new MessagesHandlerThread();
   mMessagesProcessed=0;
   mMessagesPolledFromQueue=0;
   mMessagesProcessed=0;

@@ -1,0 +1,6 @@
+{
+  View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.visibility_adapter_item,parent,false);
+  ViewGroup.LayoutParams layoutParams=view.getLayoutParams();
+  layoutParams.height=view.getResources().getDisplayMetrics().widthPixels;
+  return new Holder(view);
+}
