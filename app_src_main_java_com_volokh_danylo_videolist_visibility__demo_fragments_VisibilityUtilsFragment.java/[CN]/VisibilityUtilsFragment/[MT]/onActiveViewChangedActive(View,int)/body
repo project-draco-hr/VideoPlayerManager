@@ -1,0 +1,3 @@
+{
+  mVisibilityUtilsCallback.setTitle("Active view at position " + newActiveViewPosition);
+}

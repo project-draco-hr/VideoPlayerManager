@@ -1,0 +1,4 @@
+{
+  super.onAttach(activity);
+  mVisibilityUtilsCallback=(VisibilityUtilsCallback)activity;
+}

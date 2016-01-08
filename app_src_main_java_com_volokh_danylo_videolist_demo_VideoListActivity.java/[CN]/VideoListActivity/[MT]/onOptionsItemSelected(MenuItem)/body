@@ -1,0 +1,21 @@
+{
+switch (item.getItemId()) {
+case R.id.enable_list_view:
+    if (!item.isChecked()) {
+      addListView();
+    }
+  break;
+case R.id.enable_recycler_view:
+if (!item.isChecked()) {
+  addRecyclerView();
+}
+break;
+case R.id.enable_visibility_utils_demo:
+if (!item.isChecked()) {
+addVisibilityUtilsFragment();
+}
+break;
+}
+item.setChecked(!item.isChecked());
+return true;
+}

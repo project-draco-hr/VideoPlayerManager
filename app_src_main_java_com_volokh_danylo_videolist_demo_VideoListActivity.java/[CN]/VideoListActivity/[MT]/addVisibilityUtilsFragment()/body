@@ -1,0 +1,4 @@
+{
+  getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new VisibilityUtilsFragment()).commit();
+  mToolbar.setTitle("Visibility Utils Demo");
+}

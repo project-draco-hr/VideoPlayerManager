@@ -1,5 +1,3 @@
 {
-  View coloredView=currentView.findViewById(R.id.colored_view);
-  int color=currentView.getResources().getColor(android.R.color.holo_blue_dark);
-  coloredView.setBackgroundColor(color);
+  mItemCallback.makeToast("Deactivate View");
 }

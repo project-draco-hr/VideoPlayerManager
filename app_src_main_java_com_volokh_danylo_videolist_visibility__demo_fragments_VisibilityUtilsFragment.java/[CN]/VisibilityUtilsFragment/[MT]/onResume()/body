@@ -1,0 +1,11 @@
+{
+  super.onResume();
+  if (!mList.isEmpty()) {
+    mRecyclerView.post(new Runnable(){
+      @Override public void run(){
+        mListItemVisibilityCalculator.onScrollStateIdle(mItemsPositionGetter,mLayoutManager.findFirstVisibleItemPosition(),mLayoutManager.findLastVisibleItemPosition());
+      }
+    }
+);
+  }
+}

@@ -1,4 +1,4 @@
 {
-  int color=holder.itemView.getResources().getColor(android.R.color.holo_blue_dark);
-  holder.coloredView.setBackgroundColor(color);
+  VisibilityItem item=mList.get(position);
+  item.onBindViewHolder(holder,position);
 }

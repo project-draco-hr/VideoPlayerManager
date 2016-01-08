@@ -1,5 +1,12 @@
 {
-  View newColoredView=newActiveView.findViewById(R.id.colored_view);
-  int newColor=newActiveView.getResources().getColor(android.R.color.holo_green_dark);
-  newColoredView.setBackgroundColor(newColor);
+  if (SHOW_LOGS)   Logger.v(TAG,"setActive, newActiveViewPosition " + newActiveViewPosition);
+  final View whiteView=newActiveView.findViewById(R.id.white_view);
+  whiteView.animate().alpha(1f).setDuration(500).withEndAction(new Runnable(){
+    @Override public void run(){
+      whiteView.animate().alpha(0f).setDuration(500).start();
+    }
+  }
+).start();
+  mItemCallback.makeToast("New Active View at position " + newActiveViewPosition);
+  mItemCallback.onActiveViewChangedActive(newActiveView,newActiveViewPosition);
 }

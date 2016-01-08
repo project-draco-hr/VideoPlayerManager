@@ -8,10 +8,15 @@
     currentItemVisibilityPercents=listItem.getVisibilityPercents(currentView);
     if (SHOW_LOGS)     Logger.v(TAG,"topToBottomMostVisibleItem, currentItemVisibilityPercents " + currentItemVisibilityPercents);
     if (SHOW_LOGS)     Logger.v(TAG,"topToBottomMostVisibleItem, mostVisibleItemVisibilityPercents " + mostVisibleItemVisibilityPercents);
-    if (currentItemVisibilityPercents >= mostVisibleItemVisibilityPercents) {
+    if (currentItemVisibilityPercents > mostVisibleItemVisibilityPercents) {
       mostVisibleItemVisibilityPercents=currentItemVisibilityPercents;
       outMostVisibleItem.fillWithData(indexOfCurrentItem,currentView);
     }
   }
+  View currentItemView=mCurrentItem.get() != null ? mCurrentItem.get().getView() : null;
+  View mostVisibleView=outMostVisibleItem.getView();
+  boolean itemChanged=currentItemView != mostVisibleView;
+  if (SHOW_LOGS)   Logger.v(TAG,"topToBottomMostVisibleItem, itemChanged " + itemChanged);
+  outMostVisibleItem.setMostVisibleItemChanged(itemChanged);
   if (SHOW_LOGS)   Logger.v(TAG,"topToBottomMostVisibleItem, outMostVisibleItem index " + outMostVisibleItem.getIndex() + ", outMostVisibleItem view "+ outMostVisibleItem.getView());
 }
