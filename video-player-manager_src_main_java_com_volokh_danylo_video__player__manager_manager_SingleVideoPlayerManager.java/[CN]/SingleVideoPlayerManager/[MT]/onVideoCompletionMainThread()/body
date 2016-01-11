@@ -1,2 +1,3 @@
 {
+  mCurrentPlayerState=PlayerMessageState.PLAYBACK_COMPLETED;
 }

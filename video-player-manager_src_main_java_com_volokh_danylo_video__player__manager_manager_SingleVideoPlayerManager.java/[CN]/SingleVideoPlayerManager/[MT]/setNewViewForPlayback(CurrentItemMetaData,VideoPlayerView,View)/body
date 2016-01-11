@@ -1,4 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.v(TAG,"setNewViewForPlayback, currentItemMetaData " + currentItemMetaData + ", videoPlayer "+ videoPlayerView);
-  mPlayerHandler.addMessage(new SetNewViewForPlayback(currentItemMetaData,videoPlayerView,listItemView,this));
-}

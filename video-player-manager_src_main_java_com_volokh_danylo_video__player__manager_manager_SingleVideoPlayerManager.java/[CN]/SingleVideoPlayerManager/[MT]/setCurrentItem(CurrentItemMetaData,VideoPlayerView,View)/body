@@ -1,6 +1,0 @@
-{
-  if (SHOW_LOGS)   Logger.v(TAG,">> onPlayerItemChanged");
-  mCurrentPlayer=videoPlayerView;
-  mPlayerItemChangeListener.onPlayerItemChanged(currentItemMetaData,listItemView);
-  if (SHOW_LOGS)   Logger.v(TAG,"<< onPlayerItemChanged");
-}

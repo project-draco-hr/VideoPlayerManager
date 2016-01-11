@@ -1,4 +1,5 @@
 {
+  if (SHOW_LOGS)   Logger.v(TAG,"update, position " + position);
   viewHolder.mTitle.setText(mTitle);
   viewHolder.mCover.setVisibility(View.VISIBLE);
   mImageLoader.load(mImageResource).into(viewHolder.mCover);

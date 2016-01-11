@@ -15,6 +15,11 @@ if (!item.isChecked()) {
 addVisibilityUtilsFragment();
 }
 break;
+case R.id.enable_video_player_manager_demo:
+if (!item.isChecked()) {
+addVideoPlayerManagerFragment();
+}
+break;
 }
 item.setChecked(!item.isChecked());
 return true;

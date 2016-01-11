@@ -1,8 +1,0 @@
-{
-  videoPlayerView.addMediaPlayerListener(this);
-  if (SHOW_LOGS)   Logger.v(TAG,"startNewPlayback, mCurrentPlayerState " + mCurrentPlayerState);
-  mPlayerHandler.clearAllPendingMessages(TAG);
-  stopResetReleaseClearCurrentPlayer();
-  setNewViewForPlayback(currentItemMetaData,videoPlayerView,listItemView);
-  startPlayback(videoPlayerView,assetFileDescriptor);
-}

@@ -1,0 +1,10 @@
+{
+switch (v.getId()) {
+case R.id.video_cover_1:
+    mVideoPlayerManager.playNewVideo(null,mVideoPlayer_1,mVideoFileDecriptor_sample_1);
+  break;
+case R.id.video_cover_2:
+mVideoPlayerManager.playNewVideo(null,mVideoPlayer_2,mVideoFileDecriptor_sample_2);
+break;
+}
+}

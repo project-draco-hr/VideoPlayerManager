@@ -1,3 +1,3 @@
 {
-  mCallback.setCurrentItem(mCurrentItemMetaData,mCurrentPlayer,mListItemView);
+  mCallback.setCurrentItem(mCurrentItemMetaData,mCurrentPlayer);
 }

@@ -1,0 +1,5 @@
+String title
+AssetFileDescriptor assetFileDescriptor
+VideoPlayerManager<MetaData> videoPlayerManager
+Picasso imageLoader
+int imageResource

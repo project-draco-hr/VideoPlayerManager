@@ -1,3 +1,0 @@
-{
-  videoPlayerManager.playNewVideo(currentItemMetaData,player,mAssetFileDescriptor,view);
-}

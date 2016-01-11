@@ -21,6 +21,7 @@ case DATA_SOURCE_SET:
 case STOPPING:
 case STOPPED:
 case ERROR:
+case PLAYBACK_COMPLETED:
 mPlayerHandler.addMessage(new Reset(mCurrentPlayer,this));
 case RESETTING:
 case RESET:
@@ -30,7 +31,6 @@ case RELEASED:
 mPlayerHandler.addMessage(new ClearPlayerInstance(mCurrentPlayer,this));
 break;
 case END:
-case PLAYBACK_COMPLETED:
 throw new RuntimeException("unhandled " + mCurrentPlayerState);
 }
 }

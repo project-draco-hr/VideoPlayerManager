@@ -1,0 +1,6 @@
+{
+  super(videoPlayerView,callback);
+  mCurrentItemMetaData=currentItemMetaData;
+  mCurrentPlayer=videoPlayerView;
+  mCallback=callback;
+}

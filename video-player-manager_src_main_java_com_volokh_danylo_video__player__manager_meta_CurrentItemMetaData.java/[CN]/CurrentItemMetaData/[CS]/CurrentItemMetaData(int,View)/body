@@ -1,0 +1,4 @@
+{
+  this.positionOfCurrentItem=positionOfCurrentItem;
+  this.currentItemView=currentItemView;
+}

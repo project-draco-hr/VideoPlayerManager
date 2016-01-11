@@ -1,0 +1,10 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"notifyOnErrorMainThread");
+  List<MediaPlayerWrapper.MainThreadMediaPlayerListener> listCopy;
+synchronized (mMediaPlayerMainThreadListeners) {
+    listCopy=new ArrayList<>(mMediaPlayerMainThreadListeners);
+  }
+  for (  MediaPlayerWrapper.MainThreadMediaPlayerListener listener : listCopy) {
+    listener.onErrorMainThread(what,extra);
+  }
+}

@@ -1,7 +1,0 @@
-{
-  super(videoPlayerView,callback);
-  mCurrentItemMetaData=currentItemMetaData;
-  mCurrentPlayer=videoPlayerView;
-  mListItemView=listItemView;
-  mCallback=callback;
-}

@@ -1,0 +1,6 @@
+{
+  super.onStop();
+  mVideoCover.setVisibility(View.VISIBLE);
+  mVideoCover2.setVisibility(View.VISIBLE);
+  mVideoPlayerManager.stopAnyPlayback();
+}

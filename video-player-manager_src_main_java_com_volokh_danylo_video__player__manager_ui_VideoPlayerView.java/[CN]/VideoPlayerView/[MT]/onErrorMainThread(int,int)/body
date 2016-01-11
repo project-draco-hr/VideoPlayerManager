@@ -10,6 +10,7 @@ if (SHOW_LOGS) Logger.v(TAG,"onErrorMainThread, what MEDIA_ERROR_UNKNOWN");
 printErrorExtra(extra);
 break;
 }
+notifyOnErrorMainThread(what,extra);
 if (mMediaPlayerListenerBackgroundThread != null) {
 mViewHandlerBackgroundThread.post(new Runnable(){
 @Override public void run(){

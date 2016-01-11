@@ -1,3 +1,4 @@
 {
+  if (SHOW_LOGS)   Logger.v(TAG,"onErrorMainThread, what " + what + ", extra "+ extra);
   mCurrentPlayerState=PlayerMessageState.ERROR;
 }

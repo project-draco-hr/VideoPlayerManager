@@ -1,5 +1,0 @@
-String title
-AssetFileDescriptor assetFileDescriptor
-VideoPlayerManager videoPlayerManager
-Picasso imageLoader
-int imageResource

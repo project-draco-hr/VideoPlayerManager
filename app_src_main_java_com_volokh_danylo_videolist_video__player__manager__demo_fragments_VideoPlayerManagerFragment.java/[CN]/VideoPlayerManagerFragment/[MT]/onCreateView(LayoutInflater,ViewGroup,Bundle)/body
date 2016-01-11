@@ -1,0 +1,43 @@
+{
+  View root=inflater.inflate(R.layout.video_player_manager_fragment,container,false);
+  try {
+    mVideoFileDecriptor_sample_1=getActivity().getAssets().openFd("video_sample_1.mp4");
+    mVideoFileDecriptor_sample_2=getActivity().getAssets().openFd("video_sample_2.mp4");
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  mVideoPlayer_1=(VideoPlayerView)root.findViewById(R.id.video_player_1);
+  mVideoPlayer_1.addMediaPlayerListener(new SimpleMainThreadMediaPlayerListener(){
+    @Override public void onVideoPreparedMainThread(){
+      mVideoCover.setVisibility(View.INVISIBLE);
+    }
+    @Override public void onVideoStoppedMainThread(){
+      mVideoCover.setVisibility(View.VISIBLE);
+    }
+    @Override public void onVideoCompletionMainThread(){
+      mVideoCover.setVisibility(View.VISIBLE);
+    }
+  }
+);
+  mVideoCover=(ImageView)root.findViewById(R.id.video_cover_1);
+  mVideoCover.setOnClickListener(this);
+  mVideoPlayer_2=(VideoPlayerView)root.findViewById(R.id.video_player_2);
+  mVideoPlayer_2.addMediaPlayerListener(new SimpleMainThreadMediaPlayerListener(){
+    @Override public void onVideoPreparedMainThread(){
+      mVideoCover2.setVisibility(View.INVISIBLE);
+    }
+    @Override public void onVideoStoppedMainThread(){
+      mVideoCover2.setVisibility(View.VISIBLE);
+    }
+    @Override public void onVideoCompletionMainThread(){
+      mVideoCover2.setVisibility(View.VISIBLE);
+    }
+  }
+);
+  mVideoCover2=(ImageView)root.findViewById(R.id.video_cover_2);
+  mVideoCover2.setOnClickListener(this);
+  Picasso.with(getActivity()).load(R.drawable.video_sample_1_pic).into(mVideoCover);
+  Picasso.with(getActivity()).load(R.drawable.video_sample_2_pic).into(mVideoCover2);
+  return root;
+}
