@@ -1,9 +1,9 @@
 {
   int previousItemVisibilityPercents=0;
-  int previousItemIndex=listItemData.getIndex() - 1;
+  int previousItemIndex=currentIem.getIndex() - 1;
   if (SHOW_LOGS)   Logger.v(TAG,"findPreviousItem, previousItemIndex " + previousItemIndex);
   if (previousItemIndex >= 0) {
-    int indexOfCurrentView=itemsPositionGetter.indexOfChild(listItemData.getView());
+    int indexOfCurrentView=itemsPositionGetter.indexOfChild(currentIem.getView());
     if (SHOW_LOGS)     Logger.v(TAG,"findPreviousItem, indexOfCurrentView " + indexOfCurrentView);
     if (indexOfCurrentView > 0) {
       View previousView=itemsPositionGetter.getChildAt(indexOfCurrentView - 1);

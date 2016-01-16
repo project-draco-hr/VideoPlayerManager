@@ -1,0 +1,3 @@
+{
+  return "ListItemData{" + "mIndexInAdapter=" + mIndexInAdapter + ", mView="+ mView+ ", mIsMostVisibleItemChanged="+ mIsMostVisibleItemChanged+ '}';
+}

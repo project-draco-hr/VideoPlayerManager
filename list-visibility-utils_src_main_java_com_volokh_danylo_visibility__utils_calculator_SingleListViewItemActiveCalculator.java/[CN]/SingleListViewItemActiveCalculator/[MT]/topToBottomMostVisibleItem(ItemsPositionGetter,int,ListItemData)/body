@@ -13,7 +13,7 @@
       outMostVisibleItem.fillWithData(indexOfCurrentItem,currentView);
     }
   }
-  View currentItemView=mCurrentItem.get() != null ? mCurrentItem.get().getView() : null;
+  View currentItemView=mCurrentItem.getView();
   View mostVisibleView=outMostVisibleItem.getView();
   boolean itemChanged=currentItemView != mostVisibleView;
   if (SHOW_LOGS)   Logger.v(TAG,"topToBottomMostVisibleItem, itemChanged " + itemChanged);

@@ -1,0 +1,4 @@
+{
+  if (SHOW_LOGS)   Logger.v(TAG,"deactivateCurrentItem, listItemToDeactivate " + listItemToDeactivate);
+  listItemToDeactivate.deactivate(view,position);
+}

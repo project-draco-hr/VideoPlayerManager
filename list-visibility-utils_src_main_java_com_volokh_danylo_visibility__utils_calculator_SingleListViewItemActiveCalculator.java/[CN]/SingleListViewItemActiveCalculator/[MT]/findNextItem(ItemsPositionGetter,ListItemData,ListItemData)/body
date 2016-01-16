@@ -1,9 +1,9 @@
 {
   int nextItemVisibilityPercents=0;
-  int nextItemIndex=listItemData.getIndex() + 1;
+  int nextItemIndex=currentIem.getIndex() + 1;
   if (SHOW_LOGS)   Logger.v(TAG,"findNextItem, nextItemIndex " + nextItemIndex);
   if (nextItemIndex < mListItems.size()) {
-    int indexOfCurrentView=itemsPositionGetter.indexOfChild(listItemData.getView());
+    int indexOfCurrentView=itemsPositionGetter.indexOfChild(currentIem.getView());
     if (SHOW_LOGS)     Logger.v(TAG,"findNextItem, indexOfCurrentView " + indexOfCurrentView);
     if (indexOfCurrentView >= 0) {
       View nextView=itemsPositionGetter.getChildAt(indexOfCurrentView + 1);

@@ -1,5 +1,6 @@
 {
   if (SHOW_LOGS)   Logger.v(TAG,">> playNewVideo, videoPlayer " + videoPlayerView + ", mCurrentPlayer "+ mCurrentPlayer+ ", assetFileDescriptor "+ assetFileDescriptor);
+  if (SHOW_LOGS)   Logger.v(TAG,"playNewVideo, currentItemMetaData " + currentItemMetaData);
   mPlayerHandler.pauseQueueProcessing(TAG);
   boolean currentPlayerIsActive=mCurrentPlayer == videoPlayerView;
   boolean isAlreadyPlayingTheFile=mCurrentPlayer != null && mCurrentPlayer.getAssetFileDescriptorDataSource() == assetFileDescriptor;

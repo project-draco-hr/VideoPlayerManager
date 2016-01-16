@@ -12,6 +12,6 @@ break;
 }
 if (SHOW_LOGS) Logger.v(TAG,"calculateActiveItem, currentItemVisibilityPercents " + currentItemVisibilityPercents);
 if (enoughPercentsForDeactivation(currentItemVisibilityPercents) && neighbourItemData.isAvailable()) {
-mCallback.onActivateNewCurrentItem(mListItems.get(neighbourItemData.getIndex()),neighbourItemData.getView(),neighbourItemData.getIndex());
+setCurrentItem(neighbourItemData);
 }
 }

@@ -1,0 +1,7 @@
+{
+  if (SHOW_LOGS) {
+    Logger.v(TAG,"activateNewCurrentItem, newListItem " + newListItem);
+    Logger.v(TAG,"activateNewCurrentItem, newViewPosition " + newViewPosition);
+  }
+  newListItem.setActive(newView,newViewPosition);
+}

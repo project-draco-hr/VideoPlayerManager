@@ -14,7 +14,7 @@ throw new RuntimeException("not handled mScrollDirection " + mScrollDirection);
 if (SHOW_LOGS) Logger.v(TAG,"topToBottomMostVisibleItem, mostVisibleItem " + mostVisibleItem);
 if (mostVisibleItem.isMostVisibleItemChanged()) {
 if (SHOW_LOGS) Logger.v(TAG,"topToBottomMostVisibleItem, item changed");
-mCallback.onActivateNewCurrentItem(mListItems.get(mostVisibleItem.getIndex()),mostVisibleItem.getView(),mostVisibleItem.getIndex());
+setCurrentItem(mostVisibleItem);
 }
  else {
 if (SHOW_LOGS) Logger.v(TAG,"topToBottomMostVisibleItem, item not changed");
