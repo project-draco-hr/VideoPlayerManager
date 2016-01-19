@@ -20,6 +20,7 @@
   mListView=(ListView)rootView.findViewById(R.id.list_view);
   VideoListViewAdapter videoListViewAdapter=new VideoListViewAdapter(mVideoPlayerManager,getActivity(),mList);
   mListView.setAdapter(videoListViewAdapter);
+  mItemsPositionGetter=new ListViewItemPositionGetter(mListView);
   mListView.setOnScrollListener(new AbsListView.OnScrollListener(){
     @Override public void onScrollStateChanged(    AbsListView view,    int scrollState){
       mScrollState=scrollState;
@@ -34,7 +35,5 @@
     }
   }
 );
-  videoListViewAdapter.notifyDataSetChanged();
-  mItemsPositionGetter=new ListViewItemPositionGetter(mListView);
   return rootView;
 }

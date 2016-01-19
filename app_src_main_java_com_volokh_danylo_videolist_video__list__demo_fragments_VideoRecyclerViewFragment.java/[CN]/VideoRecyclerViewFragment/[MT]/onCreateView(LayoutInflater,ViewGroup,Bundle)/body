@@ -23,7 +23,7 @@
   mRecyclerView.setLayoutManager(mLayoutManager);
   VideoRecyclerViewAdapter videoRecyclerViewAdapter=new VideoRecyclerViewAdapter(mVideoPlayerManager,getActivity(),mList);
   mRecyclerView.setAdapter(videoRecyclerViewAdapter);
-  mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener(){
+  mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
     @Override public void onScrollStateChanged(    RecyclerView recyclerView,    int scrollState){
       mScrollState=scrollState;
       if (scrollState == RecyclerView.SCROLL_STATE_IDLE && !mList.isEmpty()) {
@@ -38,6 +38,5 @@
   }
 );
   mItemsPositionGetter=new RecyclerViewItemPositionGetter(mLayoutManager,mRecyclerView);
-  videoRecyclerViewAdapter.notifyDataSetChanged();
   return rootView;
 }
