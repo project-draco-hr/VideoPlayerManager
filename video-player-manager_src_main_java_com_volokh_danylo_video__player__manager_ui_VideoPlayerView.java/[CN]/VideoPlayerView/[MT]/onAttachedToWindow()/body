@@ -1,7 +1,10 @@
 {
   super.onAttachedToWindow();
-  if (SHOW_LOGS)   Logger.v(TAG,">> onAttachedToWindow");
-  mViewHandlerBackgroundThread=new HandlerThreadExtension(TAG,false);
-  mViewHandlerBackgroundThread.startThread();
+  boolean isInEditMode=isInEditMode();
+  if (SHOW_LOGS)   Logger.v(TAG,">> onAttachedToWindow " + isInEditMode);
+  if (!isInEditMode) {
+    mViewHandlerBackgroundThread=new HandlerThreadExtension(TAG,false);
+    mViewHandlerBackgroundThread.startThread();
+  }
   if (SHOW_LOGS)   Logger.v(TAG,"<< onAttachedToWindow");
 }

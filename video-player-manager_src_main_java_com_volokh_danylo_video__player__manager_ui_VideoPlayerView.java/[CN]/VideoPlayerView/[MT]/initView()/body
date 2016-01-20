@@ -1,6 +1,8 @@
 {
-  TAG="" + this;
-  if (SHOW_LOGS)   Logger.v(TAG,"initView");
-  setScaleType(ScalableTextureView.ScaleType.CENTER_CROP);
-  super.setSurfaceTextureListener(this);
+  if (!isInEditMode()) {
+    TAG="" + this;
+    if (SHOW_LOGS)     Logger.v(TAG,"initView");
+    setScaleType(ScalableTextureView.ScaleType.CENTER_CROP);
+    super.setSurfaceTextureListener(this);
+  }
 }

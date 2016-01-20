@@ -1,14 +1,17 @@
 {
   super.onVisibilityChanged(changedView,visibility);
-  if (SHOW_LOGS)   Logger.v(TAG,">> onVisibilityChanged " + visibilityStr(visibility));
+  boolean isInEditMode=isInEditMode();
+  if (SHOW_LOGS)   Logger.v(TAG,">> onVisibilityChanged " + visibilityStr(visibility) + ", isInEditMode "+ isInEditMode);
+  if (!isInEditMode) {
 switch (visibility) {
 case VISIBLE:
-    break;
+      break;
 case INVISIBLE:
 case GONE:
 synchronized (mReadyForPlaybackIndicator) {
-    mReadyForPlaybackIndicator.notifyAll();
-  }
+      mReadyForPlaybackIndicator.notifyAll();
+    }
+}
 }
 if (SHOW_LOGS) Logger.v(TAG,"<< onVisibilityChanged");
 }

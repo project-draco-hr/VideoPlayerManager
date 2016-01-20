@@ -1,7 +1,10 @@
 {
   super.onDetachedFromWindow();
-  if (SHOW_LOGS)   Logger.v(TAG,">> onDetachedFromWindow");
-  mViewHandlerBackgroundThread.postQuit();
-  mViewHandlerBackgroundThread=null;
+  boolean isInEditMode=isInEditMode();
+  if (SHOW_LOGS)   Logger.v(TAG,">> onDetachedFromWindow, isInEditMode " + isInEditMode);
+  if (!isInEditMode) {
+    mViewHandlerBackgroundThread.postQuit();
+    mViewHandlerBackgroundThread=null;
+  }
   if (SHOW_LOGS)   Logger.v(TAG,"<< onDetachedFromWindow");
 }
